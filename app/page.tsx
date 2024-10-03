@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./styles/styles.module.css";
 import "./styles/globals.css";
-import { CoffeeCard } from "@/components/coffeeCard";
+
 
 export default function Home() {
   return (
