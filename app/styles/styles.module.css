@@ -1,0 +1,72 @@
+.logoPCR {
+  display: flex;
+  grid-area: header;
+  justify-content: center;
+}
+
+.navBar {
+  display: flex;
+  grid-area: nav;
+  justify-content: space-evenly;
+  background-color: black;
+}
+
+.menuItem {
+  color: white;
+  font-size: x-large;
+}
+
+.mainGrid {
+  display: grid;
+  grid-area: hero;
+  grid-template-areas:
+    "header"
+    "nav"
+    "hero"
+    "info"
+    "footer";
+}
+
+.heroSection {
+  grid-area: hero;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  padding: 2rem 0 2rem 0;
+  text-align: center;
+}
+
+
+
+.infoSection {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.icon {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100;
+  height: 100;
+}
+
+.textInfo {
+  font-size: x-large;
+  text-align: center;
+  width: 50%;
+}
+
+.footerInfo {
+  display: flex;
+  justify-content: center;
+  color: white;
+  width: auto;
+  background-color: black;
+  padding: 1.5rem 0 1rem 0;
+}
