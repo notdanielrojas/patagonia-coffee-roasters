@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./styles/styles.module.css";
 import "./styles/globals.css";
+import { CoffeeCard } from "@/components/coffeeCard";
 
 export default function Home() {
   return (
@@ -9,28 +10,12 @@ export default function Home() {
         <div>
           <h1>Bienvenido a la Cafetería</h1>
         </div>
-
         <Image
-          src='/images/carousel/1.jpg'
-          alt='Imagen 1 de Carrusel'
-          width='700'
+          src='/images/carousel/2.jpg'
+          alt='Imagen 2 de Carrusel'
+          width='800'
           height='300'
-          className={styles.coverImg}
         ></Image>
-
-        {/*   <Image
-                src='/images/carousel/2.jpg'
-                alt='Imagen 2 de Carrusel'
-                width='800'
-                height='300'
-              ></Image>
-           
-              <Image
-                src='/images/carousel/3.jpg'
-                alt='Imagen 3 de Carrusel'
-                width='800'
-                height='100'
-              ></Image> */}
       </div>
       <div className={styles.infoSection}>
         <Image
@@ -61,6 +46,18 @@ export default function Home() {
         <h1 className={styles.textInfo}>
           Investing in coffee communities and their environments
         </h1>
+      </div>
+      <div className={styles.bestSection}>
+        <div>
+          <h1>Nuestros más vendidos</h1>
+        </div>
+        <Image
+          src='/images/carousel/1.jpg'
+          alt='Imagen 1 de Carrusel'
+          width='700'
+          height='300'
+          className={styles.coverImg}
+        ></Image>
       </div>
     </main>
   );

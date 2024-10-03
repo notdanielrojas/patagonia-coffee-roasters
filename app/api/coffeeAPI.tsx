@@ -1,6 +1,6 @@
 const FAKE_COFFEE_API = "https://fake-coffee-api.vercel.app/api";
 
-interface Coffee {
+export interface Coffee {
   id: number;
   name: string;
   description: string;
@@ -9,7 +9,7 @@ interface Coffee {
   weight: number;
   flavor_profile: string[];
   grind_option: string[];
-  roast_level: string;
+  roast_level: number;
   image_url: string;
 }
 
