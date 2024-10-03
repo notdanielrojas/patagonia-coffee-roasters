@@ -6,15 +6,17 @@ import styles from "../app/styles/styles.module.css";
 export function Header({ alt }: { id: string; alt: string }) {
   return (
     <div className={styles.header}>
-      <Image
-        src={"/images/logo/pcr-logo.png"}
-        alt={alt}
-        width='200'
-        height='150'
-      />
-      <div>
-        <CiShoppingCart className={styles.headerIcons} />
-        <IoPersonSharp className={styles.headerIcons} />
+      <div className={styles.headerLogo}>
+        <Image
+          src={"/images/logo/pcr-logo.png"}
+          alt={alt}
+          width='200'
+          height='150'
+        />
+      </div>
+      <div className={styles.headerIcons}>
+        <IoPersonSharp className={styles.headerIcon} />
+        <CiShoppingCart className={styles.headerIcon} />
       </div>
     </div>
   );

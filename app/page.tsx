@@ -7,7 +7,7 @@ export default function Home() {
     <main className={styles.mainGrid}>
       <div className={styles.heroSection}>
         <div>
-          <h1>Bienvenido a la Cafetería</h1>
+          <h1 className={styles.heroText}>Bienvenidos a la Cafetería Austral</h1>
         </div>
         <Image
           src='/images/carousel/2.jpg'

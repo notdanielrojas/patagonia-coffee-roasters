@@ -6,10 +6,10 @@ export const Footer = () => {
     <footer className={styles.footerInfo}>
       <div className={styles.footerContent}>
         <p>
-          © {new Date().getFullYear()} Patagonia Coffee Roasters. Todos los
+          © {new Date().getFullYear()} Patagonia Coffee Roasters. <br /> Todos los
           derechos reservados.
         </p>
-        <nav className={styles.footerNav}>
+      {/*   <nav className={styles.footerNav}>
           <a href='/' className={styles.footerLink}>
             Inicio
           </a>
@@ -19,7 +19,7 @@ export const Footer = () => {
           <a href='/contact' className={styles.footerLink}>
             Contacto
           </a>
-        </nav>
+        </nav> */}
       </div>
     </footer>
   );
