@@ -1,9 +1,10 @@
 import "./styles/globals.css";
 import styles from "./styles/styles.module.css";
-import { LogoPCR } from "@/components/Logo";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { Nav } from "@/components/Nav";
+import { LogoPCR } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,9 +33,7 @@ export default function RootLayout({
           <Nav />
           {children}
         </main>
-        <footer className={styles.footerInfo}>
-          <h1>Este es el futuro Footer</h1>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
