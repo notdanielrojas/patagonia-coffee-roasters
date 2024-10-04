@@ -120,6 +120,17 @@
   text-decoration: underline;
 }
 
+.notFound {
+  text-align: center;
+  padding: 50px;
+}
+
+.backHome {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .header {
     display: flex;
