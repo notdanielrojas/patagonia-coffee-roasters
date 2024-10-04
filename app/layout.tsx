@@ -27,9 +27,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${poppins.variable} antialiased`}>
         <main>
-          <Link href='/' target='blank' className={styles.logoPCR}>
-            <LogoPCR />
-          </Link>
+          <LogoPCR />
           <Nav />
           {children}
         </main>

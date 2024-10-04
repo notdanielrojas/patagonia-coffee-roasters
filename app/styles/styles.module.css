@@ -143,12 +143,13 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding-left: 10rem;
+    padding-left: 16rem;
     width: 100%;
   }
 
   .headerIcons {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 2rem;
     padding-right: 1rem;
@@ -249,3 +250,4 @@
     text-decoration: underline;
   }
 }
+

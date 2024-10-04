@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import Image from "next/image";
 
-export const Locations = () => {
+const Page = () => {
   return (
     <div className={styles.heroSection}>
       <div>
-        <h1 className={styles.heroText}>Bienvenidos a la Cafetería Austral</h1>
+        <h1 className={styles.heroText}>Futuro Profile</h1>
       </div>
       <Image
         src='/images/carousel/2.jpg'
@@ -17,3 +17,5 @@ export const Locations = () => {
     </div>
   );
 };
+
+export default Page;
