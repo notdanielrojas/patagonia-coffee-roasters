@@ -7,7 +7,9 @@ export default function Home() {
     <main className={styles.mainGrid}>
       <div className={styles.heroSection}>
         <div>
-          <h1 className={styles.heroText}>Bienvenidos a la Cafetería Austral</h1>
+          <h1 className={styles.heroText}>
+            Somos Patagonia Coffee Roasters
+          </h1>
         </div>
         <Image
           src='/images/carousel/2.jpg'
@@ -35,7 +37,7 @@ export default function Home() {
             alt='Image of a leave'
             width='100'
             height='100'
-            className=''
+            className={styles.icon}
           />
           <h1 className={styles.textInfo}>Paying premiums for quality</h1>
         </div>
@@ -46,7 +48,7 @@ export default function Home() {
             alt='Image of a farm'
             width='100'
             height='100'
-            className=''
+            className={styles.icon}
           />
           <h1 className={styles.textInfo}>
             Investing in coffee communities and their environments

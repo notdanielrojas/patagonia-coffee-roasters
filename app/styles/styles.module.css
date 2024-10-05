@@ -30,12 +30,15 @@
 .navBar {
   display: flex;
   justify-content: space-evenly;
-  background-color: black;
+  align-items: center;
+  background-color: #222222;
   padding: 1rem;
   width: 100%;
 }
 
 .menuItem {
+  display: flex;
+  align-items: center;
   color: white;
   font-size: medium;
 }
@@ -47,7 +50,7 @@
 
 .heroSection {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   padding: 2rem 0;
@@ -55,39 +58,36 @@
 }
 
 .heroText {
+  padding: 3rem 0 3rem 0;
   font-size: 3rem;
 }
 
 .infoSection {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 5rem 0 5rem 0;
-  background-color: antiquewhite;
+  background-color: #e9e4db;
 }
 
 .infoLeft,
 .infoCenter,
 .infoRight {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 150px;
+  width: 80px;
 }
 
 .textInfo {
-  font-size: large;
-  text-align: center;
+  font-size: small;
   width: 50%;
 }
 
@@ -96,7 +96,8 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: whitesmoke;
+  background-color: #e9e4db;
+  margin: 3rem 0 0 0;
   padding: 1.5rem 0;
   text-align: center;
 }
@@ -190,6 +191,36 @@
   text-align: center;
 }
 
+.storySection {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.storyCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  padding: 3rem 0 3rem 0;
+}
+
+.storyCard:last-child {
+  flex-direction: column-reverse;
+}
+
+.storyImage {
+  width: 600px;
+}
+
+.storyInfo {
+  width: 90%;
+}
+.storyInfoSection {
+  display: flex;
+}
+
 @media (min-width: 768px) {
   .header {
     display: flex;
@@ -223,13 +254,12 @@
   .navBar {
     display: flex;
     justify-content: space-evenly;
-    background-color: black;
-    padding: 1rem;
+    background-color: #222222;
   }
 
   .menuItem {
     color: white;
-    font-size: x-large;
+    font-size: large;
   }
 
   .mainGrid {
@@ -248,12 +278,11 @@
 
   .infoSection {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
     padding: 5rem 0;
-    background-color: antiquewhite;
   }
 
   .infoLeft,
@@ -264,12 +293,10 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    width: 20%;
   }
 
   .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 150px;
   }
 
@@ -363,7 +390,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 2rem 0;
-    
   }
 
   .storyCard {
@@ -371,7 +397,6 @@
     justify-content: center;
     gap: 10rem;
     padding: 10rem 0 10rem 0;
-    
   }
 
   .storyImage {
@@ -380,9 +405,49 @@
 
   .storyInfo {
     width: 30%;
-  
   }
   .storyInfoSection {
     display: flex;
   }
+}
+
+.loginSection,
+.registerSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.loginForm,
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  border: 0.1rem solid none;
+  border-radius: 1rem;
+  width: 20%;
+  padding: 3rem 0 3rem 3rem;
+  background-color: white;
+}
+
+.inputForm {
+  padding: 0.5rem 0;
+  width: 70%;
+}
+
+.inputForm::placeholder {
+  padding-left: 0.5rem;
+}
+
+.loginButton,
+.registerButton {
+  background-color: #222222;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem 3rem;
+  width: 30%;
+  text-decoration: underline;
 }
