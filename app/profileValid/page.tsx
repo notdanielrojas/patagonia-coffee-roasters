@@ -8,10 +8,10 @@ export default function ProfileValid() {
     <>
       <div className={styles.profileValidSection}>
         <div className={styles.profileValidHistory}>
-          <Link href={""}>
-            <h3>Mis Reviews</h3>
+          <Link href={"/myPosts"}>
+            <h3>Mis Posts</h3>
           </Link>
-          <Link href={""}>
+          <Link href={"/orders"}>
             <h3>Mis Pedidos</h3>
           </Link>
         </div>
