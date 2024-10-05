@@ -1,14 +1,23 @@
-import React, { useState } from "react";
-import styles from "../styles/styles.module.css";
-import Image from "next/image";
+import { CoffeeGrid } from "@/components/CoffeeGrid";
+import React from "react";
+import { getCoffeeList } from "../api/coffeeAPI";
 
+type Props = {};
 
-export default async function Products() {
-  return (
-    <div className={styles.heroSection}>
+export default async function Products(props: Props) {
+  try {
+    const coffeeList = await getCoffeeList();
+    return (
       <div>
-        <h1 className={styles.heroText}>Nuestros productos</h1>
+        <CoffeeGrid coffeeList={coffeeList} />
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Failed to fetch coffee list:", error);
+    return (
+      <div>
+        <h2>Error fetching coffee data. Please try again later.</h2>
+      </div>
+    );
+  }
 }

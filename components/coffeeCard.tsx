@@ -1,10 +1,9 @@
-import Link from "next/link";
+import React from "react";
 import Image from "next/image";
-import styles from "./styles/styles.module.css";
-import "./styles/globals.css";
+import styles from "../app/styles/styles.module.css";
 
-interface CoffeeCardProps {
-  id: number;
+interface CoffeeProps {
+  image_url: string;
   name: string;
   description: string;
   price: number;
@@ -13,11 +12,10 @@ interface CoffeeCardProps {
   flavor_profile: string[];
   grind_option: string[];
   roast_level: number;
-  image_url: string;
 }
 
-export function CoffeeCard({
-  id,
+export default function CoffeeCard({
+  image_url,
   name,
   description,
   price,
@@ -26,20 +24,23 @@ export function CoffeeCard({
   flavor_profile,
   grind_option,
   roast_level,
-  image_url,
-}: CoffeeCardProps) {
+}: CoffeeProps) {
   return (
-    <Link href={name} className={styles.coffeeCard} rel='noopener noreferrer'>
-      <h2>{name.charAt(0).toUpperCase() + name.slice(1)}</h2>
-      <p>Price: ${price.toFixed(2)}</p>
-      <p>Region: {region}</p>
-      <p>Weight: {weight}g</p> <p>Roast Level: {roast_level}</p>
+    <div className={styles.coffeeCard}>
       <Image
+        alt={name}
         src={image_url}
-        alt={`Image of ${name}`}
-        width={150}
-        height={100}
-      />{" "}
-    </Link>
+        width={300}
+        height={300}
+        className={styles.coffeCardImage}
+      />
+      <h2 className={styles.coffeCardTitle}>{name}</h2>
+      <p className={styles.coffeCardInfo}>
+        Flavor Profile: {flavor_profile.join(", ")}
+      </p>
+      <p className={styles.coffeCardInfo}>Roast Level: {roast_level}</p>
+      <p className={styles.coffeCardInfo}>Price: ${price.toFixed(2)}</p>
+      <button className={styles.coffeCardButton}>Agregar al carro</button>
+    </div>
   );
 }
