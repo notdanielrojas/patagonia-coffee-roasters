@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/styles.module.css";
 import Image from "next/image";
 
-const Page = () => {
+export default function Page () {
   return (
     <div className={styles.heroSection}>
       <div>
@@ -17,5 +17,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

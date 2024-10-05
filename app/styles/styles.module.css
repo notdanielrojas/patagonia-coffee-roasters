@@ -32,6 +32,7 @@
   justify-content: space-evenly;
   background-color: black;
   padding: 1rem;
+  width: 100%;
 }
 
 .menuItem {
@@ -129,6 +130,64 @@
   color: blue;
   text-decoration: underline;
   font-weight: bold;
+}
+
+.locationSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.locationTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 3rem 0;
+}
+
+.locationNames {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0 5rem 0;
+  font-size: x-large;
+}
+
+.locationSubNames {
+  font-size: large;
+}
+
+.locationCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 5rem 0 5rem 0;
+  width: 90%;
+  background-color: #e9e4db;
+}
+
+.locationImage {
+  width: 800px;
+}
+
+.locationInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: medium;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -249,5 +308,81 @@
   .footerLink:hover {
     text-decoration: underline;
   }
-}
 
+  .locationSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  .locationTitle {
+    text-align: center;
+  }
+
+  .locationNames {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 0 10rem 0;
+    font-size: x-large;
+  }
+
+  .locationSubNames {
+    font-size: large;
+  }
+
+  .locationCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .locationCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5rem 0 10rem 0;
+    background-color: #e9e4db;
+    width: 70%;
+  }
+
+  .locationImage {
+    width: 600px;
+  }
+
+  .locationInfo {
+    width: 20%;
+  }
+
+  .storySection {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    
+  }
+
+  .storyCard {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    padding: 10rem 0 10rem 0;
+    
+  }
+
+  .storyImage {
+    width: 600px;
+  }
+
+  .storyInfo {
+    width: 30%;
+  
+  }
+  .storyInfoSection {
+    display: flex;
+  }
+}

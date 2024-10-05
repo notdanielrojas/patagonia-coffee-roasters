@@ -1,23 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/styles.module.css";
 import Image from "next/image";
 
-const Page = () => {
+
+export default async function Products() {
   return (
     <div className={styles.heroSection}>
       <div>
-        <h1 className={styles.heroText}>
-          Nuestros productos
-        </h1>
+        <h1 className={styles.heroText}>Nuestros productos</h1>
       </div>
-      <Image
-        src='/images/carousel/2.jpg'
-        alt='Imagen 2 de Carrusel'
-        width={800}
-        height={300}
-      ></Image>
     </div>
   );
-};
-
-export default Page;
+}
