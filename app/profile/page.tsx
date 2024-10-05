@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
-import { BiUnderline } from "react-icons/bi";
+
 
 export default function LogIn() {
   return (
@@ -32,6 +32,7 @@ export default function LogIn() {
         <button type='submit' className={styles.loginButton}>
           Sign In
         </button>
+        <hr className={styles.hr} />
         <p>
           ¿Aún no tienes cuenta?{" "}
           <Link href='/register' style={{ textDecoration: "underline" }}>
