@@ -21,7 +21,9 @@ export function Header({ alt }: { id: string; alt: string }) {
         <Link href='/profile'>
           <IoPersonSharp className={styles.headerIcon} />
         </Link>
-        <CiShoppingCart className={styles.headerIcon} />
+        <Link href='/profileValid'>
+          <CiShoppingCart className={styles.headerIcon} />
+        </Link>
       </div>
     </div>
   );
