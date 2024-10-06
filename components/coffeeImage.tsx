@@ -1,21 +1,19 @@
-"use client";
 import Image from "next/image";
+import styles from "../app/styles/styles.module.css";
 
 interface CoffeeImageProps {
   image: string;
   name: string;
 }
 
-export function CoffeeImage({ image, name }: CoffeeImageProps) {
+export const CoffeeImage: React.FC<CoffeeImageProps> = ({ image, name }) => {
   return (
     <Image
       src={image}
-      alt={"Picture of " + name}
-      priority
-      fill
-      style={{ objectFit: "contain" }}
-      className=''
-      onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+      alt={name}
+      width={300}
+      height={300}
+      className={styles.coffeCardImage}
     />
   );
-}
+};

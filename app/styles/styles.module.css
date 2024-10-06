@@ -193,6 +193,10 @@
   text-align: center;
 }
 
+.locationInfo h3 {
+  font-weight: lighter;
+}
+
 .storySection {
   display: flex;
   flex-wrap: wrap;
@@ -266,10 +270,6 @@
   text-decoration: underline;
 }
 
-.hr {
-  width: 90%;
-}
-
 .profileValidSection {
   display: flex;
   flex-direction: column;
@@ -304,6 +304,175 @@
   border: 0.2rem solid black;
   border-radius: 5rem;
   padding: 2rem;
+}
+
+.orderSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5rem;
+}
+
+.orderHistory {
+  display: flex;
+  padding-top: 3rem;
+  gap: 5rem;
+}
+
+.orderMyAccount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+}
+
+.orderInfo {
+  padding: 3rem 0 0 0;
+}
+
+.profileOrderAvatar {
+  width: 100px;
+  height: 100px;
+  border: 0.2rem solid black;
+  border-radius: 5rem;
+  padding: 2rem;
+}
+
+.coffeeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.1rem solid #222222;
+  border-radius: 2rem;
+  height: 40rem;
+  width: 30rem;
+  padding: 3rem 3rem 6rem 3rem;
+}
+
+.coffeeCardImage {
+  object-fit: cover;
+  background-color: red;
+}
+
+.coffeeCardTitle {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.coffeeCardInfo {
+  text-align: center;
+  font-size: medium;
+}
+
+.coffeeCardInfo:nth-child(4) {
+  display: none;
+}
+
+.coffeeCardButton {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  background-color: #222222;
+  gap: 0.5rem;
+}
+
+.cartCardButton {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+}
+
+.productGridSection {
+  display: flex;
+  justify-content: center;
+}
+
+.productGridTitle {
+  padding-top: 5rem;
+  font-size: x-large;
+  text-align: center;
+}
+
+.productGridFormContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.productGridFormInput {
+  width: 80%;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  text-indent: 1rem;
+}
+
+.productGridFormInput::placeholder {
+  padding-left: 0.1rem;
+}
+
+.productGridItems {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  gap: 3rem;
+}
+
+.postSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.postForm {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  padding: 2rem 3rem;
+  gap: 2rem;
+  border: 0.1rem #222222 solid;
+  border-radius: 1rem;
+}
+
+.postFormInput {
+  padding: 3rem 1rem;
+}
+
+.postImageContainer {
+  object-fit: contain;
+}
+
+.postImage {
+  width: 30rem;
+}
+
+.postSelectScore {
+  padding: 1rem 0;
+}
+
+.postButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  background-color: #222222;
+  gap: 0.5rem;
 }
 
 @media (min-width: 768px) {
@@ -437,7 +606,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: 2rem 0;
+    padding: 10rem 0;
   }
 
   .locationTitle {
@@ -479,7 +648,7 @@
   }
 
   .locationInfo {
-    width: 20%;
+    width: 30%;
   }
 
   .storySection {
@@ -598,23 +767,20 @@
     width: 50rem;
   }
 
-  .coffeeCardImage {
-    background-color: #e9e4db;
-  }
-
-  .coffeCardButton {
-    padding: 1rem;
+  .coffeeCardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
     border: none;
     border-radius: 2rem;
     color: white;
     background-color: #222222;
   }
 
-  .productGridSection {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+  .coffeeCardIcon {
+    width: 3rem;
+    height: 3rem;
   }
 
   .productGridTitle {
@@ -638,7 +804,7 @@
     width: 30%;
     padding: 1rem 0;
     border-radius: 0.5rem;
-     text-indent: 1rem;
+    text-indent: 1rem;
   }
 
   .productGridFormInput::placeholder {
@@ -647,6 +813,7 @@
 
   .productGridItems {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

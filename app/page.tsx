@@ -12,8 +12,8 @@ export default function Home() {
           </h1>
         </div>
         <Image
-          src='/images/carousel/2.jpg'
-          alt='Imagen 2 de Carrusel'
+          src='/images/store1.jpg'
+          alt='Imagen Story 1'
           width='800'
           height='300'
         ></Image>

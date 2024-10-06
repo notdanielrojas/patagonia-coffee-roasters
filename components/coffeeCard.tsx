@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../app/styles/styles.module.css";
+import { LiaCartArrowDownSolid } from "react-icons/lia";
+import Link from "next/link";
 
 interface CoffeeProps {
   image_url: string;
@@ -27,20 +29,24 @@ export default function CoffeeCard({
 }: CoffeeProps) {
   return (
     <div className={styles.coffeeCard}>
-      <Image
-        alt={name}
-        src={image_url}
-        width={300}
-        height={300}
-        className={styles.coffeCardImage}
-      />
+      <Link href={name}>
+        <Image
+          alt={name}
+          src={image_url}
+          width={300}
+          height={300}
+          className={styles.coffeCardImage}
+        />
+      </Link>
       <h2 className={styles.coffeCardTitle}>{name}</h2>
-      <p className={styles.coffeCardInfo}>
+      <p className={styles.coffeeCardInfo}>
         Flavor Profile: {flavor_profile.join(", ")}
       </p>
-      <p className={styles.coffeCardInfo}>Roast Level: {roast_level}</p>
-      <p className={styles.coffeCardInfo}>Price: ${price.toFixed(2)}</p>
-      <button className={styles.coffeCardButton}>Agregar al carro</button>
+      <p className={styles.coffeeCardInfo}>Roast Level: {roast_level}</p>
+      <p className={styles.coffeeCardInfo}>Price: ${price.toFixed(2)}</p>
+      <button className={styles.coffeeCardButton}>
+        Agregar <LiaCartArrowDownSolid className={styles.coffeeCardIcon}/>
+      </button>
     </div>
   );
 }

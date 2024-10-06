@@ -24,13 +24,12 @@ interface CoffeeGridProps {
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
 
-  // Filtering coffeeList based on searchText
   const filteredCoffeeList = coffeeList.filter((coffee) =>
     coffee.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
   return (
-    <div className={styles.productGridSection}>
+    <>
       <div className={styles.productGridTitle}>
         <h3>Encuentra tu café</h3>
       </div>
@@ -50,22 +49,24 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
           />
         </form>
       </div>
-      <div className={styles.productGridItems}>
-        {filteredCoffeeList.map((data) => (
-          <CoffeeCard
-            image_url={data.image_url}
-            name={data.name}
-            key={data.id}
-            description={data.description}
-            price={data.price}
-            region={data.region}
-            weight={data.weight}
-            flavor_profile={data.flavor_profile}
-            grind_option={data.grind_option}
-            roast_level={data.roast_level}
-          />
-        ))}
+      <div className={styles.productGridSection}>
+        <div className={styles.productGridItems}>
+          {filteredCoffeeList.map((data) => (
+            <CoffeeCard
+              image_url={data.image_url}
+              name={data.name}
+              key={data.id}
+              description={data.description}
+              price={data.price}
+              region={data.region}
+              weight={data.weight}
+              flavor_profile={data.flavor_profile}
+              grind_option={data.grind_option}
+              roast_level={data.roast_level}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

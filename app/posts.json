@@ -1,0 +1,15 @@
+[
+  {
+    "_id": "",
+    "id": 1,
+    "name": "",
+    "description": "",
+    "price": "",
+    "region": "",
+    "weight": "",
+    "flavor_profile": [""],
+    "grind_option": [""],
+    "roast_level": "",
+    "image_url": ""
+  }
+]
