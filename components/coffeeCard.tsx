@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Image from "next/image";
 import styles from "../app/styles/styles.module.css";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import Link from "next/link";
+import { useCart } from "../context/CartContext";
 
 interface CoffeeProps {
   id: number;
@@ -17,17 +18,21 @@ interface CoffeeProps {
   roast_level: number;
 }
 
-export default function CoffeeCard({ image_url, id, name, description, price, region, weight, flavor_profile, grind_option, roast_level }: CoffeeProps) {
+export default function CoffeeCard({ id, image_url, name, description, price }: CoffeeProps) {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({ id, name, image_url, price });
+  };
+
   return (
     <div className={styles.coffeeCard}>
       <Link href={`/${id}`}>
         <Image alt={name} src={image_url} width={300} height={300} className={styles.coffeCardImage} />
       </Link>
       <h2 className={styles.coffeCardTitle}>{name}</h2>
-      <p className={styles.coffeeCardInfo}>Flavor Profile: {flavor_profile.join(", ")}</p>
-      <p className={styles.coffeeCardInfo}>Roast Level: {roast_level}</p>
       <p className={styles.coffeeCardInfo}>Price: ${price.toFixed(2)}</p>
-      <button className={styles.coffeeCardButton}>
+      <button className={styles.coffeeCardButton} onClick={handleAddToCart}>
         Add <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
       </button>
     </div>

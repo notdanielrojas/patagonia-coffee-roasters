@@ -1122,3 +1122,52 @@
     gap: 1rem;
   }
 }
+
+.cartSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10rem 3rem;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cartSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.cartTable {
+  padding: 3rem 3rem;
+  background-color: #e9e4db;
+  border-radius: 3rem;
+}
+
+@media (min-width: 768px) {
+  .cartTable {
+    padding: 3rem 3rem;
+    background-color: #e9e4db;
+    border-radius: 3rem;
+  }
+}
+
+.cartTable td {
+  text-align: center;
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+  background-color: #e9e4db;
+}
+
+@media (min-width: 768px) {
+  .cartTable td {
+    text-align: center;
+    padding: 1rem;
+    border: 0.1rem solid #ccc;
+    background-color: #e9e4db;
+  }
+}

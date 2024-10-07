@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["iili.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "iili.io",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
