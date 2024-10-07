@@ -18,19 +18,15 @@ export const Footer = () => {
             <h2 className={styles.footerCardTextTitle}>Contact Us</h2>
             <p className={styles.footerCardText}>
               Live Chat <br />
-              M-F 9:00am - 5:00pm PST
+              M-F 9:00am - 5:00pm GMT-3
             </p>
             <p className={styles.footerCardText}>support@patagoniacoffee.com</p>
             <p className={styles.footerCardText}>+56912345678</p>
           </div>
         </div>
         <div className={styles.footerCopyright}>
-          <p className={styles.footerCopyrightMessage}>
-            © {new Date().getFullYear()} Patagonia Coffee Roasters.
-          </p>
-          <p className={styles.footerCopyrightMessage}>
-            Todos los derechos reservados.
-          </p>
+          <p className={styles.footerCopyrightMessage}>© {new Date().getFullYear()} Patagonia Coffee Roasters.</p>
+          <p className={styles.footerCopyrightMessage}>All rights reserved.</p>
         </div>
       </div>
     </footer>
