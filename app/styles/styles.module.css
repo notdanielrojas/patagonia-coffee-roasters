@@ -4,6 +4,14 @@
   padding: 1rem;
 }
 
+@media (min-width: 768px) {
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+  }
+}
+
 .headerLogo {
   display: flex;
   align-items: center;
@@ -11,6 +19,17 @@
   flex-wrap: wrap;
   padding-left: 3rem;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .headerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 16rem;
+    width: 100%;
+  }
 }
 
 .headerIcons {
@@ -22,9 +41,27 @@
   flex-shrink: 0;
 }
 
+@media (min-width: 768px) {
+  .headerIcons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 1rem;
+    flex-shrink: 0;
+  }
+}
+
 .headerIcon {
   width: 3rem;
   height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .headerIcon {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 .navBar {
@@ -36,6 +73,14 @@
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .navBar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #222222;
+  }
+}
+
 .menuItem {
   display: flex;
   align-items: center;
@@ -43,9 +88,23 @@
   font-size: medium;
 }
 
+@media (min-width: 768px) {
+  .menuItem {
+    color: white;
+    font-size: large;
+  }
+}
+
 .mainGrid {
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .mainGrid {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .heroSection {
@@ -57,9 +116,23 @@
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .heroSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10rem 0;
+    text-align: center;
+  }
+}
+
 .heroText {
   padding: 3rem 0 3rem 0;
   font-size: 3rem;
+}
+
+@media (min-width: 768px) {
 }
 
 .infoSection {
@@ -72,6 +145,17 @@
   background-color: #e9e4db;
 }
 
+@media (min-width: 768px) {
+  .infoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5rem 0;
+  }
+}
+
 .infoLeft,
 .infoCenter,
 .infoRight {
@@ -82,13 +166,40 @@
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .infoLeft,
+  .infoCenter,
+  .infoRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 20%;
+  }
+}
+
 .icon {
   width: 80px;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 150px;
+  }
 }
 
 .textInfo {
   font-size: small;
   width: 50%;
+}
+
+@media (min-width: 768px) {
+  .textInfo {
+    font-size: large;
+    text-align: center;
+    width: 50%;
+  }
 }
 
 .footerInfo {
@@ -101,19 +212,54 @@
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .footerInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+}
+
 .footerSection {
   width: 100%;
   background-color: #e9e4db;
 }
 
+@media (min-width: 768px) {
+  .footerSection {
+    width: 100%;
+    margin-top: 10rem;
+    padding: 2rem 0 4rem 0;
+  }
+}
 .footerIcons {
   display: flex;
   gap: 1rem;
 }
 
+@media (min-width: 768px) {
+  .footerIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+    padding: 5rem 0;
+  }
+}
+
 .footerIcon {
   width: 30px;
   height: 30px;
+}
+
+@media (min-width: 768px) {
+  .footerIcon {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .footerCopyrightMessage {
@@ -122,17 +268,33 @@
   align-items: center;
 }
 
+@media (min-width: 768px) {
+}
+
 .contactFooterCard {
   text-align: end;
   font-size: small;
+}
+
+@media (min-width: 768px) {
+  .contactFooterCard {
+    display: flex;
+    flex-direction: column;
+    color: black;
+  }
 }
 
 .footerCardTextTitle {
   font-size: small;
 }
 
+@media (min-width: 768px) {
+}
 .footerCardText {
   font-size: small;
+}
+
+@media (min-width: 768px) {
 }
 
 .locationSection {
@@ -143,11 +305,27 @@
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .locationSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10rem 0;
+  }
+}
+
 .locationTitle {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem 0 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .locationTitle {
+    text-align: center;
+  }
 }
 
 .locationNames {
@@ -159,8 +337,25 @@
   font-size: x-large;
 }
 
+@media (min-width: 768px) {
+  .locationNames {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 0 10rem 0;
+    font-size: x-large;
+  }
+}
+
 .locationSubNames {
   font-size: large;
+}
+
+@media (min-width: 768px) {
+  .locationSubNames {
+    font-size: large;
+  }
 }
 
 .locationCards {
@@ -168,6 +363,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .locationCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .locationCard {
@@ -181,8 +385,26 @@
   background-color: #e9e4db;
 }
 
+@media (min-width: 768px) {
+  .locationCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5rem 0 10rem 0;
+    background-color: #e9e4db;
+    width: 70%;
+  }
+}
+
 .locationImage {
   width: 800px;
+}
+
+@media (min-width: 768px) {
+  .locationImage {
+    width: 600px;
+  }
 }
 
 .locationInfo {
@@ -193,14 +415,31 @@
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .locationInfo {
+    width: 30%;
+  }
+}
+
 .locationInfo h3 {
   font-weight: lighter;
+}
+
+@media (min-width: 768px) {
 }
 
 .storySection {
   display: flex;
   flex-wrap: wrap;
   padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .storySection {
+    display: flex;
+    flex-direction: row;
+    padding: 10rem 0;
+  }
 }
 
 .storyCard {
@@ -212,19 +451,54 @@
   padding: 3rem 0 3rem 0;
 }
 
+@media (min-width: 768px) {
+  .storyCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10rem;
+    padding: 10rem 0 10rem 0;
+  }
+}
+
 .storyCard:last-child {
   flex-direction: column-reverse;
+}
+
+@media (min-width: 768px) {
+  .storyCard:last-child {
+    flex-direction: row;
+  }
 }
 
 .storyImage {
   width: 600px;
 }
 
+@media (min-width: 768px) {
+  .storyImage {
+    width: 600px;
+  }
+}
+
 .storyInfo {
   width: 90%;
 }
+
+@media (min-width: 768px) {
+  .storyInfo {
+    width: 30%;
+  }
+}
+
 .storyInfoSection {
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .storyInfoSection {
+    display: flex;
+  }
 }
 
 .loginSection,
@@ -236,6 +510,16 @@
   padding-top: 10rem;
   width: 100%;
   height: 70vh;
+}
+
+@media (min-width: 768px) {
+  .loginSection,
+  .registerSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
 }
 
 .loginForm,
@@ -252,13 +536,42 @@
   background-color: white;
 }
 
+@media (min-width: 768px) {
+  .loginForm,
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    border: 0.1rem solid none;
+    border-radius: 1rem;
+    width: 20%;
+    padding: 3rem 0 3rem 3rem;
+    background-color: white;
+  }
+}
+
 .inputForm {
   padding: 0.5rem 0;
   width: 90%;
 }
 
+@media (min-width: 768px) {
+  .inputForm {
+    padding: 0.5rem 0;
+    width: 70%;
+  }
+}
+
 .inputForm::placeholder {
   padding-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .inputForm::placeholder {
+    padding-left: 0.5rem;
+  }
 }
 
 .loginButton,
@@ -271,6 +584,18 @@
   text-decoration: underline;
 }
 
+@media (min-width: 768px) {
+  .loginButton,
+  .registerButton {
+    background-color: #222222;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem 3rem;
+    width: 30%;
+    text-decoration: underline;
+  }
+}
+
 .profileValidSection {
   display: flex;
   flex-direction: column;
@@ -278,6 +603,15 @@
   align-items: center;
   gap: 3rem;
   padding: 5rem 0;
+}
+
+@media (min-width: 768px) {
+  .profileValidSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
 }
 
 .profilePostsHistorySection,
@@ -289,8 +623,14 @@
   gap: 5rem;
 }
 
+@media (min-width: 768px) {
+}
+
 .profileOrderHistoryTitle {
   padding: 3rem;
+}
+
+@media (min-width: 768px) {
 }
 
 .profileOrderHistoryInfo {
@@ -301,15 +641,28 @@
   gap: 5rem;
 }
 
+@media (min-width: 768px) {
+}
+
 .profilePostsHistory,
 .profileOrderHistory {
   padding: 4rem 0 0 0;
+}
+
+@media (min-width: 768px) {
 }
 
 .profileValidHistory {
   display: flex;
   gap: 5rem;
   order: 2;
+}
+
+@media (min-width: 768px) {
+  .profileValidHistory {
+    flex-direction: column;
+    order: 1;
+  }
 }
 
 .profileValidMyAccount {
@@ -320,6 +673,15 @@
   order: 3;
 }
 
+@media (min-width: 768px) {
+  .profileValidMyAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
 .profileValidInfo {
   display: flex;
   flex-direction: column;
@@ -328,10 +690,35 @@
   order: 1;
 }
 
+@media (min-width: 768px) {
+  .profileValidInfo {
+    order: 3;
+  }
+}
+
 .profileAvatar {
-  width: 100px;
-  height: 100px;
-  border: 0.2rem solid black;
+  width: 10rem;
+  height: 10rem;
+  border: 0.2rem solid #222222;
+  border-radius: 5rem;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .profileAvatar {
+    width: 20rem;
+    height: 20rem;
+    border: 0.2rem solid #222222;
+    border-radius: 20rem;
+    padding: 2rem;
+    order: 2;
+  }
+}
+
+.profilePostsAvatar {
+  width: 10rem;
+  height: 10rem;
+  border: 0.2rem solid #222222;
   border-radius: 5rem;
   padding: 2rem;
 }
@@ -339,9 +726,12 @@
 .profileOrderAvatar {
   width: 10rem;
   height: 10rem;
-  border: 0.2rem solid black;
+  border: 0.2rem solid #222222;
   border-radius: 5rem;
   padding: 2rem;
+}
+
+@media (min-width: 768px) {
 }
 
 .orderSection {
@@ -352,10 +742,16 @@
   gap: 5rem;
 }
 
+@media (min-width: 768px) {
+}
+
 .orderHistory {
   display: flex;
   padding-top: 3rem;
   gap: 5rem;
+}
+
+@media (min-width: 768px) {
 }
 
 .orderMyAccount {
@@ -367,42 +763,65 @@
   padding: 5rem;
 }
 
+@media (min-width: 768px) {
+}
+
 .orderInfo {
   padding: 3rem 0 0 0;
+}
+
+@media (min-width: 768px) {
 }
 
 .coffeeCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border: 0.1rem solid #222222;
   border-radius: 2rem;
-  height: 40rem;
+  height: 43rem;
   width: 30rem;
   padding: 3rem 3rem 6rem 3rem;
 }
 
-.coffeeCardImage {
-  object-fit: cover;
-  background-color: red;
+@media (min-width: 768px) {
+  .coffeeCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 0.1rem solid #222222;
+    border-radius: 2rem;
+    padding: 0 0 3rem 0;
+    height: 50rem;
+    width: 50rem;
+  }
 }
 
 .coffeeCardTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+}
 .coffeeCardInfo {
-  text-align: center;
   font-size: medium;
+}
+
+@media (min-width: 768px) {
 }
 
 .coffeeCardInfo:nth-child(4) {
   display: none;
 }
 
+@media (min-width: 768px) {
+}
+
 .coffeeCardButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
   padding: 1rem;
   border: none;
@@ -412,10 +831,29 @@
   gap: 0.5rem;
 }
 
-.cartCardButton {
-  display: flex;
+@media (min-width: 768px) {
+  .coffeeCardButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 4rem;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    background-color: #222222;
+  }
+}
+
+.coffeeCardIcon {
   width: 3rem;
   height: 3rem;
+}
+
+@media (min-width: 768px) {
+  .coffeeCardIcon {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .productGridSection {
@@ -423,10 +861,21 @@
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+}
 .productGridTitle {
   padding-top: 5rem;
   font-size: x-large;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .productGridTitle {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    font-size: x-large;
+  }
 }
 
 .productGridFormContent {
@@ -436,6 +885,15 @@
   flex-direction: column;
 }
 
+@media (min-width: 768px) {
+  .productGridFormContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
 .productGridFormInput {
   width: 80%;
   border-radius: 0.5rem;
@@ -443,8 +901,26 @@
   text-indent: 1rem;
 }
 
+@media (min-width: 768px) {
+  .productGridFormInput {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    padding: 1rem 0;
+    border-radius: 0.5rem;
+    text-indent: 1rem;
+  }
+}
+
 .productGridFormInput::placeholder {
   padding-left: 0.1rem;
+}
+
+@media (min-width: 768px) {
+  .productGridFormInput::placeholder {
+    padding-left: 0.1rem;
+  }
 }
 
 .productGridItems {
@@ -458,12 +934,37 @@
   gap: 3rem;
 }
 
+@media (min-width: 768px) {
+  .productGridItems {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding-top: 10rem;
+  }
+}
+
 .postSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .postSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    height: 80vh;
+    width: 100%;
+    padding-left: 15rem;
+  }
 }
 
 .postForm {
@@ -476,9 +977,25 @@
   border-radius: 1rem;
 }
 
+@media (min-width: 768px) {
+  .postForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+    padding: 2rem 3rem;
+    gap: 2rem;
+    width: 25%;
+    height: 60rem;
+  }
+}
+
 .selectProductForm {
   padding: 1rem;
   border: none;
+}
+
+@media (min-width: 768px) {
 }
 
 .postFormInput {
@@ -486,17 +1003,42 @@
   border: none;
 }
 
+@media (min-width: 768px) {
+  .postFormInput {
+    padding: 3rem 1rem;
+  }
+}
+
+.postImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 .postImageContainerDesktop {
   display: none;
+}
+
+@media (min-width: 768px) {
 }
 
 .postImage {
   width: 30rem;
 }
 
+@media (min-width: 768px) {
+  .postImage {
+    display: none;
+  }
+}
+
 .postSelectScore {
   padding: 1rem 0;
   border: none;
+}
+
+@media (min-width: 768px) {
 }
 
 .postButton {
@@ -512,418 +1054,7 @@
   gap: 0.5rem;
 }
 
-.generalPostSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10rem;
-  padding-top: 3rem;
-}
-
-.tablePosts,
-.tableOrders {
-  padding: 3rem 3rem;
-  background-color: #e9e4db;
-  border-radius: 3rem;
-}
-
-.tablePosts td,
-.tableOrders td {
-  padding: 1rem;
-  border: 0.1rem solid #ccc;
-}
-
-.postGrid {
-  text-align: center;
-}
-
-.orderGrid {
-  text-align: center;
-}
-
 @media (min-width: 768px) {
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  .headerLogo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-left: 16rem;
-    width: 100%;
-  }
-
-  .headerIcons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-    padding-right: 1rem;
-    flex-shrink: 0;
-  }
-
-  .headerIcon {
-    width: 4rem;
-    height: 4rem;
-  }
-
-  .navBar {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #222222;
-  }
-
-  .menuItem {
-    color: white;
-    font-size: large;
-  }
-
-  .mainGrid {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .heroSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 2rem 0;
-    text-align: center;
-  }
-
-  .infoSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 5rem 0;
-  }
-
-  .infoLeft,
-  .infoCenter,
-  .infoRight {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    width: 20%;
-  }
-
-  .icon {
-    width: 150px;
-  }
-
-  .textInfo {
-    font-size: large;
-    text-align: center;
-    width: 50%;
-  }
-
-  .footerInfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 1.5rem 0;
-    text-align: center;
-  }
-
-  .footerSection {
-    width: 100%;
-    margin-top: 10rem;
-    padding: 2rem 0 4rem 0;
-  }
-
-  .footerIcons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5rem;
-    padding: 5rem 0;
-  }
-
-  .footerIcon {
-    width: 50px;
-    height: 50px;
-  }
-
-  .contactFooterCard {
-    display: flex;
-    flex-direction: column;
-    color: black;
-  }
-
-  .footerCopyright {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    gap: 1rem;
-  }
-
-  .locationSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10rem 0;
-  }
-
-  .locationTitle {
-    text-align: center;
-  }
-
-  .locationNames {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10rem 0 10rem 0;
-    font-size: x-large;
-  }
-
-  .locationSubNames {
-    font-size: large;
-  }
-
-  .locationCards {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .locationCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 5rem 0 10rem 0;
-    background-color: #e9e4db;
-    width: 70%;
-  }
-
-  .locationImage {
-    width: 600px;
-  }
-
-  .locationInfo {
-    width: 30%;
-  }
-
-  .storySection {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem 0;
-  }
-
-  .storyCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10rem;
-    padding: 10rem 0 10rem 0;
-  }
-
-  .storyCard:last-child {
-    flex-direction: row;
-  }
-
-  .storyImage {
-    width: 600px;
-  }
-
-  .storyInfo {
-    width: 30%;
-  }
-
-  .storyInfoSection {
-    display: flex;
-  }
-
-  .loginSection,
-  .registerSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-  }
-
-  .loginForm,
-  .registerForm {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2rem;
-    border: 0.1rem solid none;
-    border-radius: 1rem;
-    width: 20%;
-    padding: 3rem 0 3rem 3rem;
-    background-color: white;
-  }
-
-  .inputForm {
-    padding: 0.5rem 0;
-    width: 70%;
-  }
-
-  .inputForm::placeholder {
-    padding-left: 0.5rem;
-  }
-
-  .loginButton,
-  .registerButton {
-    background-color: #222222;
-    color: white;
-    border-radius: 1rem;
-    padding: 0.5rem 3rem;
-    width: 30%;
-    text-decoration: underline;
-  }
-
-  .profileValidSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-  }
-
-  .profileValidHistory {
-    flex-direction: column;
-    order: 1;
-  }
-
-  .profileValidMyAccount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .profileValidInfo {
-    order: 3;
-  }
-
-  .profileAvatar {
-    width: 20rem;
-    height: 20rem;
-    border: 0.2rem solid black;
-    border-radius: 20rem;
-    padding: 2rem;
-    order: 2;
-  }
-
-  .coffeeCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 0.1rem solid #222222;
-    border-radius: 2rem;
-    padding: 0 0 3rem 0;
-    height: 50rem;
-    width: 50rem;
-  }
-
-  .coffeeCardButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 4rem;
-    border: none;
-    border-radius: 2rem;
-    color: white;
-    background-color: #222222;
-  }
-
-  .coffeeCardIcon {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .productGridTitle {
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem;
-    font-size: x-large;
-  }
-
-  .productGridFormContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .productGridFormInput {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 30%;
-    padding: 1rem 0;
-    border-radius: 0.5rem;
-    text-indent: 1rem;
-  }
-
-  .productGridFormInput::placeholder {
-    padding-left: 0.1rem;
-  }
-
-  .productGridItems {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    padding-top: 10rem;
-  }
-
-  .postSection {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10rem;
-    height: 80vh;
-    width: 100%;
-    padding-left: 15rem;
-  }
-
-  .postForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: whitesmoke;
-    padding: 2rem 3rem;
-    gap: 2rem;
-    width: 25%;
-    height: 60rem;
-  }
-
-  .postFormInput {
-    padding: 3rem 1rem;
-  }
-
-  .postImage {
-    display: none;
-  }
-
-  .postImageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-  }
-
   .postButton {
     display: flex;
     justify-content: center;
@@ -935,5 +1066,59 @@
     color: white;
     background-color: #222222;
     gap: 0.5rem;
+  }
+}
+
+.generalPostSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+}
+
+.tablePosts,
+.tableOrders {
+  padding: 3rem 3rem;
+  background-color: #e9e4db;
+  border-radius: 3rem;
+}
+
+@media (min-width: 768px) {
+}
+
+.tablePosts td,
+.tableOrders td {
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+}
+
+@media (min-width: 768px) {
+}
+
+.postGrid {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+}
+
+.orderGrid {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  .footerCopyright {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    gap: 1rem;
   }
 }

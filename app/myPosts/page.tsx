@@ -39,7 +39,7 @@ export default function ProfileOrderHistory() {
           </table>
         </div>
         <div className={styles.profileValidMyAccount}>
-          <GiCoffeeBeans className={styles.profileAvatar} />
+          <GiCoffeeBeans className={styles.profilePostsAvatar} />
           <h1>My Account</h1>
           <p>Log Out</p>
         </div>

@@ -23,7 +23,6 @@ export default function CoffeeCard({ image_url, id, name, description, price, re
       <Link href={`/${id}`}>
         <Image alt={name} src={image_url} width={300} height={300} className={styles.coffeCardImage} />
       </Link>
-
       <h2 className={styles.coffeCardTitle}>{name}</h2>
       <p className={styles.coffeeCardInfo}>Flavor Profile: {flavor_profile.join(", ")}</p>
       <p className={styles.coffeeCardInfo}>Roast Level: {roast_level}</p>
