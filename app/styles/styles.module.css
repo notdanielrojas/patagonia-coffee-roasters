@@ -233,6 +233,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top:10rem;
   width: 100%;
   height: 70vh;
 }
@@ -446,12 +447,18 @@
   border-radius: 1rem;
 }
 
-.postFormInput {
-  padding: 3rem 1rem;
+.selectProductForm {
+  padding: 1rem;
+  border: none;
 }
 
-.postImageContainer {
-  object-fit: contain;
+.postFormInput {
+  padding: 3rem 1rem;
+  border: none;
+}
+
+.postImageContainerDesktop {
+  display: none;
 }
 
 .postImage {
@@ -460,6 +467,7 @@
 
 .postSelectScore {
   padding: 1rem 0;
+  border: none;
 }
 
 .postButton {
@@ -474,6 +482,31 @@
   background-color: #222222;
   gap: 0.5rem;
 }
+
+.generalPostSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    padding-top: 3rem;
+    
+  }
+
+  .tablePosts {
+    padding: 3rem 3rem;
+    background-color: #e9e4db;
+    border-radius: 3rem;
+  }
+
+  .tablePosts td {
+    padding: 1rem; 
+    border: 0.1rem solid #ccc;
+  }
+
+  .postGrid {
+    text-align: center;
+  }
 
 @media (min-width: 768px) {
   .header {
@@ -819,5 +852,55 @@
     align-items: center;
     gap: 5rem;
     padding-top: 10rem;
+  }
+
+  .postSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    height: 80vh;
+    width: 100%;
+    padding-left: 15rem;
+  }
+
+  .postForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+    padding: 2rem 3rem;
+    gap: 2rem;
+    width: 25%;
+    height: 60rem;
+  }
+
+  .postFormInput {
+    padding: 3rem 1rem;
+  }
+
+  .postImage {
+    display: none;
+  }
+
+  .postImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  .postButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    background-color: #222222;
+    gap: 0.5rem;
   }
 }

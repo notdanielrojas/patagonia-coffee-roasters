@@ -8,7 +8,7 @@ export default function Home() {
       <div className={styles.heroSection}>
         <div>
           <h1 className={styles.heroText}>
-            Somos Patagonia Coffee Roasters
+            We are Patagonia Coffee Roasters
           </h1>
         </div>
         <Image

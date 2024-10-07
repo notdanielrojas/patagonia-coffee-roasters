@@ -6,7 +6,7 @@ export default function Page () {
   return (
     <div className={styles.heroSection}>
       <div>
-        <h1 className={styles.heroText}>Reviews de nuestros usuarios</h1>
+        <h1 className={styles.heroText}>Community Reviews</h1>
       </div>
       <Image
         src='/images/carousel/2.jpg'

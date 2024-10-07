@@ -19,8 +19,8 @@ export default function PostForm() {
       try {
         const coffees = await getCoffeeList();
         setCoffeeList(coffees);
-      } catch (err: unknown) {
-        setError(err.message);
+      } catch (err) {
+        setError("Ocurrió un error al cargar la lista de cafés.");
       }
     };
     fetchCoffees();
@@ -36,9 +36,14 @@ export default function PostForm() {
   return (
     <div className={styles.postSection}>
       <form action='/login' method='post' className={styles.postForm}>
-        <label htmlFor='producto'>Selecciona un Producto</label>
-        <select name='producto' id='producto' onChange={handleCoffeeChange}>
-          <option value=''>-- Selecciona un producto --</option>
+        <label htmlFor='producto'>Choose a Product</label>
+        <select
+          name='producto'
+          id='producto'
+          className={styles.selectProductForm}
+          onChange={handleCoffeeChange}
+        >
+          <option value=''>-- Choose a product --</option>
           {coffeeList.map((producto) => (
             <option key={producto.name} value={producto.name}>
               {producto.name}
@@ -54,7 +59,7 @@ export default function PostForm() {
             />
           </div>
         )}
-        <label htmlFor='producto'>Comentario</label>
+        <label htmlFor='producto'>Commentary</label>
         <input
           type='text'
           id='commentary'
@@ -66,14 +71,14 @@ export default function PostForm() {
           autoComplete='off'
           className={styles.postFormInput}
         />
-        <label htmlFor='evaluacion'>Evaluación</label>
+        <label htmlFor='evaluacion'>Rate</label>
         <select
           name='evaluacion'
           id='evaluacion'
           className={styles.postSelectScore}
         >
           <option value='evaluacion' disabled hidden>
-            -- Selecciona una evaluación --
+            -- Choose a rate --
           </option>
           <option value='1'>1</option>
           <option value='2'>2</option>
@@ -82,11 +87,19 @@ export default function PostForm() {
           <option value='5'>5</option>
         </select>
         <button type='submit' className={styles.postButton}>
-          Publicar
+          Post
         </button>
       </form>
-      <div></div>
-      {error && <p className={styles.error}>{error}</p>}
+      <div className={styles.postImageContainerDesktop}>
+        {selectedCoffee && (
+          <img
+            src={selectedCoffee.image_url}
+            alt={selectedCoffee.name}
+            className={styles.postImageDesktop}
+          />
+        )}
+      </div>
+      {error && <p className={styles.error}>{error}</p>}{" "}
     </div>
   );
 }

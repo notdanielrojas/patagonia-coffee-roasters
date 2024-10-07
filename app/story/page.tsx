@@ -7,8 +7,8 @@ export default function Story() {
     <div className={styles.storySection}>
       <div className={styles.storyCard}>
         <Image
-          src='/images/carousel/2.jpg'
-          alt='Imagen 2 de Carrusel'
+          src='/images/story1.jpg'
+          alt='story1'
           width={800}
           height={300}
           className={styles.storyImage}
@@ -27,7 +27,7 @@ export default function Story() {
       </div>
       <div className={styles.storyCard}>
         <div className={styles.storyInfo}>
-          <h2>Crafting the future of coffee</h2>
+          <h2>The other side of the cup</h2>
           <p>
             We're equally dedicated to our beloved customers. Every sip is a
             chance for connection. So, whether you're new to the world of coffee
@@ -36,8 +36,8 @@ export default function Story() {
           </p>
         </div>
         <Image
-          src='/images/carousel/2.jpg'
-          alt='Imagen 2 de Carrusel'
+          src='/images/story2.jpg'
+          alt='story2'
           width={800}
           height={300}
           className={styles.storyImage}

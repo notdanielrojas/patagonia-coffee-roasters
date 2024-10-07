@@ -1,5 +1,4 @@
 "use client";
-
 import CoffeeCard from "./CoffeeCard";
 import { useState } from "react";
 import styles from "../app/styles/styles.module.css";
@@ -24,21 +23,16 @@ interface CoffeeGridProps {
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
 
-  const filteredCoffeeList = coffeeList.filter((coffee) =>
-    coffee.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const filteredCoffeeList = coffeeList.filter((coffee) => coffee.name.toLowerCase().includes(searchText.toLowerCase()));
 
   return (
     <>
       <div className={styles.productGridTitle}>
-        <h3>Encuentra tu café</h3>
+        <h3>Find Your Coffee</h3>
       </div>
       <div className={styles.productGridForm}>
-        <form
-          className={styles.productGridFormContent}
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <label htmlFor='coffeeName'>Nombre del café</label>
+        <form className={styles.productGridFormContent} onSubmit={(e) => e.preventDefault()}>
+          <label htmlFor='coffeeName'>Type the coffee that you are looking for.</label>
           <input
             type='text'
             value={searchText}
@@ -53,6 +47,7 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
         <div className={styles.productGridItems}>
           {filteredCoffeeList.map((data) => (
             <CoffeeCard
+              id={data.id}
               image_url={data.image_url}
               name={data.name}
               key={data.id}
