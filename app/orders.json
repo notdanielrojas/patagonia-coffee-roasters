@@ -1,0 +1,37 @@
+[
+  {
+    "producto": "Signature Blend",
+    "price": 12.99,
+    "quantity": 3,
+    "image_url": "https://iili.io/H8Y78Qt.webp",
+    "total": 38.97
+  },
+  {
+    "producto": "Golden Sunrise",
+    "price": 10.99,
+    "quantity": 2,
+    "image_url": "https://iili.io/H8Y7WEg.webp",
+    "total": 21.98
+  },
+  {
+    "producto": "Rainforest Rhapsody",
+    "price": 14.99,
+    "quantity": 4,
+    "image_url": "https://iili.io/H8Y7kTN.webp",
+    "total": 59.96
+  },
+  {
+    "producto": "Harvest Moon",
+    "price": 9.99,
+    "quantity": 2,
+    "image_url": "https://iili.io/H8Y7X4a.webp",
+    "total": 19.98
+  },
+  {
+    "producto": "Wildfire",
+    "price": 12.99,
+    "quantity": 1,
+    "image_url": "https://iili.io/H8Y7r4s.webp",
+    "total": 12.99
+  }
+]

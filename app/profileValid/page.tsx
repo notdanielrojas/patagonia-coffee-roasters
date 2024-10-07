@@ -9,21 +9,21 @@ export default function ProfileValid() {
       <div className={styles.profileValidSection}>
         <div className={styles.profileValidHistory}>
           <Link href={"/myPosts"}>
-            <h3>Mis Posts</h3>
+            <h3>My Posts</h3>
           </Link>
           <Link href={"/orders"}>
-            <h3>Mis Pedidos</h3>
+            <h3>My Orders</h3>
           </Link>
         </div>
         <div className={styles.profileValidMyAccount}>
           <GiCoffeeBeans className={styles.profileAvatar} />
-          <h1>Mi Cuenta</h1>
-          <h4>Salir</h4>
+          <h1>My Account</h1>
+          <p>Log Out</p>
         </div>
         <div className={styles.profileValidInfo}>
-          <h2>Detalles de la Cuenta</h2>
-          <h4>Usuario</h4>
-          <h4>usuario@correo.cl</h4>
+          <h2>Account Details</h2>
+          <p>username</p>
+          <p>user@email.com</p>
         </div>
       </div>
     </>
