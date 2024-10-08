@@ -9,7 +9,7 @@ interface CoffeeProps {
   id: number;
   image_url: string;
   name: string;
-  description: string;
+  description?: string;
   price: number;
   region: string;
   weight: number;
@@ -18,7 +18,7 @@ interface CoffeeProps {
   roast_level: number;
 }
 
-export default function CoffeeCard({ id, image_url, name, description, price }: CoffeeProps) {
+export default function CoffeeCard({ id, image_url, name, price }: CoffeeProps) {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
