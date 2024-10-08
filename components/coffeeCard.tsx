@@ -11,11 +11,11 @@ interface CoffeeProps {
   name: string;
   description?: string;
   price: number;
-  region: string;
-  weight: number;
-  flavor_profile: string[];
-  grind_option: string[];
-  roast_level: number;
+  region?: string;
+  weight?: number;
+  flavor_profile?: string[];
+  grind_option?: string[];
+  roast_level?: number;
 }
 
 export default function CoffeeCard({ id, image_url, name, price }: CoffeeProps) {
@@ -27,7 +27,7 @@ export default function CoffeeCard({ id, image_url, name, price }: CoffeeProps) 
 
   return (
     <div className={styles.coffeeCard}>
-      <Link href={`/${id}`}>
+      <Link href={`/productsPage/${id}`}>
         <Image alt={name} src={image_url} width={300} height={300} className={styles.coffeCardImage} />
       </Link>
       <h2 className={styles.coffeCardTitle}>{name}</h2>
