@@ -5,7 +5,7 @@ import { LiaCartArrowDownSolid } from "react-icons/lia";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
-interface CoffeeProps {
+export interface CoffeeProps {
   id: number;
   image_url: string;
   name: string;
@@ -18,10 +18,21 @@ interface CoffeeProps {
   roast_level?: number;
 }
 
-export default function CoffeeCard({ id, image_url, name, price }: CoffeeProps) {
+export default function CoffeeCard({
+  id,
+  image_url,
+  name,
+  price,
+  description,
+  region,
+  weight,
+  flavor_profile,
+  grind_option,
+  roast_level,
+}: CoffeeProps) {
   const { addToCart } = useCart();
 
-  const handleAddToCart = () => {
+ const handleAddToCart = () => {
     addToCart({ id, name, image_url, price });
   };
 
