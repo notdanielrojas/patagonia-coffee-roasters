@@ -1,5 +1,6 @@
 import { getCoffee } from "@/app/api/coffeeAPI";
 import Image from "next/image";
+import styles from "@/app/styles/styles.module.css";
 interface CoffeePageProps {
   params: {
     id: string;
@@ -17,17 +18,7 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
     }
 
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <h2>Coffee Details</h2>
-
+      <div className={styles.productInfoPageSection}>
         {coffee.map(
           (item: {
             id: number;
@@ -38,19 +29,68 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
             weight: number;
             flavor_profile: string[];
             grind_option: string[];
-            roast_level: string[];
+            roast_level: number;
             image_url: string;
           }) => (
-            <div key={item.id}>
-              <Image src={item.image_url} alt='imagen' width={800} height={800}></Image>
-              <p> {item.name} </p>
-              <p> {item.description} </p>
-              <p> {item.price} </p>
-              <p> {item.region} </p>
-              <p> {item.weight} </p>
-              <p> {item.flavor_profile} </p>
-              <p> {item.grind_option.join(" , ")} </p>
-              <p> {item.roast_level} </p>
+            <div key={item.id} className={styles.productInfoRow}>
+              <div className={styles.productInfoImage}>
+                <Image src={item.image_url} alt='image' width={1000} height={1000} />
+              </div>
+              <div className={styles.productInfoDetails}>
+                <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Name:</strong>
+                      </td>
+                      <td>{item.name}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Description:</strong>
+                      </td>
+                      <td>{item.description}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Price:</strong>
+                      </td>
+                      <td>{item.price}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Region:</strong>
+                      </td>
+                      <td>{item.region}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Weight:</strong>
+                      </td>
+                      <td>{item.weight}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Flavor Profile:</strong>
+                      </td>
+                      <td>{item.flavor_profile.join(", ")}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Grind Option:</strong>
+                      </td>
+                      <td>{item.grind_option.join(", ")}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Roast Level:</strong>
+                      </td>
+                      <td>{"🔥".repeat(item.roast_level)}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           )
         )}

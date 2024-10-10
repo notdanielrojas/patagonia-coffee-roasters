@@ -7,14 +7,50 @@ export default function Register() {
   return (
     <div className={styles.loginSection}>
       <form action='/login' method='post' className={styles.registerForm}>
-        <label htmlFor='nombre'>Name:</label>
-        <input type='text' id='nombre' name='nombre' placeholder='Ingresa tu usuario' required minLength={10} maxLength={20} className={styles.inputForm} />
-        <label htmlFor='apellido'>Last Name:</label>
-        <input type='text' id='apellido' name='apellido' placeholder='Ingresa tu primer apellido' required minLength={10} maxLength={20} className={styles.inputForm} />
+        <label htmlFor='name'>Name:</label>
+        <input
+          type='text'
+          id='name'
+          name='name'
+          placeholder='Type your username'
+          required
+          minLength={10}
+          maxLength={20}
+          className={styles.inputForm}
+        />
+        <label htmlFor='last name'>Last Name:</label>
+        <input
+          type='text'
+          id='last name'
+          name='last name'
+          placeholder='Type your last name'
+          required
+          minLength={10}
+          maxLength={20}
+          className={styles.inputForm}
+        />
         <label htmlFor='email'>Email:</label>
-        <input type='text' id='email' name='email' placeholder='Ingresa tu email' required minLength={10} maxLength={20} className={styles.inputForm} />
+        <input
+          type='text'
+          id='email'
+          name='email'
+          placeholder='Type your email'
+          required
+          minLength={10}
+          maxLength={20}
+          className={styles.inputForm}
+        />
         <label htmlFor='password'>Password:</label>
-        <input type='text' id='password' name='password' placeholder='Ingresa tu contraseña' required minLength={10} maxLength={20} className={styles.inputForm} />
+        <input
+          type='text'
+          id='password'
+          name='password'
+          placeholder='Type your password'
+          required
+          minLength={10}
+          maxLength={20}
+          className={styles.inputForm}
+        />
         <button type='submit' className={styles.registerButton}>
           Sign In
         </button>

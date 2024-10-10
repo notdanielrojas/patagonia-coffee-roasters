@@ -4,7 +4,7 @@ export async function getCoffeeList() {
   const response = await fetch(`${BASE_URL}/api`, {
     method: "GET",
   });
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   if (!response.ok) {
     throw new Error("Failed to fetch coffee list");
@@ -22,7 +22,7 @@ export const getCoffee = async (id: number): Promise<any> => {
     },
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   if (!response.ok) {
     throw new Error(`Failed to fetch coffee with ID ${id}`);
