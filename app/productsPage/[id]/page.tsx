@@ -1,6 +1,12 @@
+/* "use client" */
+
 import { getCoffee } from "@/app/api/coffeeAPI";
 import Image from "next/image";
 import styles from "@/app/styles/styles.module.css";
+import { useCart } from "@/context/CartContext";
+import { LiaCartArrowDownSolid } from "react-icons/lia";
+import { PiKeyReturnFill } from "react-icons/pi";
+import Link from "next/link";
 interface CoffeePageProps {
   params: {
     id: string;
@@ -9,6 +15,7 @@ interface CoffeePageProps {
 
 const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
   const coffeeId = Number(params.id);
+ /*  const { addToCart } = useCart(); */
 
   try {
     const coffee = await getCoffee(coffeeId);
@@ -17,6 +24,10 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
       throw new Error("Coffee not found");
     }
 
+    /* const handleAddToCart = (item: { id: number; name: string; image_url: string; price: number }) => {
+      addToCart({ id: item.id, name: item.name, image_url: item.image_url, price: item.price });
+    };
+ */
     return (
       <div className={styles.productInfoPageSection}>
         {coffee.map(
@@ -34,7 +45,7 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
           }) => (
             <div key={item.id} className={styles.productInfoRow}>
               <div className={styles.productInfoImage}>
-                <Image src={item.image_url} alt='image' width={1000} height={1000} />
+                <Image src={item.image_url} alt='image' width={700} height={1000} />
               </div>
               <div className={styles.productInfoDetails}>
                 <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>
@@ -90,6 +101,16 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
                     </tr>
                   </tbody>
                 </table>
+                <div className={styles.coffeeCardButtons}>
+                  <Link href={`/products`}>
+                    <button className={styles.coffeeCardButton}>
+                      Go back <PiKeyReturnFill className={styles.coffeeCardIcon} />
+                    </button>
+                  </Link>
+                 {/*  <button className={styles.coffeeCardButton} onClick={() => handleAddToCart(item)}>
+                    Add to Cart <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
+                  </button> */}
+                </div>
               </div>
             </div>
           )
