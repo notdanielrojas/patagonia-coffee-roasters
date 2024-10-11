@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import styles from "../app/styles/styles.module.css";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
+import { GiCoffeeBeans } from "react-icons/gi";
+
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
@@ -18,6 +20,23 @@ export interface CoffeeProps {
   roast_level?: number;
 }
 
+const getRegionStyle = (region: string | undefined) => {
+  switch (region) {
+    case "Africa":
+      return styles.africa;
+    case "Asia Pacific":
+      return styles.asiaPacific;
+    case "Central America":
+      return styles.centralAmerica;
+    case "Middle East":
+      return styles.middleEast;
+    case "South America":
+      return styles.southAmerica;
+    default:
+      return styles.defaultRegion;
+  }
+};
+
 export default function CoffeeCard({
   id,
   image_url,
@@ -32,20 +51,30 @@ export default function CoffeeCard({
 }: CoffeeProps) {
   const { addToCart } = useCart();
 
- const handleAddToCart = () => {
+  const handleAddToCart = () => {
     addToCart({ id, name, image_url, price });
   };
 
   return (
     <div className={styles.coffeeCard}>
       <Link href={`/productsPage/${id}`}>
-        <Image alt={name} src={image_url} width={300} height={300} className={styles.coffeCardImage} />
+        <Image alt={name} src={image_url} width={800} height={800} className={styles.coffeeCardImage} />
       </Link>
       <h2 className={styles.coffeCardTitle}>{name}</h2>
-      <p className={styles.coffeeCardInfo}>Price: ${price.toFixed(2)}</p>
-      <button className={styles.coffeeCardButton} onClick={handleAddToCart}>
-        Add <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
-      </button>
+      <p className={styles.coffeeCardInfo}>{flavor_profile.join(" , ")}</p>
+
+      <button className={`${styles.coffeeCardInfoButton} ${getRegionStyle(region)}`}>{region}</button>
+      <p className={styles.coffeeCardInfo}>${price.toFixed(2)}</p>
+      <div className={styles.coffeeCardButtons}>
+        <Link href={`/productsPage/${id}`}>
+          <button className={styles.coffeeCardButton}>
+            More <GiCoffeeBeans className={styles.coffeeCardIcon} />
+          </button>
+        </Link>
+        <button className={styles.coffeeCardButton} onClick={handleAddToCart}>
+          Add <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
+        </button>
+      </div>
     </div>
   );
 }

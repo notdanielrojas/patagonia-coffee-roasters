@@ -775,10 +775,11 @@
 .coffeeCard {
   display: flex;
   flex-direction: column;
-  border: 0.1rem solid #222222;
+  border: none;
   border-radius: 2rem;
-  height: 43rem;
+  height: 60rem;
   width: 30rem;
+  gap: 2rem;
   padding: 3rem 3rem 6rem 3rem;
 }
 
@@ -786,32 +787,34 @@
   .coffeeCard {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
-    border: 0.1rem solid #222222;
-    border-radius: 2rem;
     padding: 0 0 3rem 0;
-    height: 50rem;
+    height: 70rem;
     width: 50rem;
   }
 }
 
 .coffeeCardTitle {
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 1.6rem;
 }
 
 @media (min-width: 768px) {
 }
+
+.coffeeCardImage {
+  background-color: #e9e4db;
+}
+
 .coffeeCardInfo {
-  font-size: medium;
+  font-size: 1.8rem;
+  font-weight: light;
+  font-style: italic;
 }
 
-@media (min-width: 768px) {
-}
-
-.coffeeCardInfo:nth-child(4) {
-  display: none;
+.coffeeCardButtons {
+  display: flex;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -1229,4 +1232,46 @@
 .productInfoDetails td:first-child {
   text-align: left;
   font-weight: bold;
+}
+
+.africa {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-radius: 1rem;
+}
+
+.asiaPacific {
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 1rem;
+}
+
+.centralAmerica {
+  background-color: #fff3cd;
+  color: #856404;
+  border-radius: 1rem;
+}
+
+.middleEast {
+  background-color: #cce5ff;
+  color: #004085;
+  border-radius: 1rem;
+}
+
+.southAmerica {
+  background-color: #e2e3e5;
+  color: #383d41;
+  border-radius: 1rem;
+}
+
+.defaultRegion {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-radius: 1rem;
+}
+
+.coffeeCardInfoButton {
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
 }
