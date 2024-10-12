@@ -2,11 +2,20 @@ import React from "react";
 import styles from "../styles/styles.module.css";
 import Image from "next/image";
 import posts from "../posts.json";
+import { MdOutlinePostAdd } from "react-icons/md";
+import Link from "next/link";
 
 export default async function Posts() {
   return (
     <>
       <div className={styles.generalPostSection}>
+        <div className={styles.createPostContainer}>
+          <Link href={"/postsForm"}>
+            <button className={styles.createPostButton}>
+              Create a Post <MdOutlinePostAdd className={styles.createPostIcon} />
+            </button>
+          </Link>
+        </div>
         <table className={styles.tablePosts}>
           <thead className={styles.tableHeadPosts}>
             <tr>
@@ -21,12 +30,7 @@ export default async function Posts() {
               <tr key={index} className={styles.postGrid}>
                 <td>{post.producto}</td>
                 <td>
-                  <Image
-                    src={post.image_url}
-                    alt={post.producto}
-                    width={150}
-                    height={100}
-                  />
+                  <Image src={post.image_url} alt={post.producto} width={150} height={100} />
                 </td>
                 <td>{post.commentary}</td>
                 <td>{post.evaluacion}</td>

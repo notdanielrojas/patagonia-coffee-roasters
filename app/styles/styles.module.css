@@ -548,7 +548,7 @@
     border-radius: 1rem;
     width: 20%;
     padding: 3rem 0 3rem 3rem;
-    background-color: white;
+    background-color: whitesmoke;
   }
 }
 
@@ -577,7 +577,7 @@
 .loginButton,
 .registerButton {
   background-color: #222222;
-  color: white;
+  color: whitesmoke;
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   width: 40%;
@@ -588,7 +588,7 @@
   .loginButton,
   .registerButton {
     background-color: #222222;
-    color: white;
+    color: whitesmoke;
     border-radius: 1rem;
     padding: 0.5rem 3rem;
     width: 30%;
@@ -828,7 +828,7 @@
   padding: 1rem;
   border: none;
   border-radius: 2rem;
-  color: white;
+  color: whitesmoke;
   background-color: #222222;
   gap: 0.5rem;
 }
@@ -841,7 +841,7 @@
     padding: 1rem 4rem;
     border: none;
     border-radius: 2rem;
-    color: white;
+    color: whitesmoke;
     background-color: #222222;
   }
 }
@@ -849,13 +849,6 @@
 .coffeeCardIcon {
   width: 3rem;
   height: 3rem;
-}
-
-@media (min-width: 768px) {
-  .coffeeCardIcon {
-    width: 3rem;
-    height: 3rem;
-  }
 }
 
 .productGridSection {
@@ -1076,11 +1069,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 5rem;
   padding-top: 3rem;
 }
 
 @media (min-width: 768px) {
+/*   .generalPostSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+    padding-top: 3rem;
+  } */
 }
 
 .tablePosts,
@@ -1200,7 +1200,6 @@
   background-color: whitesmoke;
   border-radius: 2rem;
   width: 90%;
-
 }
 
 @media (min-width: 768px) {
@@ -1236,7 +1235,7 @@
 .productInfoDetails table {
   border-collapse: collapse;
   width: 80%;
-  margin-bottom: 1rem ;
+  margin-bottom: 1rem;
 }
 
 .productInfoDetails td {
@@ -1290,4 +1289,28 @@
   padding: 1rem;
   border: none;
   cursor: pointer;
+}
+
+.createPostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  background-color: #222222;
+  gap: 0.5rem;
+}
+
+.createPostIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.createPostContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
 }

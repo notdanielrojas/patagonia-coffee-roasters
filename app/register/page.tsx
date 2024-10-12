@@ -1,66 +1,65 @@
-import React from "react";
-import styles from "../styles/styles.module.css";
-import Link from "next/link";
-import { BiUnderline } from "react-icons/bi";
+import React, { useState } from "react";
 
 export default function Register() {
+  const [user, setUser] = useState({
+    name: "",
+    last_name: "",
+    email: "",
+    password: "",
+  });
+
+  const registerUser = async (user: { name: string; last_name: string; email: string; password: string }) => {
+    try {
+      const response = await fetch("/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Error creando usuario");
+      }
+      console.log("Usuario registrado:", data);
+    } catch (error: any) {
+      console.error("Error registrando el usuario:", error.message);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    registerUser(user);
+  };
+
   return (
-    <div className={styles.loginSection}>
-      <form action='/login' method='post' className={styles.registerForm}>
-        <label htmlFor='name'>Name:</label>
-        <input
-          type='text'
-          id='name'
-          name='name'
-          placeholder='Type your username'
-          required
-          minLength={10}
-          maxLength={20}
-          className={styles.inputForm}
-        />
-        <label htmlFor='last name'>Last Name:</label>
-        <input
-          type='text'
-          id='last name'
-          name='last name'
-          placeholder='Type your last name'
-          required
-          minLength={10}
-          maxLength={20}
-          className={styles.inputForm}
-        />
-        <label htmlFor='email'>Email:</label>
-        <input
-          type='text'
-          id='email'
-          name='email'
-          placeholder='Type your email'
-          required
-          minLength={10}
-          maxLength={20}
-          className={styles.inputForm}
-        />
-        <label htmlFor='password'>Password:</label>
-        <input
-          type='text'
-          id='password'
-          name='password'
-          placeholder='Type your password'
-          required
-          minLength={10}
-          maxLength={20}
-          className={styles.inputForm}
-        />
-        <button type='submit' className={styles.registerButton}>
-          Sign In
-        </button>
-        <p>Already have an account?</p>
-        <p>
-          <Link href='/profile' style={{ textDecoration: "underline" }}>
-            Sign In
-          </Link>
-        </p>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type='text'
+        placeholder='Name'
+        value={user.name}
+        onChange={(e) => setUser({ ...user, name: e.target.value })}
+      />
+      <input
+        type='text'
+        placeholder='Last Name'
+        value={user.last_name}
+        onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+      />
+      <input
+        type='email'
+        placeholder='Email'
+        value={user.email}
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
+      />
+      <input
+        type='password'
+        placeholder='Password'
+        value={user.password}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+      />
+      <button type='submit'>Register</button>
+    </form>
   );
 }

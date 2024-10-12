@@ -13,7 +13,7 @@ export function Header({ alt }: { id: string; alt: string }) {
         </Link>
       </div>
       <div className={styles.headerIcons}>
-        <Link href='/profile'>
+        <Link href='/login'>
           <IoPersonSharp className={styles.headerIcon} />
         </Link>
         <Link href='/profileValid'>
