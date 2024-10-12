@@ -1,6 +1,9 @@
+"use client"
+
 import React, { useState } from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
+import { CiLogin } from "react-icons/ci";
 
 export default function LogIn() {
   const [email, setEmail] = useState("");
@@ -67,7 +70,7 @@ export default function LogIn() {
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
 
         <button type='submit' className={styles.loginButton}>
-          Sign In
+          Sign In <CiLogin className={styles.logInIcon} />
         </button>
 
         <p>Don't have an account yet?</p>

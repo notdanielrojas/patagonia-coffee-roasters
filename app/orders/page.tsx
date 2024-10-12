@@ -1,11 +1,21 @@
+"use client";
+
 import React from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
-import { GiCoffeeBeans } from "react-icons/gi";
+/* import { GiCoffeeBeans } from "react-icons/gi"; */
 import orders from "../orders.json";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { CiLogout } from "react-icons/ci";
 
 export default function ordersHistory() {
+  const router = useRouter();
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    router.push("/login");
+  };
+
   return (
     <>
       <div className={styles.profileOrderHistorySection}>
@@ -41,10 +51,12 @@ export default function ordersHistory() {
 
         <div className={styles.profileValidMyAccount}>
           <h1>My Account</h1>
-          <p>Log Out</p>
+          <button className={styles.logOutButton} onClick={handleLogout}>
+            Log Out <CiLogout className={styles.logOutIcon} />
+          </button>
         </div>
         <div className={styles.profileValidInfo}>
-          <GiCoffeeBeans className={styles.profileOrderAvatar} />
+          {/* <GiCoffeeBeans className={styles.profileOrderAvatar} /> */}
           <h2>Account Details</h2>
           <p>Username</p>
           <p>user@email.com</p>

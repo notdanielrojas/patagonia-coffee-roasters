@@ -28,7 +28,7 @@ export default async function Posts() {
                     height={100}
                   />
                 </td>
-                <td>{post.commentary}</td>
+                <td>{post.review}</td>
                 <td>{post.evaluacion}</td>
               </tr>
             ))}

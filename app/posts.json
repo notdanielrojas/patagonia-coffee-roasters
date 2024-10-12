@@ -1,31 +1,36 @@
 [
   {
+    "id": 1,
     "producto": "Signature Blend",
-    "commentary": "The Signature Blend has a strong, smoky flavor that I love. Perfect for starting the day with energy.",
+    "review": "The Signature Blend has a strong, smoky flavor that I love. Perfect for starting the day with energy.",
     "evaluacion": 5,
     "image_url": "https://iili.io/H8Y78Qt.webp"
   },
   {
+    "id": 2,
     "producto": "Golden Sunrise",
-    "commentary": "A well-made coffee is pure magic. Its intense and creamy taste always leaves me wanting more.",
+    "review": "A well-made coffee is pure magic. Its intense and creamy taste always leaves me wanting more.",
     "evaluacion": 4,
     "image_url": "https://iili.io/H8Y7WEg.webp"
   },
   {
+    "id": 3,
     "producto": "Rainforest Rhapsody",
-    "commentary": "The Rainforest Rhapsody has a smoother, fruity flavor profile. Perfect for relaxed mornings. ",
+    "review": "The Rainforest Rhapsody has a smoother, fruity flavor profile. Perfect for relaxed mornings. ",
     "evaluacion": 3,
     "image_url": "https://iili.io/H8Y7kTN.webp"
   },
   {
+    "id": 4,
     "producto": "Harvest Moon",
-    "commentary": "The roasting method brings out all the coffee flavors. I love the body this brew has.",
+    "review": "The roasting method brings out all the coffee flavors. I love the body this brew has.",
     "evaluacion": 5,
     "image_url": "https://iili.io/H8Y7X4a.webp"
   },
   {
+    "id": 5,
     "producto": "Wildfire",
-    "commentary": "This coffee is refreshing and perfect for summer. Full of character, simply delicious.",
+    "review": "This coffee is refreshing and perfect for summer. Full of character, simply delicious.",
     "evaluacion": 4,
     "image_url": "https://iili.io/H8Y7r4s.webp"
   }

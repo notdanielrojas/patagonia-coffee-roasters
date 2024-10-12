@@ -1,16 +1,26 @@
+"use client";
+
 import React from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import { GiCoffeeBeans } from "react-icons/gi";
 import posts from "../posts.json";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { CiLogout } from "react-icons/ci";
 
 export default function ProfileOrderHistory() {
+  const router = useRouter();
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    router.push("/login");
+  };
+
   return (
     <>
       <div className={styles.profilePostsHistorySection}>
         <div className={styles.profilePostsHistory}>
-          <Link href={""}>
+          <Link href='/posts'>
             <h3>My Posts History</h3>
           </Link>
         </div>
@@ -25,23 +35,31 @@ export default function ProfileOrderHistory() {
               </tr>
             </thead>
             <tbody>
-              {posts.map((post, index) => (
-                <tr key={index} className={styles.postGrid}>
-                  <td>{post.producto}</td>
-                  <td>
-                    <Image src={post.image_url} alt={post.producto} width={150} height={100} />
-                  </td>
-                  <td>{post.commentary}</td>
-                  <td>{post.evaluacion}</td>
+              {posts.length > 0 ? (
+                posts.map((post, index) => (
+                  <tr key={post.id || index} className={styles.postGrid}>
+                    <td>{post.producto}</td>
+                    <td>
+                      <Image src={post.image_url} alt={post.producto} width={150} height={100} objectFit='cover' />
+                    </td>
+                    <td>{post.review}</td>
+                    <td>{post.evaluacion}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4}>No posts found.</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
         <div className={styles.profileValidMyAccount}>
           <GiCoffeeBeans className={styles.profilePostsAvatar} />
           <h1>My Account</h1>
-          <p>Log Out</p>
+          <button className={styles.logOutButton} onClick={handleLogout}>
+            Log Out <CiLogout className={styles.logOutIcon}/>
+          </button>
         </div>
         <div className={styles.profileValidInfo}>
           <h2>Account Details</h2>
