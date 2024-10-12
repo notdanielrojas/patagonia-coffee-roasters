@@ -1,11 +1,13 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import { CiLogin } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 export default function LogIn() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -13,7 +15,7 @@ export default function LogIn() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,12 +23,16 @@ export default function LogIn() {
         body: JSON.stringify({ email, password }),
       });
 
+      console.log("Response Status:", response.status);
+
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message || "Error during login");
       }
 
       console.log("Logged in successfully:", data);
+
+      router.push("/profileValid");
     } catch (error: unknown) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
@@ -41,13 +47,13 @@ export default function LogIn() {
       <form onSubmit={handleSubmit} className={styles.loginForm}>
         <label htmlFor='email'>Email:</label>
         <input
-          type='text'
+          type='email'
           id='email'
           name='email'
           placeholder='Enter your email'
           required
           minLength={10}
-          maxLength={20}
+          maxLength={50}
           className={styles.inputForm}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -60,7 +66,7 @@ export default function LogIn() {
           name='password'
           placeholder='Enter your password'
           required
-          minLength={10}
+          minLength={5}
           maxLength={20}
           className={styles.inputForm}
           value={password}
@@ -68,6 +74,7 @@ export default function LogIn() {
         />
 
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
 
         <button type='submit' className={styles.loginButton}>
           Sign In <CiLogin className={styles.logInIcon} />

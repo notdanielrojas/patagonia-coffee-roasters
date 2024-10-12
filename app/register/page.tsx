@@ -4,18 +4,21 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styles from "../styles/styles.module.css";
 import { CiLogin } from "react-icons/ci";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
+    const router = useRouter();
   const [user, setUser] = useState({
     name: "",
     last_name: "",
     email: "",
     password: "",
-  });
+  })
+  ;
 
   const registerUser = async (user: { name: string; last_name: string; email: string; password: string }) => {
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,11 +28,13 @@ export default function Register() {
 
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.error || "Error creando usuario");
+        throw new Error(data.error || "Error creating user");
       }
-      console.log("Usuario registrado:", data);
+      console.log("User created successfully:", data);
+
+      router.push("/login");
     } catch (error: any) {
-      console.error("Error registrando el usuario:", error.message);
+      console.error("Error trying to create the user:", error.message);
     }
   };
 
@@ -48,7 +53,7 @@ export default function Register() {
           name='name'
           placeholder='Type your username'
           required
-          minLength={10}
+          minLength={3}
           maxLength={20}
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
@@ -61,7 +66,7 @@ export default function Register() {
           name='last_name'
           placeholder='Type your last name'
           required
-          minLength={10}
+          minLength={3}
           maxLength={20}
           value={user.last_name}
           onChange={(e) => setUser({ ...user, last_name: e.target.value })}
@@ -85,7 +90,7 @@ export default function Register() {
           name='password'
           placeholder='Type your password'
           required
-          minLength={10}
+          minLength={5}
           maxLength={20}
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
