@@ -1,7 +1,6 @@
 import pool from "./database.model";
 import bcrypt from "bcryptjs";
 
-// Definición de interfaces para los datos del usuario
 interface User {
   name: string;
   last_name: string;
@@ -15,6 +14,7 @@ interface UserRow {
   last_name: string;
   email: string;
   password: string;
+  role: string;
 }
 
 const getUserByEmail = async (email: string): Promise<UserRow> => {
@@ -53,11 +53,11 @@ const getAllUsers = async (): Promise<UserRow[]> => {
   return result.rows;
 };
 
-const registerUser = async (user: User): Promise<void> => {
+const registerUser = async (user: User, role: string = "user"): Promise<void> => {
   const { name, last_name, email, password } = user;
   const encryptedPassword = bcrypt.hashSync(password);
-  const values = [name, last_name, email, encryptedPassword];
-  const query = "INSERT INTO users (name, last_name, email, password) VALUES ($1, $2, $3, $4)";
+  const values = [name, last_name, email, encryptedPassword, role];
+  const query = "INSERT INTO users (name, last_name, email, password, role) VALUES ($1, $2, $3, $4, $5)";
 
   await pool.query(query, values);
 };

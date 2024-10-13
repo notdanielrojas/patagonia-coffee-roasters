@@ -25,6 +25,11 @@ const handleErrors = (code: number): ErrorResponse => {
         status: 401,
         message: "Invalid email or password.",
       };
+    case 409: // Conflicto, por ejemplo, al intentar editar un usuario existente
+      return {
+        status: 409,
+        message: "User already exists.",
+      };
     default:
       return {
         status: 500,
@@ -35,20 +40,10 @@ const handleErrors = (code: number): ErrorResponse => {
 
 const handleSuccess = (code: number): SuccessResponse => {
   switch (code) {
-    case 200:
-      return {
-        status: 200,
-        message: "Login successful.",
-      };
     case 201:
       return {
         status: 201,
         message: "User created successfully.",
-      };
-    case 204:
-      return {
-        status: 204,
-        message: "User deleted successfully.",
       };
     default:
       return {

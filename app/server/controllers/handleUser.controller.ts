@@ -39,17 +39,14 @@ const handleGetUser = async (req: UserRequest, res: Response): Promise<void> => 
     if (user) {
       const successResponse = handleSuccess(200);
       res.status(successResponse.status).json([user]);
-      return;
     } else {
       const errorResponse = handleErrors(404);
       res.status(errorResponse.status).send(errorResponse.message);
-      return;
     }
   } catch (error: any) {
     console.error("Error fetching user:", error.message);
     const errorResponse = handleErrors(500);
     res.status(errorResponse.status).send(errorResponse.message);
-    return;
   }
 };
 
@@ -64,10 +61,10 @@ const handleGetAllUsers = async (req: Request, res: Response): Promise<void> => 
     }
 
     res.status(200).json(users);
-  } catch (error) {
-    console.error(error);
+  } catch (error: any) {
+    console.error("Error fetching users:", error.message);
     const errorResponse = handleErrors(500);
-    res.status(errorResponse.status).json(errorResponse.message);
+    res.status(errorResponse.status).json({ message: errorResponse.message });
   }
 };
 

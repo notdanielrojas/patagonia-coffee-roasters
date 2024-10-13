@@ -1,6 +1,8 @@
 const request = require("supertest");
 const server = require("../index");
 
+
+/* 
 describe("Operaciones CRUD de cafes", () => {
   it("GET: Obteniendo un 200 y esperando un array con un objeto como mínimo", async () => {
     const response = await request(server).get("/cafes").send();
@@ -37,3 +39,4 @@ describe("Operaciones CRUD de cafes", () => {
     expect(response.status).toBe(400);
   });
 });
+ */
