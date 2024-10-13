@@ -7,7 +7,6 @@ interface CustomRequest extends Request {
 
 const authMiddleware = (req: CustomRequest, res: Response, next: NextFunction): void => {
   const authorizationHeader = req.headers.authorization;
-
   if (!authorizationHeader) {
     res.status(401).json({ error: "Authorization header is missing" });
     return;

@@ -4,7 +4,7 @@ import { verifyCredentials } from "../models/login.model";
 import { handleErrors, handleSuccess } from "../utils/codes.utils";
 
 
-const handleCredentials = async (req: Request, res: Response): Promise<void> => {
+const handleCredentialsAtLogin = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
     await verifyCredentials(email, password);
@@ -25,4 +25,4 @@ const handleCredentials = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
-export { handleCredentials };
+export { handleCredentialsAtLogin };

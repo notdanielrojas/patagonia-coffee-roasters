@@ -23,7 +23,9 @@ interface CoffeeGridProps {
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
 
-  const filteredCoffeeList = coffeeList.filter((coffee) => coffee.name.toLowerCase().includes(searchText.toLowerCase()));
+  const filteredCoffeeList = coffeeList.filter((coffee) =>
+    coffee.name.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <>
@@ -37,29 +39,30 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
             type='text'
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            placeholder='Harvest Moon, Andean Almond, Sumatra Blend.'
+            placeholder='Example: Harvest Moon, Andean Almond, Sumatra Blend, Chilean Charm.'
             id='coffeeName'
             className={styles.productGridFormInput}
           />
         </form>
-      </div>
-      <div className={styles.productGridSection}>
-        <div className={styles.productGridItems}>
-          {filteredCoffeeList.map((data) => (
-            <CoffeeCard
-              id={data.id}
-              image_url={data.image_url}
-              name={data.name}
-              key={data.id}
-              description={data.description}
-              price={data.price}
-              region={data.region}
-              weight={data.weight}
-              flavor_profile={data.flavor_profile}
-              grind_option={data.grind_option}
-              roast_level={data.roast_level}
-            />
-          ))}
+
+        <div className={styles.productGridSection}>
+          <div className={styles.productGridItems}>
+            {filteredCoffeeList.map((data) => (
+              <CoffeeCard
+                id={data.id}
+                image_url={data.image_url}
+                name={data.name}
+                key={data.id}
+                description={data.description}
+                price={data.price}
+                region={data.region}
+                weight={data.weight}
+                flavor_profile={data.flavor_profile}
+                grind_option={data.grind_option}
+                roast_level={data.roast_level}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

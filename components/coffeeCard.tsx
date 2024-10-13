@@ -59,11 +59,13 @@ export default function CoffeeCard({
       <Link href={`/productsPage/${id}`}>
         <Image alt={name} src={image_url} width={800} height={800} className={styles.coffeeCardImage} />
       </Link>
-      <h2 className={styles.coffeCardTitle}>{name}</h2>
-      <p className={styles.coffeeCardInfo}>{flavor_profile.join(" , ")}</p>
+      <div className={styles.coffeeCardInfoContainer}>
+        <h2 className={styles.coffeCardTitle}>{name}</h2>
+        <p className={styles.coffeeCardInfo}>{flavor_profile.join(" , ")}</p>
 
-      <button className={`${styles.coffeeCardInfoButton} ${getRegionStyle(region)}`}>{region}</button>
-      <p className={styles.coffeeCardInfo}>${price.toFixed(2)}</p>
+        <button className={`${styles.coffeeCardInfoButton} ${getRegionStyle(region)}`}>{region}</button>
+        <p className={styles.coffeeCardInfo}>${price.toFixed(2)}</p>
+      </div>
       <div className={styles.coffeeCardButtons}>
         <Link href={`/productsPage/${id}`}>
           <button className={styles.coffeeCardButton}>

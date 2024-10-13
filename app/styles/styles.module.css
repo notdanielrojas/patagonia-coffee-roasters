@@ -830,24 +830,46 @@ justify-content: flex-end;
 .coffeeCard {
   display: flex;
   flex-direction: column;
-  border: none;
-  border-radius: 2rem;
-  height: 60rem;
+  justify-content: center;
+  background-color: whitesmoke;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.8rem;
+  overflow: hidden;
   width: 30rem;
-  gap: 2rem;
-  padding: 3rem 3rem 6rem 3rem;
+  height: 55rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  padding: 0 4rem 0 4rem;
 }
 
 @media (min-width: 768px) {
   .coffeeCard {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-direction: column;
-    padding: 0 0 3rem 0;
-    height: 70rem;
+    justify-content: center;
+    background-color: whitesmoke;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.8rem;
+    overflow: hidden;
     width: 50rem;
+    height: 65rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    padding: 0 4rem 0 4rem;
   }
+}
+
+.coffeeCard:hover {
+  transform: translateY(-0.5rem);
+}
+
+.coffeeCardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 0 0 0;
+  gap: 1.5rem;
 }
 
 .coffeeCardTitle {
@@ -858,13 +880,21 @@ justify-content: flex-end;
 }
 
 .coffeeCardImage {
+  width: 25rem;
   background-color: #e9e4db;
+}
+
+@media (min-width: 768px) {
+  .coffeeCardImage {
+    width: 50rem;
+  }
 }
 
 .coffeeCardInfo {
   font-size: 1.8rem;
   font-weight: light;
   font-style: italic;
+ 
 }
 
 .coffeeCardButtons {
@@ -885,7 +915,7 @@ justify-content: flex-end;
   border-radius: 2rem;
   color: whitesmoke;
   background-color: #222222;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -908,11 +938,11 @@ justify-content: flex-end;
 
 .productGridSection {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-@media (min-width: 768px) {
-}
 .productGridTitle {
   padding-top: 5rem;
   font-size: x-large;
@@ -1157,31 +1187,46 @@ justify-content: flex-end;
   .productInfoPageSection {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    padding: 5rem 0;
   }
+}
+
+.productInfoPageImageContainer {
+  background-color: #e2e3e5;
 }
 
 .productInfoRow {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   background-color: whitesmoke;
-  border-radius: 2rem;
-  width: 90%;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  width: 80%;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  padding: 2rem;
 }
 
 @media (min-width: 768px) {
   .productInfoRow {
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    background-color: whitesmoke;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    width: 70%;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    padding: 0;
   }
 }
 
 .productInfoPageTitle {
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 
 @media (min-width: 768px) {
@@ -1199,7 +1244,13 @@ justify-content: flex-end;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 5rem;
+  padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .productInfoDetails {
+    padding: 2rem 0;
+  }
 }
 
 .productInfoDetails table {

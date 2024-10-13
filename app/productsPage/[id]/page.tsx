@@ -44,7 +44,7 @@ const CoffeePage: React.FC<CoffeePageProps> = async ({ params }) => {
             image_url: string;
           }) => (
             <div key={item.id} className={styles.productInfoRow}>
-              <div className={styles.productInfoImage}>
+              <div className={styles.productInfoPageImageContainer}>
                 <Image src={item.image_url} alt='image' width={700} height={1000} />
               </div>
               <div className={styles.productInfoDetails}>
