@@ -16,12 +16,6 @@ interface UserRow {
   password: string;
 }
 
-interface UserPost {
-  user_id: number;
-  selected_coffee: string;
-  review: string;
-  rating: number;
-}
 
 const getUserByEmail = async (email: string): Promise<UserRow> => {
   try {
@@ -58,17 +52,5 @@ const registerUser = async (user: User): Promise<void> => {
   await pool.query(query, values);
 };
 
-/* const postUser = async (user: UserPost): Promise<void> => {
-  const { user_id, selected_coffee, review, rating } = user;
-  const values = [user_id, selected_coffee, review, rating];
-  const query = "INSERT INTO posts (user_id, selected_coffee, review, rating) VALUES ($1, $2, $3, $4)";
 
-  try {
-    await pool.query(query, values);
-  } catch (error) {
-    console.error("Error inserting user post:", error);
-    throw new Error("Failed to insert post into database");
-  }
-}; */
-
-export { getUserById, getUserByEmail, registerUser, /* postUser  */};
+export { getUserById, getUserByEmail, registerUser};

@@ -1055,35 +1055,6 @@ justify-content: flex-end;
   }
 }
 
-.postImageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.postImageContainerDesktop {
-  display: none;
-}
-
-@media (min-width: 768px) {
-}
-
-.postImage {
-  width: 20rem;
-}
-
-@media (min-width: 768px) {
-  .postImage {
-    display: none;
-  }
-}
-
-.postSelectScore {
-  padding: 1rem 0;
-  border: none;
-}
-
 @media (min-width: 768px) {
 }
 
@@ -1113,66 +1084,6 @@ justify-content: flex-end;
     background-color: #222222;
     gap: 0.5rem;
   }
-}
-
-.generalPostSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5rem;
-  padding-top: 3rem;
-}
-
-@media (min-width: 768px) {
-  /*   .generalPostSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5rem;
-    padding-top: 3rem;
-  } */
-}
-
-.tablePosts,
-.tableOrders {
-  padding: 3rem 3rem;
-  background-color: #e9e4db;
-  border-radius: 3rem;
-}
-
-@media (min-width: 768px) {
-  .tablePosts,
-  .tableOrders {
-    width: 80%;
-  }
-}
-
-.tablePosts td,
-.tableOrders td {
-  padding: 1rem;
-  border: 0.1rem solid #ccc;
-}
-
-@media (min-width: 768px) {
-  .tablePosts td,
-  .tableOrders td {
-    padding: 0.5rem 2rem;
-  }
-}
-
-.postGrid {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-}
-
-.orderGrid {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
 }
 
 @media (min-width: 768px) {
@@ -1411,4 +1322,72 @@ justify-content: flex-end;
 .profilePostIcon {
   width: 2rem;
   height: 2rem;
+}
+
+.generalPostSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  gap: 5rem;
+}
+
+.generalPostTitle {
+  padding-top: 3rem;
+}
+
+.error {
+  color: red;
+  margin-bottom: 2rem;
+}
+
+.postCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.postCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  width: 30rem;
+  height: 30rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.postCard:hover {
+  transform: translateY(-0.5rem);
+}
+
+.cardImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.postCardContent {
+  padding: 1rem;
+}
+
+.postCardTitle {
+  font-size: 2rem;
+  margin: 0;
+  color: #333;
+}
+
+.postCardDescription {
+  font-size: 1.5rem;
+  color: #666;
+  margin-top: 0.5rem;
 }

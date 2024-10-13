@@ -14,7 +14,7 @@ export default function LogIn() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setErrorMessage(""); // Limpiar el mensaje de error al iniciar el envío
+    setErrorMessage("");
 
     try {
       const response = await fetch("http://localhost:5000/login", {

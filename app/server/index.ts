@@ -4,7 +4,7 @@ import { logger } from "./middlewares/logger.middleware";
 import handleCredentialsRouter from "./routes/login.routes";
 import handleRegisterUserRouter from "./routes/user.routes";
 import dotenv from "dotenv";
-/* import handlePostUserRouter from "./routes/posts.routes"; */
+import handlePostUserRouter from "./routes/posts.routes";
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use("/login", handleCredentialsRouter);
 app.use("/users", handleRegisterUserRouter);
-/* app.use("/posts", handlePostUserRouter); */
+app.use("/posts", handlePostUserRouter);
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,77 +1,34 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../app/styles/styles.module.css";
-import { getCoffeeList } from "../app/api/coffeeAPI";
-import Image from "next/image";
-import { jwtDecode } from "jwt-decode";
-
-interface Coffee {
-  image_url: string;
-  name: string;
-}
-
-interface DecodedToken {
-  user_id: number;
-}
+import { useRouter } from "next/navigation";
 
 export default function PostForm() {
-  const [coffeeList, setCoffeeList] = useState<Coffee[]>([]);
+  const router = useRouter();
   const [error, setError] = useState<string | null>(null);
-  const [selectedCoffee, setSelectedCoffee] = useState<Coffee | null>(null);
-  const [review, setReview] = useState("");
-  const [rating, setRating] = useState<number | null>(null);
-  const [user_id, setUserId] = useState<number | null>(null);
-  const [token, setToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchCoffees = async () => {
-      try {
-        const coffees = await getCoffeeList();
-        console.log("Coffee List:", coffees);
-        setCoffeeList(coffees);
-      } catch (err) {
-        setError("Failed to fetch coffee list.");
-      }
-    };
-    fetchCoffees();
-
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
-      try {
-        const decoded: DecodedToken = jwtDecode(storedToken);
-        setUserId(decoded.user_id);
-      } catch (err) {
-        setError("Failed to decode token");
-      }
-    }
-  }, []);
-
-  const handleCoffeeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedProduct = coffeeList.find((coffee) => coffee.name === event.target.value);
-    setSelectedCoffee(selectedProduct || null);
-  };
+  const [image_url, setImageUrl] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!user_id || !selectedCoffee || !review || !rating) {
+    if (!image_url || !title || !description) {
       setError("Please fill in all fields.");
       return;
     }
 
+    setLoading(true);
+
     try {
-      const response = await fetch("http://localhost:3000/posts", {
+      const response = await fetch("http://localhost:5000/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          user_id,
-          selected_coffee: selectedCoffee.name,
-          review,
-          rating,
+          image_url,
+          title,
+          description,
         }),
       });
 
@@ -80,81 +37,68 @@ export default function PostForm() {
         throw new Error(data.message || "Failed to submit review");
       }
 
-    
       console.log("Review posted successfully:", data);
       setError(null);
-      setSelectedCoffee(null);
-      setReview("");
-      setRating(null);
+      setImageUrl("");
+      setTitle("");
+      setDescription("");
+
       alert("Review posted successfully!");
+      router.push("/posts");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
       } else {
         setError("An unknown error occurred");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className={styles.postSection}>
       <form onSubmit={handleSubmit} className={styles.postForm}>
-        <label htmlFor='product'>Choose a Product</label>
-        <select name='product' id='product' className={styles.selectProductForm} onChange={handleCoffeeChange}>
-          <option value=''>-- Choose a product --</option>
-          {coffeeList.map((producto) => (
-            <option key={producto.name} value={producto.name}>
-              {producto.name}
-            </option>
-          ))}
-        </select>
-
-        {selectedCoffee && (
-          <div className={styles.postImageContainer}>
-            <Image
-              src={selectedCoffee.image_url}
-              alt={selectedCoffee.name}
-              className={styles.postImage}
-              width={200}
-              height={200}
-            />
-          </div>
-        )}
-
-        <label htmlFor='review'>Your Review</label>
+        <label htmlFor='image_url'>Image</label>
         <input
           type='text'
-          id='review'
-          name='review'
-          placeholder='Write your review here'
+          id='image_url'
+          name='image_url'
+          placeholder='Enter the image URL here'
           required
-          minLength={50}
-          maxLength={255}
           autoComplete='off'
           className={styles.postFormInput}
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
+          value={image_url}
+          onChange={(e) => setImageUrl(e.target.value)}
         />
-
-        <label htmlFor='rating'>Rate</label>
-        <select
-          name='rating'
-          id='rating'
-          className={styles.postSelectScore}
-          onChange={(e) => setRating(Number(e.target.value))}
-        >
-          <option value='' disabled hidden>
-            -- Choose a rate --
-          </option>
-          <option value='1'>1</option>
-          <option value='2'>2</option>
-          <option value='3'>3</option>
-          <option value='4'>4</option>
-          <option value='5'>5</option>
-        </select>
-
-        <button type='submit' className={styles.postButton}>
-          Post
+        <label htmlFor='title'>Title</label>
+        <input
+          type='text'
+          id='title'
+          name='title'
+          placeholder='Enter your title here'
+          required
+          autoComplete='off'
+          className={styles.postFormInput}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <label htmlFor='description'>Description</label>
+        <input
+          type='text'
+          id='description'
+          name='description'
+          placeholder='Write a description'
+          required
+          autoComplete='off'
+          minLength={10}
+          maxLength={255}
+          className={styles.postFormInput}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <button type='submit' className={styles.postButton} disabled={loading}>
+          {loading ? "Posting..." : "Post"}
         </button>
       </form>
 
