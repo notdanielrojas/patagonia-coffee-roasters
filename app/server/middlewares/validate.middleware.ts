@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 
-
 const validateCredentialsAtRegister = (req: Request, res: Response, next: NextFunction): void => {
   const { name, last_name, email, password } = req.body;
-
 
   if (!name || !last_name || !email || !password) {
     res.status(400).json({ message: "All fields are required" });
@@ -13,10 +11,8 @@ const validateCredentialsAtRegister = (req: Request, res: Response, next: NextFu
   next();
 };
 
-
 const validateCredentialsAtLogin = (req: Request, res: Response, next: NextFunction): void => {
   const { email, password } = req.body;
-
 
   if (!email || !password) {
     res.status(400).json({ message: "All fields are required" });
@@ -26,5 +22,15 @@ const validateCredentialsAtLogin = (req: Request, res: Response, next: NextFunct
   next();
 };
 
+const validateCredentialsAtSubmit = (req: Request, res: Response, next: NextFunction): void => {
+  const { selected_coffee, review, rating } = req.body;
 
-export { validateCredentialsAtRegister, validateCredentialsAtLogin };
+  if (!selected_coffee || !review || rating === null || rating === undefined) {
+    res.status(400).json({ message: "All fields are required" });
+    return;
+  }
+
+  next();
+};
+
+export { validateCredentialsAtRegister, validateCredentialsAtLogin, validateCredentialsAtSubmit };

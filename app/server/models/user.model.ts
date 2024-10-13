@@ -1,5 +1,5 @@
 import pool from "./database.model";
-import bcrypt from "bcryptjs"; 
+import bcrypt from "bcryptjs";
 
 interface User {
   name: string;
@@ -14,6 +14,13 @@ interface UserRow {
   last_name: string;
   email: string;
   password: string;
+}
+
+interface UserPost {
+  user_id: number;
+  selected_coffee: string;
+  review: string;
+  rating: number;
 }
 
 const getUserByEmail = async (email: string): Promise<UserRow> => {
@@ -46,9 +53,22 @@ const registerUser = async (user: User): Promise<void> => {
   const encriptedPassword = bcrypt.hashSync(password);
   password = encriptedPassword;
   const values = [name, last_name, email, encriptedPassword];
-  const query = "INSERT INTO users (name, last_name, email, password) VALUES ($1, $2, $3, $4)"; 
+  const query = "INSERT INTO users (name, last_name, email, password) VALUES ($1, $2, $3, $4)";
 
   await pool.query(query, values);
 };
 
-export { getUserById, getUserByEmail, registerUser };
+/* const postUser = async (user: UserPost): Promise<void> => {
+  const { user_id, selected_coffee, review, rating } = user;
+  const values = [user_id, selected_coffee, review, rating];
+  const query = "INSERT INTO posts (user_id, selected_coffee, review, rating) VALUES ($1, $2, $3, $4)";
+
+  try {
+    await pool.query(query, values);
+  } catch (error) {
+    console.error("Error inserting user post:", error);
+    throw new Error("Failed to insert post into database");
+  }
+}; */
+
+export { getUserById, getUserByEmail, registerUser, /* postUser  */};

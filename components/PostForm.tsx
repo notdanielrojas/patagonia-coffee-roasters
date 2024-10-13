@@ -3,10 +3,16 @@
 import { useEffect, useState } from "react";
 import styles from "../app/styles/styles.module.css";
 import { getCoffeeList } from "../app/api/coffeeAPI";
+import Image from "next/image";
+import { jwtDecode } from "jwt-decode";
 
 interface Coffee {
   image_url: string;
   name: string;
+}
+
+interface DecodedToken {
+  user_id: number;
 }
 
 export default function PostForm() {
@@ -15,6 +21,8 @@ export default function PostForm() {
   const [selectedCoffee, setSelectedCoffee] = useState<Coffee | null>(null);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState<number | null>(null);
+  const [user_id, setUserId] = useState<number | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCoffees = async () => {
@@ -27,6 +35,17 @@ export default function PostForm() {
       }
     };
     fetchCoffees();
+
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      try {
+        const decoded: DecodedToken = jwtDecode(storedToken);
+        setUserId(decoded.user_id);
+      } catch (err) {
+        setError("Failed to decode token");
+      }
+    }
   }, []);
 
   const handleCoffeeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -36,19 +55,21 @@ export default function PostForm() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!selectedCoffee || !review || !rating) {
+    if (!user_id || !selectedCoffee || !review || !rating) {
       setError("Please fill in all fields.");
       return;
     }
 
     try {
-      const response = await fetch("/reviews", {
+      const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          product: selectedCoffee.name,
+          user_id,
+          selected_coffee: selectedCoffee.name,
           review,
           rating,
         }),
@@ -58,8 +79,14 @@ export default function PostForm() {
       if (!response.ok) {
         throw new Error(data.message || "Failed to submit review");
       }
+
+    
       console.log("Review posted successfully:", data);
       setError(null);
+      setSelectedCoffee(null);
+      setReview("");
+      setRating(null);
+      alert("Review posted successfully!");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -84,7 +111,13 @@ export default function PostForm() {
 
         {selectedCoffee && (
           <div className={styles.postImageContainer}>
-            <img src={selectedCoffee.image_url} alt={selectedCoffee.name} className={styles.postImage} />
+            <Image
+              src={selectedCoffee.image_url}
+              alt={selectedCoffee.name}
+              className={styles.postImage}
+              width={200}
+              height={200}
+            />
           </div>
         )}
 
@@ -95,8 +128,8 @@ export default function PostForm() {
           name='review'
           placeholder='Write your review here'
           required
-          minLength={100}
-          maxLength={1000}
+          minLength={50}
+          maxLength={255}
           autoComplete='off'
           className={styles.postFormInput}
           value={review}

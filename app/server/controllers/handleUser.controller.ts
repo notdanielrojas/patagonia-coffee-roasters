@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { registerUser, getUserByEmail } from "../models/user.model";
+import { registerUser, getUserByEmail /*  postUser */ } from "../models/user.model";
 import { handleErrors, handleSuccess } from "../utils/codes.utils";
 
 interface UserRequest extends Request {
@@ -53,4 +53,19 @@ const handleGetUser = async (req: UserRequest, res: Response): Promise<void> => 
   }
 };
 
-export { handleGetUser, handleRegisterUser };
+/* const handlePostUser = async (req: UserRequest, res: Response): Promise<void> => {
+  const { user_id, selected_coffee, review, rating } = req.body;
+  if (!user_id || !selected_coffee || !review || !rating) {
+    res.status(400).json({ message: "Missing required fields" });
+    return;
+  }
+
+  try {
+    await postUser({ user_id, selected_coffee, review, rating });
+    res.status(201).json({ message: "Review posted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to post review" });
+  }
+}; */
+
+export { handleGetUser, handleRegisterUser /* handlePostUser */ };

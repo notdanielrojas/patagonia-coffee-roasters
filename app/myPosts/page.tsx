@@ -8,6 +8,7 @@ import posts from "../posts.json";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
+import { MdRateReview } from "react-icons/md";
 
 export default function ProfileOrderHistory() {
   const router = useRouter();
@@ -20,8 +21,11 @@ export default function ProfileOrderHistory() {
     <>
       <div className={styles.profilePostsHistorySection}>
         <div className={styles.profilePostsHistory}>
-          <Link href='/posts'>
-            <h3>My Posts History</h3>
+          <h3 className={styles.profilePostsTitle}>My Posts History</h3>
+          <Link href='/postForm'>
+            <button className={styles.profilePostButton}>
+              Create a Post <MdRateReview className={styles.profilePostIcon}/>
+            </button>
           </Link>
         </div>
         <div className={styles.profilePostsHistorySection}>
@@ -40,7 +44,7 @@ export default function ProfileOrderHistory() {
                   <tr key={post.id || index} className={styles.postGrid}>
                     <td>{post.producto}</td>
                     <td>
-                      <Image src={post.image_url} alt={post.producto} width={150} height={100} objectFit='cover' />
+                      <Image src={post.image_url} alt={post.producto} width={150} height={100} />
                     </td>
                     <td>{post.review}</td>
                     <td>{post.evaluacion}</td>
@@ -58,7 +62,7 @@ export default function ProfileOrderHistory() {
           <GiCoffeeBeans className={styles.profilePostsAvatar} />
           <h1>My Account</h1>
           <button className={styles.logOutButton} onClick={handleLogout}>
-            Log Out <CiLogout className={styles.logOutIcon}/>
+            Log Out <CiLogout className={styles.logOutIcon} />
           </button>
         </div>
         <div className={styles.profileValidInfo}>

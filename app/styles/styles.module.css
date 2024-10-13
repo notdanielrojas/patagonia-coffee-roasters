@@ -75,7 +75,6 @@
 
 @media (min-width: 768px) {
   .navBar {
-    display: flex;
     justify-content: space-evenly;
     background-color: #222222;
   }
@@ -94,6 +93,40 @@
     font-size: large;
   }
 }
+
+/* 
+.hamburgerMenu {
+display: flex;
+justify-content: flex-end;
+}
+
+.hamburgerButton {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.menuItemHamburguer {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.menuItem:hover {
+  background-color: #f0f0f0;
+}
+ */
 
 .mainGrid {
   display: flex;
@@ -656,10 +689,22 @@
 
 .profilePostsHistory,
 .profileOrderHistory {
+  display: flex;
+  align-items: center;
   padding: 4rem 0 0 0;
+  gap: 5rem;
 }
 
 @media (min-width: 768px) {
+  .profilePostsHistory,
+  .profileOrderHistory {
+    justify-content: space-around;
+    width: 95%;
+  }
+}
+
+.profilePostsTitle {
+  text-decoration: underline;
 }
 
 .profileValidHistory {
@@ -978,18 +1023,14 @@
   background-color: whitesmoke;
   padding: 2rem 3rem;
   gap: 2rem;
-  border: 0.1rem #222222 solid;
+  border: none;
   border-radius: 1rem;
 }
 
 @media (min-width: 768px) {
   .postForm {
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
-    background-color: whitesmoke;
-    padding: 2rem 3rem;
-    gap: 2rem;
     width: 25%;
     height: 60rem;
   }
@@ -1018,7 +1059,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 
 .postImageContainerDesktop {
@@ -1029,7 +1070,7 @@
 }
 
 .postImage {
-  width: 30rem;
+  width: 20rem;
 }
 
 @media (min-width: 768px) {
@@ -1346,11 +1387,28 @@
 }
 
 .logOutIcon {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .signInIcon {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.profilePostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: whitesmoke;
+  background-color: #222222;
+  gap: 0.5rem;
+}
+
+.profilePostIcon {
+  width: 2rem;
+  height: 2rem;
 }

@@ -14,6 +14,8 @@ export default function LogIn() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage(""); // Limpiar el mensaje de error al iniciar el envío
+
     try {
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
@@ -23,17 +25,15 @@ export default function LogIn() {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log("Response Status:", response.status);
-
       const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(data.message || "Error during login");
+        throw new Error(data.message || "Email or password incorrect");
       }
 
       console.log("Logged in successfully:", data);
-
       router.push("/profileValid");
-    } catch (error: unknown) {
+    } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
       } else {
@@ -74,7 +74,6 @@ export default function LogIn() {
         />
 
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
 
         <button type='submit' className={styles.loginButton}>
           Sign In <CiLogin className={styles.logInIcon} />
