@@ -3,21 +3,16 @@
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { useEffect, useState } from "react";
+import { useUser } from "@/context/UserContext";
 import styles from "../styles/styles.module.css";
 import { IoBagCheckOutline } from "react-icons/io5";
 
 export default function CheckoutPage() {
   const { cart, setCart, clearCart } = useCart();
+  const { user } = useUser();
   const [error, setError] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const userInfo = JSON.parse(atob(token.split(".")[1]));
-      setUser(userInfo);
-    }
-
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));

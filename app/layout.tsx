@@ -26,16 +26,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${poppins.variable} antialiased`}>
-        <UserProvider>
-          <CartProvider>
-            <main>
+        <main>
+          <UserProvider>
+            <CartProvider>
               <LogoPCR />
               <Nav />
               {children}
-            </main>
-          </CartProvider>
-        </UserProvider>
-        <Footer />
+            </CartProvider>
+          </UserProvider>
+          <Footer />
+        </main>
       </body>
     </html>
   );
