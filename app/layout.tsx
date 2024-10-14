@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { LogoPCR } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
+import { UserProvider } from "@/context/UserContext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,13 +26,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${poppins.variable} antialiased`}>
-        <CartProvider>
-          <main>
-            <LogoPCR />
-            <Nav />
-            {children}
-          </main>
-        </CartProvider>
+        <UserProvider>
+          <CartProvider>
+            <main>
+              <LogoPCR />
+              <Nav />
+              {children}
+            </main>
+          </CartProvider>
+        </UserProvider>
         <Footer />
       </body>
     </html>

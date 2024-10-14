@@ -6,11 +6,18 @@ import { useEffect, useState } from "react";
 import styles from "../styles/styles.module.css";
 import { IoBagCheckOutline } from "react-icons/io5";
 
-export default function CheckoutPage({ user }: any) {
+export default function CheckoutPage() {
   const { cart, setCart, clearCart } = useCart();
   const [error, setError] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userInfo = JSON.parse(atob(token.split(".")[1]));
+      setUser(userInfo);
+    }
+
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
@@ -22,6 +29,11 @@ export default function CheckoutPage({ user }: any) {
   }, [cart]);
 
   const handleCheckout = async () => {
+    if (!user || !user.id) {
+      setError("User not authenticated. Please log in.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:5000/orders", {
         method: "POST",
@@ -35,14 +47,16 @@ export default function CheckoutPage({ user }: any) {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create order");
+        const message = `Failed to create order: ${response.status} ${response.statusText}`;
+        throw new Error(message);
       }
 
       clearCart();
       localStorage.removeItem("cart");
       alert("Order created successfully!");
-    } catch (error) {
-      setError("Failed to create order");
+    } catch (error: any) {
+      console.error("Checkout error:", error);
+      setError(error.message || "Failed to create order");
     }
   };
 
@@ -89,7 +103,7 @@ export default function CheckoutPage({ user }: any) {
       <button onClick={handleCheckout} className={styles.cartButton}>
         Place Order <IoBagCheckOutline className={styles.cartIcon} />
       </button>
-      {error && <p>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }

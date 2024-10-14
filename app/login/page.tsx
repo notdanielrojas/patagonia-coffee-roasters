@@ -32,6 +32,10 @@ export default function LogIn() {
       }
 
       console.log("Logged in successfully:", data);
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
       router.push("/profileValid");
     } catch (error) {
       if (error instanceof Error) {
