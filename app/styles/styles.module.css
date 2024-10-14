@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding-left: 21.8rem;
+    padding-left: 16rem;
     width: 100%;
   }
 }
@@ -894,7 +894,6 @@ justify-content: flex-end;
   font-size: 1.8rem;
   font-weight: light;
   font-style: italic;
- 
 }
 
 .coffeeCardButtons {
@@ -1173,6 +1172,24 @@ justify-content: flex-end;
     border: 0.1rem solid #ccc;
     background-color: #e9e4db;
   }
+}
+
+.cartButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  background-color: #222222;
+  gap: 0.5rem;
+}
+
+.cartIcon {
+  width: 3rem;
+  height: 3rem;
 }
 
 .productInfoPageSection {

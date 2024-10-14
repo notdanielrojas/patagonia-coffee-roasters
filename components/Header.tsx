@@ -16,7 +16,7 @@ export function Header({ alt }: { id: string; alt: string }) {
         <Link href='/login'>
           <IoPersonSharp className={styles.headerIcon} />
         </Link>
-        <Link href='/cart'>
+        <Link href='/checkout'>
           <CiShoppingCart className={styles.headerIcon} />
         </Link>
       </div>
