@@ -23,7 +23,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const userInfo = JSON.parse(atob(token.split(".")[1])) as User;
+        const userInfo = JSON.parse(token.split(".")[1]) as User;
         setUser(userInfo);
       } catch (error) {
         console.error("Error decoding token:", error);
