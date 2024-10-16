@@ -789,7 +789,7 @@ justify-content: flex-end;
 @media (min-width: 768px) {
 }
 
-.orderSection {
+.profileOrderHistoryInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -800,28 +800,22 @@ justify-content: flex-end;
 @media (min-width: 768px) {
 }
 
-.orderHistory {
-  display: flex;
-  padding-top: 3rem;
-  gap: 5rem;
+.tableOrders {
+  padding: 3rem 3rem;
+  background-color: #e9e4db;
+  border-radius: 3rem;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
+.tableHeadPosts {
+  text-align: center;
 }
 
-.orderMyAccount {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem;
-}
-
-@media (min-width: 768px) {
-}
-
-.orderInfo {
-  padding: 3rem 0 0 0;
+.tableOrders td {
+  text-align: center;
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+  background-color: #e9e4db;
 }
 
 @media (min-width: 768px) {
@@ -1458,4 +1452,13 @@ justify-content: flex-end;
   font-size: 1.5rem;
   color: #666;
   margin-top: 0.5rem;
+}
+
+.checkoutMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: medium;
+  height: 30vh;
 }

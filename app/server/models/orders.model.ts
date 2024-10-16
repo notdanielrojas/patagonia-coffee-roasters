@@ -14,6 +14,7 @@ interface Order {
   status: string;
 }
 
+
 const createOrder = async (order: Order): Promise<number> => {
   const { user_id, total, status } = order;
   const query = `
@@ -25,6 +26,7 @@ const createOrder = async (order: Order): Promise<number> => {
   return result.rows[0].id;
 };
 
+
 const addOrderDetails = async (details: OrderDetails): Promise<void> => {
   const { order_id, image_url, product_name, quantity, price } = details;
   const query = `
@@ -35,4 +37,35 @@ const addOrderDetails = async (details: OrderDetails): Promise<void> => {
   await pool.query(query, values);
 };
 
-export { createOrder, addOrderDetails };
+const getOrdersByUserId = async (userId: number): Promise<Order[]> => {
+  const query = `
+    SELECT od.id, od.product_name as producto, od.image_url, od.price, od.quantity, o.total 
+    FROM order_details od
+    JOIN orders o ON od.order_id = o.id
+    WHERE o.user_id = $1
+  `;
+  const values = [userId];
+  const result = await pool.query(query, values);
+  return result.rows;
+};
+
+const updateOrderStatus = async (orderId: number, status: string): Promise<void> => {
+  const query = `
+    UPDATE orders
+    SET status = $1
+    WHERE id = $2
+  `;
+  const values = [status, orderId];
+  await pool.query(query, values);
+};
+
+const deleteOrder = async (orderId: number): Promise<void> => {
+  const query = `
+    DELETE FROM orders
+    WHERE id = $1
+  `;
+  const values = [orderId];
+  await pool.query(query, values);
+};
+
+export { createOrder, addOrderDetails, getOrdersByUserId, updateOrderStatus, deleteOrder };

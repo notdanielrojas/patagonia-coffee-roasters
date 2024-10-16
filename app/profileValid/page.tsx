@@ -7,6 +7,11 @@ import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
 import { useUser } from "@/context/UserContext";
 
+interface User {
+  id: string;
+  email: string;
+}
+
 export default function ProfileValid() {
   const router = useRouter();
   const { user, setUser } = useUser();
@@ -17,6 +22,8 @@ export default function ProfileValid() {
     setUser(null);
     router.push("/login");
   };
+
+  console.log("user", user);
 
   return (
     <div className={styles.profileValidSection}>
@@ -38,9 +45,7 @@ export default function ProfileValid() {
         <h2>Account Details</h2>
         {user ? (
           <>
-           {/*  <p>First Name: {user.name || "N/A"}</p>
-            <p>Last Name: {user.last_name || "N/A"}</p> */}
-            <p>Email: {user.email || "N/A"}</p>
+            <p>Email: {user.email}</p>
           </>
         ) : (
           <p>No user information available.</p>

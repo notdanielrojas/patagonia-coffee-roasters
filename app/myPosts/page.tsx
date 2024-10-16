@@ -24,7 +24,7 @@ export default function ProfileOrderHistory() {
           <h3 className={styles.profilePostsTitle}>My Posts History</h3>
           <Link href='/postForm'>
             <button className={styles.profilePostButton}>
-              Create a Post <MdRateReview className={styles.profilePostIcon}/>
+              Create a Post <MdRateReview className={styles.profilePostIcon} />
             </button>
           </Link>
         </div>
@@ -59,7 +59,6 @@ export default function ProfileOrderHistory() {
           </table>
         </div>
         <div className={styles.profileValidMyAccount}>
-          <GiCoffeeBeans className={styles.profilePostsAvatar} />
           <h1>My Account</h1>
           <button className={styles.logOutButton} onClick={handleLogout}>
             Log Out <CiLogout className={styles.logOutIcon} />

@@ -1,12 +1,10 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 interface User {
   id: number;
   email: string;
-  name: string;
-  last_name: string;
 }
 
 interface UserContextType {
@@ -23,8 +21,15 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const userInfo = JSON.parse(token.split(".")[1]) as User;
-        setUser(userInfo);
+        const payload = token.split(".")[1];
+        const decodedPayload = atob(payload);
+        const userInfo = JSON.parse(decodedPayload);
+
+        if (userInfo && userInfo.id && userInfo.email) {
+          setUser(userInfo);
+        } else {
+          throw new Error("Invalid user information");
+        }
       } catch (error) {
         console.error("Error decoding token:", error);
         setUser(null);

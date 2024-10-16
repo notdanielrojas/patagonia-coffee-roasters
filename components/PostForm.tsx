@@ -43,7 +43,7 @@ export default function PostForm() {
       setTitle("");
       setDescription("");
 
-      alert("Review posted successfully!");
+      alert("Review posted successfully 🎉!");
       router.push("/posts");
     } catch (err) {
       if (err instanceof Error) {

@@ -5,12 +5,14 @@ import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import { CiLogin } from "react-icons/ci";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 export default function LogIn() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { setUser } = useUser();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,15 +28,14 @@ export default function LogIn() {
       });
 
       const data = await response.json();
-
       if (!response.ok) {
         throw new Error(data.message || "Email or password incorrect");
       }
 
-      console.log("Logged in successfully:", data);
-
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
+
+      setUser(data.user);
 
       router.push("/profileValid");
     } catch (error) {

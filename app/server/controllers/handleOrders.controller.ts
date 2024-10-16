@@ -1,5 +1,11 @@
 import { Request, Response } from "express";
-import { createOrder, addOrderDetails } from "../models/orders.model";
+import {
+  createOrder,
+  addOrderDetails,
+  getOrdersByUserId,
+  updateOrderStatus,
+  deleteOrder,
+} from "../models/orders.model";
 
 const HandleCreateOrder = async (req: Request, res: Response): Promise<void> => {
   const { user_id, cart } = req.body;
@@ -34,4 +40,56 @@ const HandleCreateOrder = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
-export { HandleCreateOrder };
+const HandleGetOrdersByUserId = async (req: Request, res: Response): Promise<void> => {
+  const user_id = parseInt(req.params.user_id);
+
+  if (isNaN(user_id)) {
+    res.status(400).json({ message: "Invalid user ID" });
+    return;
+  }
+
+  try {
+    const orders = await getOrdersByUserId(user_id);
+    res.status(200).json(orders);
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    res.status(500).json({ message: "Failed to fetch orders" });
+  }
+};
+
+const HandleUpdateOrderStatus = async (req: Request, res: Response): Promise<void> => {
+  const orderId = parseInt(req.params.orderId);
+  const { status } = req.body;
+
+  if (isNaN(orderId) || !status) {
+    res.status(400).json({ message: "Invalid order ID or status" });
+    return;
+  }
+
+  try {
+    await updateOrderStatus(orderId, status);
+    res.status(200).json({ message: "Order status updated successfully" });
+  } catch (error) {
+    console.error("Error updating order status:", error);
+    res.status(500).json({ message: "Failed to update order status" });
+  }
+};
+
+const HandleDeleteOrder = async (req: Request, res: Response): Promise<void> => {
+  const orderId = parseInt(req.params.orderId);
+
+  if (isNaN(orderId)) {
+    res.status(400).json({ message: "Invalid order ID" });
+    return;
+  }
+
+  try {
+    await deleteOrder(orderId);
+    res.status(200).json({ message: "Order deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting order:", error);
+    res.status(500).json({ message: "Failed to delete order" });
+  }
+};
+
+export { HandleCreateOrder, HandleGetOrdersByUserId, HandleUpdateOrderStatus, HandleDeleteOrder };

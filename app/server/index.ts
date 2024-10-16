@@ -5,7 +5,8 @@ import { logger } from "./middlewares/logger.middleware";
 import handleCredentialsRouter from "./routes/login.routes";
 import handleRegisterUserRouter from "./routes/user.routes";
 import handlePostUserRouter from "./routes/posts.routes";
-import handleCreateOrderRouter from "./routes/orders.routes";
+import handleOrderRouter from "./routes/orders.routes";
+import HandleOrdersByUserIdRouter from "./routes/orders.routes";
 
 dotenv.config();
 
@@ -15,11 +16,12 @@ app.use(cors());
 app.use(logger);
 app.use(express.json());
 
+// Rutas
 app.use("/login", handleCredentialsRouter);
 app.use("/users", handleRegisterUserRouter);
 app.use("/posts", handlePostUserRouter);
-app.use("/orders", handleCreateOrderRouter);
-
+app.use("/orders", handleOrderRouter);
+app.use("/order_details", HandleOrdersByUserIdRouter);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
