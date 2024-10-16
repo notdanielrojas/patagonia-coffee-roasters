@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../app/styles/styles.module.css";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 export default function PostForm() {
+  const { user } = useUser();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [image_url, setImageUrl] = useState("");
@@ -12,20 +14,22 @@ export default function PostForm() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!image_url || !title || !description) {
-      setError("Please fill in all fields.");
+
+    if (!image_url.trim() || !title.trim() || !description.trim() || !user?.id) {
+      setError("All fields are required.");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/posts", {
+      const response = await fetch("http://localhost:5000/posts/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          user,
           image_url,
           title,
           description,
@@ -37,7 +41,6 @@ export default function PostForm() {
         throw new Error(data.message || "Failed to submit review");
       }
 
-      console.log("Review posted successfully:", data);
       setError(null);
       setImageUrl("");
       setTitle("");

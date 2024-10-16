@@ -6,10 +6,10 @@ import {
   updateOrderStatus,
   deleteOrder,
 } from "../models/orders.model";
+import { handleErrors } from "../utils/codes.utils";
 
 const HandleCreateOrder = async (req: Request, res: Response): Promise<void> => {
   const { user_id, cart } = req.body;
-
   if (!user_id || !cart || cart.length === 0) {
     res.status(400).json({ message: "Invalid order request" });
     return;
@@ -92,4 +92,23 @@ const HandleDeleteOrder = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
-export { HandleCreateOrder, HandleGetOrdersByUserId, HandleUpdateOrderStatus, HandleDeleteOrder };
+const HandleAddOrderDetails = async (req: Request, res: Response): Promise<void> => {
+  const { orderId } = req.params;
+  const details = req.body;
+
+  try {
+    await addOrderDetails({ order_id: parseInt(orderId), ...details });
+    res.status(201).json({ message: "Order details added successfully" });
+  } catch (error: any) {
+    const errorResponse = handleErrors(error.code || 500);
+    res.status(errorResponse.status).send(errorResponse.message);
+  }
+};
+
+export {
+  HandleCreateOrder,
+  HandleGetOrdersByUserId,
+  HandleUpdateOrderStatus,
+  HandleDeleteOrder,
+  HandleAddOrderDetails,
+};

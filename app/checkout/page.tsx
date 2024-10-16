@@ -39,7 +39,7 @@ const CheckoutPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/orders", {
+      const response = await fetch("http://localhost:5000/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

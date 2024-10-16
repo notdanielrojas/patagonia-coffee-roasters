@@ -9,11 +9,15 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
 import { MdRateReview } from "react-icons/md";
+import { useUser } from "../../context/UserContext";
 
 export default function ProfileOrderHistory() {
+  const { user, setUser } = useUser();
   const router = useRouter();
   const handleLogout = () => {
-    localStorage.removeItem("authToken");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
     router.push("/login");
   };
 
@@ -58,16 +62,18 @@ export default function ProfileOrderHistory() {
             </tbody>
           </table>
         </div>
-        <div className={styles.profileValidMyAccount}>
-          <h1>My Account</h1>
-          <button className={styles.logOutButton} onClick={handleLogout}>
-            Log Out <CiLogout className={styles.logOutIcon} />
-          </button>
-        </div>
-        <div className={styles.profileValidInfo}>
-          <h2>Account Details</h2>
-          <p>Username</p>
-          <p>user@email.com</p>
+        <div className={styles.profileAccountContainer}>
+          <div className={styles.profileValidMyAccount}>
+            <h2>My Account</h2>
+            <button className={styles.logOutButton} onClick={handleLogout}>
+              Log Out <CiLogout className={styles.logOutIcon} />
+            </button>
+          </div>
+          <div className={styles.profileValidInfo}>
+            <h2>Account Details</h2>
+            <p>Username</p>
+            <p>user@email.com</p>
+          </div>
         </div>
       </div>
     </>

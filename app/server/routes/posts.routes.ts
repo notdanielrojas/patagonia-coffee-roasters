@@ -1,11 +1,12 @@
 import { Router, Request, Response } from "express";
 import { handleErrors } from "../utils/codes.utils";
 import {
-  handleGetPosts,
+  handleGetPostsByUserId,
   handlePostUser,
   handleEditPostUser,
   handleDeletePostUser,
-} from "../controllers/handlePostUser.controller";
+  handleGetAllPosts,
+} from "../controllers/handlePosts.controller";
 import { validateCredentialsAtSubmit } from "../middlewares/validate.middleware";
 
 const router = Router();
@@ -21,7 +22,16 @@ router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response
 
 router.get("/", async (req: Request, res: Response): Promise<void> => {
   try {
-    await handleGetPosts(req, res);
+    await handleGetPostsByUserId(req, res);
+  } catch (error: any) {
+    const errorResponse = handleErrors(error.code || 500);
+    res.status(errorResponse.status).send(errorResponse.message);
+  }
+});
+
+router.get("/all", async (req: Request, res: Response): Promise<void> => {
+  try {
+    await handleGetAllPosts(req, res);
   } catch (error: any) {
     const errorResponse = handleErrors(error.code || 500);
     res.status(errorResponse.status).send(errorResponse.message);

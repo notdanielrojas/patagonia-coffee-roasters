@@ -18,7 +18,7 @@ export default function Posts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/posts/", {
+        const response = await fetch("http://localhost:5000/posts/all", {
           method: "GET",
         });
 
@@ -63,28 +63,5 @@ export default function Posts() {
         ))}
       </div>
     </div>
-    /*    <div className={styles.generalPostSection}>
-      {error && <p className={styles.error}>{error}</p>}
-      <table className={styles.tablePosts}>
-        <thead className={styles.tableHeadPosts}>
-          <tr>
-            <th className={styles.tableHeadPosts}>Image</th>
-            <th className={styles.tableHeadPosts}>Title</th>
-            <th className={styles.tableHeadPosts}>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {posts.map((post) => (
-            <tr key={post.id} className={styles.postGrid}>
-              <td className={styles.postImageContainer}>
-                <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} />
-              </td>
-              <td>{post.title}</td>
-              <td>{post.description}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div> */
   );
 }

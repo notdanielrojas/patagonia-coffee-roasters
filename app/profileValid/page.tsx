@@ -27,16 +27,8 @@ export default function ProfileValid() {
 
   return (
     <div className={styles.profileValidSection}>
-      <div className={styles.profileValidHistory}>
-        <Link href='/myPosts'>
-          <h3>My Posts</h3>
-        </Link>
-        <Link href='/orders'>
-          <h3>My Orders</h3>
-        </Link>
-      </div>
       <div className={styles.profileValidMyAccount}>
-        <h1>My Account</h1>
+        <h2>My Account</h2>
         <button className={styles.logOutButton} onClick={handleLogout}>
           Log Out <CiLogout className={styles.logOutIcon} />
         </button>
@@ -50,6 +42,14 @@ export default function ProfileValid() {
         ) : (
           <p>No user information available.</p>
         )}
+        <div className={styles.profileValidHistory}>
+          <Link href='/myPosts'>
+            <h3>My Posts</h3>
+          </Link>
+          <Link href='/orders'>
+            <h3>My Orders</h3>
+          </Link>
+        </div>
       </div>
     </div>
   );

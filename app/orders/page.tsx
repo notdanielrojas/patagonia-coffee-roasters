@@ -69,57 +69,64 @@ export default function OrdersHistory() {
   return (
     <>
       <div className={styles.profileOrderHistorySection}>
-        <Link href={""}>
-          <h3 className={styles.profileOrderHistoryTitle}>My Orders History</h3>
-        </Link>
-      </div>
-      <div className={styles.profileOrderHistoryInfo}>
-        <table className={styles.tableOrders}>
-  <thead className={styles.tableHeadPosts}>
-    <tr>
-      <th className={styles.tableHeadPosts}>Product</th>
-      <th className={styles.tableHeadPosts}>Image</th>
-      <th className={styles.tableHeadPosts}>Price</th>
-      <th className={styles.tableHeadPosts}>Quantity</th>
-      <th className={styles.tableHeadPosts}>Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    {orders.length === 0 ? (
-      <tr>
-        <td colSpan={5} style={{ textAlign: 'center' }}>No orders found.</td>
-      </tr>
-    ) : (
-      orders.map((order) => (
-        <tr key={order.id} className={styles.orderGrid}>
-          <td>{order.producto}</td>
-          <td>
-            <Image
-              src={order.image_url || '/default-image.png'}
-              alt={order.producto}
-              width={150}
-              height={100}
-            />
-          </td>
-          <td>{order.price}</td>
-          <td>{order.quantity}</td>
-          <td>{order.total}</td>
-        </tr>
-      ))
-    )}
-  </tbody>
-  </table>
+        <h3 className={styles.profileOrderHistoryTitle}>My Orders History</h3>
 
-        <div className={styles.profileValidMyAccount}>
-          <h1>My Account</h1>
-          <button className={styles.logOutButton} onClick={handleLogout}>
-            Log Out <CiLogout className={styles.logOutIcon} />
-          </button>
+        <div className={styles.profileOrderHistoryInfo}>
+          <table className={styles.tableOrders}>
+            <thead className={styles.tableHeadPosts}>
+              <tr>
+                <th className={styles.tableHeadPosts}>Product</th>
+                <th className={styles.tableHeadPosts}>Image</th>
+                <th className={styles.tableHeadPosts}>Price</th>
+                <th className={styles.tableHeadPosts}>Quantity</th>
+                <th className={styles.tableHeadPosts}>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.length === 0 ? (
+                <tr>
+                  <td colSpan={5} style={{ textAlign: "center" }}>
+                    No orders found.
+                  </td>
+                </tr>
+              ) : (
+                orders.map((order) => (
+                  <tr key={order.id} className={styles.orderGrid}>
+                    <td>{order.producto}</td>
+                    <td>
+                      <Image
+                        src={order.image_url || "/default-image.png"}
+                        alt={order.producto}
+                        width={150}
+                        height={100}
+                      />
+                    </td>
+                    <td>{order.price}</td>
+                    <td>{order.quantity}</td>
+                    <td>{order.total}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
-        <div className={styles.profileValidInfo}>
-          <h2>Account Details</h2>
-          <p>Username</p>
-          <p>user@email.com</p>
+        <div className={styles.profileAccountContainer}>
+          <div className={styles.profileValidMyAccount}>
+            <h2>My Account</h2>
+            <button className={styles.logOutButton} onClick={handleLogout}>
+              Log Out <CiLogout className={styles.logOutIcon} />
+            </button>
+          </div>
+          <div className={styles.profileValidInfo}>
+            <h2>Account Details</h2>
+            {user ? (
+              <>
+                <p>Email: {user.email}</p>
+              </>
+            ) : (
+              <p>No user information available.</p>
+            )}
+          </div>
         </div>
       </div>
     </>
