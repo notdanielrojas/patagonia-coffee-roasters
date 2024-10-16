@@ -1462,3 +1462,12 @@ justify-content: flex-end;
   font-weight: medium;
   height: 30vh;
 }
+
+.loadingStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: medium;
+  height: 30vh;
+}
