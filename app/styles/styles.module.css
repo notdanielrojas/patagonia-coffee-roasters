@@ -392,22 +392,22 @@ justify-content: flex-end;
 }
 
 .locationClickable {
-  position: relative; 
+  position: relative;
   display: inline-block;
-  color: #000; 
+  color: #000;
   text-decoration: none;
 }
 
 .locationClickable::after {
-  content: ""; 
-  position: absolute; 
+  content: "";
+  position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%; 
-  height: 2px; 
+  width: 100%;
+  height: 2px;
   background-color: #333;
-  transform: scaleX(0); 
-  transition: transform 0.3s ease; 
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .locationClickable:hover::after {
@@ -706,21 +706,23 @@ justify-content: flex-end;
 .profilePostsHistory,
 .profileOrderHistory {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 4rem 0 0 0;
-  gap: 5rem;
-}
-
-@media (min-width: 768px) {
-  .profilePostsHistory,
-  .profileOrderHistory {
-    justify-content: space-around;
-    width: 95%;
-  }
+  gap: 2rem;
 }
 
 .profilePostsTitle {
-  text-decoration: underline;
+  font-size: x-large;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .profilePostsTitle {
+    font-size: xx-large;
+    text-decoration: none;
+  }
 }
 
 .profileValidHistory {
@@ -825,7 +827,8 @@ justify-content: flex-end;
   }
 }
 
-.tableOrders {
+.tableOrders,
+.tablePosts {
   padding: 3rem 3rem;
   background-color: #e9e4db;
   border-radius: 3rem;
@@ -836,14 +839,29 @@ justify-content: flex-end;
   text-align: center;
 }
 
-.tableOrders td {
+.tableOrders,
+.tablePosts td {
   text-align: center;
   padding: 1rem;
   border: 0.1rem solid #ccc;
   background-color: #e9e4db;
 }
 
-@media (min-width: 768px) {
+.profilePostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  color: whitesmoke;
+  background-color: #222222;
+  gap: 0.5rem;
+}
+
+.profilePostIcon {
+  width: 2rem;
+  height: 2rem;
 }
 
 .coffeeCard {
@@ -1028,7 +1046,7 @@ justify-content: flex-end;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem;
+  padding: 5rem 0;
   gap: 3rem;
 }
 
@@ -1379,23 +1397,6 @@ justify-content: flex-end;
   height: 2rem;
 }
 
-.profilePostButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  border: none;
-  border-radius: 2rem;
-  color: whitesmoke;
-  background-color: #222222;
-  gap: 0.5rem;
-}
-
-.profilePostIcon {
-  width: 2rem;
-  height: 2rem;
-}
-
 .generalPostSection {
   display: flex;
   flex-direction: column;
@@ -1431,8 +1432,8 @@ justify-content: flex-end;
   border: 0.1rem solid #ddd;
   border-radius: 0.8rem;
   overflow: hidden;
-  width: 30rem;
-  height: 30rem;
+  width: 35rem;
+  height: 40rem;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
@@ -1446,13 +1447,13 @@ justify-content: flex-end;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 35rem;
   overflow: hidden;
 }
 
 .cardImage img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1506,4 +1507,33 @@ justify-content: flex-end;
   border-radius: 50%;
   padding: 4px 8px;
   font-size: 12px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem; 
+  margin: 1rem 0;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50px; 
+  color: whitesmoke;
+  background-color: #222222;
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #333333; 
+  transform: scale(1.05);
+}
+
+.pagination button:disabled {
+  background-color: #555555;
+  cursor: not-allowed;
+  opacity: 0.7;
 }

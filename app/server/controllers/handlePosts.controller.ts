@@ -29,23 +29,25 @@ const handlePostUser = async (req: UserRequest, res: Response): Promise<void> =>
   }
 };
 
-const handleGetPostsByUserId = async (req: UserRequest, res: Response): Promise<void> => {
-  const userId = Number(req.user?.id);
+const handleGetPostsByUserId = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const userId = Number(id);
+
+  if (isNaN(userId)) {
+    return res.status(400).json({ message: "Invalid user ID" });
+  }
 
   try {
     const posts = await getPostsByUserId(userId);
 
-    if (!posts.length) {
-      const errorResponse = handleErrors(404);
-      res.status(errorResponse.status).send(errorResponse.message);
-      return;
+    if (!posts || posts.length === 0) {
+      return res.status(404).json({ message: "No posts found for this user" });
     }
 
     res.status(200).json(posts);
   } catch (error) {
-    console.error(error);
-    const errorResponse = handleErrors(500);
-    res.status(errorResponse.status).json({ message: errorResponse.message, error: (error as Error).message });
+    res.status(500).json({ message: "Server error", error });
   }
 };
 

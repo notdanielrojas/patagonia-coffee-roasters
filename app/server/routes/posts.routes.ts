@@ -20,7 +20,7 @@ router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response
   }
 });
 
-router.get("/", async (req: Request, res: Response): Promise<void> => {
+router.get("/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleGetPostsByUserId(req, res);
   } catch (error: any) {

@@ -20,12 +20,20 @@ interface CoffeeGridProps {
   coffeeList: Coffee[];
 }
 
+const ITEMS_PER_PAGE = 6;
+
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const filteredCoffeeList = coffeeList.filter((coffee) =>
     coffee.name.toLowerCase().includes(searchText.toLowerCase())
   );
+
+  const totalPages = Math.ceil(filteredCoffeeList.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentCoffees = filteredCoffeeList.slice(startIndex, endIndex);
 
   return (
     <>
@@ -44,10 +52,9 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
             className={styles.productGridFormInput}
           />
         </form>
-
         <div className={styles.productGridSection}>
           <div className={styles.productGridItems}>
-            {filteredCoffeeList.map((data) => (
+            {currentCoffees.map((data) => (
               <CoffeeCard
                 id={data.id}
                 image_url={data.image_url}
@@ -62,6 +69,20 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
                 roast_level={data.roast_level}
               />
             ))}
+          </div>
+          <div className={styles.pagination}>
+            <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+              Previous
+            </button>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>

@@ -17,10 +17,13 @@ interface Order {
   total: number;
 }
 
+const ITEMS_PER_PAGE = 5;
+
 export default function OrdersHistory() {
   const { user, setUser } = useUser();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -66,6 +69,11 @@ export default function OrdersHistory() {
     router.push("/login");
   };
 
+  const totalPages = Math.ceil(orders.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentOrders = orders.slice(startIndex, endIndex);
+
   return (
     <>
       <div className={styles.profileOrderHistorySection}>
@@ -83,14 +91,14 @@ export default function OrdersHistory() {
               </tr>
             </thead>
             <tbody>
-              {orders.length === 0 ? (
+              {currentOrders.length === 0 ? (
                 <tr>
                   <td colSpan={5} style={{ textAlign: "center" }}>
                     No orders found.
                   </td>
                 </tr>
               ) : (
-                orders.map((order) => (
+                currentOrders.map((order) => (
                   <tr key={order.id} className={styles.orderGrid}>
                     <td>{order.producto}</td>
                     <td>
@@ -110,6 +118,20 @@ export default function OrdersHistory() {
             </tbody>
           </table>
         </div>
+        <div className={styles.pagination}>
+          <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
         <div className={styles.profileAccountContainer}>
           <div className={styles.profileValidMyAccount}>
             <h2>My Account</h2>
@@ -119,13 +141,7 @@ export default function OrdersHistory() {
           </div>
           <div className={styles.profileValidInfo}>
             <h2>Account Details</h2>
-            {user ? (
-              <>
-                <p>Email: {user.email}</p>
-              </>
-            ) : (
-              <p>No user information available.</p>
-            )}
+            {user ? <p>Email: {user.email}</p> : <p>No user information available.</p>}
           </div>
         </div>
       </div>
