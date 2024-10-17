@@ -7,9 +7,10 @@ import { useUser } from "@/context/UserContext";
 import styles from "../styles/styles.module.css";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 const CheckoutPage = () => {
-  const { cart, setCart, clearCart } = useCart();
+  const { cart, setCart, clearCart, incrementQuantity, decrementQuantity } = useCart();
   const { user } = useUser();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
@@ -58,7 +59,7 @@ const CheckoutPage = () => {
 
       clearCart();
       localStorage.removeItem("cart");
-      alert("Order created successfully 🎉!");
+      Swal.fire("Order created successfully 🎉!");
       setSuccess("Order created successfully!");
       setError(null);
     } catch (error: any) {
@@ -102,7 +103,9 @@ const CheckoutPage = () => {
                 <Image src={item.image_url} alt={item.name} width={200} height={200} />
               </td>
               <td>${item.price.toFixed(2)}</td>
-              <td>{item.quantity}</td>
+              <td>
+                <button onClick={() => decrementQuantity(item.id)}>-</button> {item.quantity} <button onClick={() => incrementQuantity(item.id)}>+</button>
+              </td>
               <td>${(item.price * item.quantity).toFixed(2)}</td>
             </tr>
           ))}

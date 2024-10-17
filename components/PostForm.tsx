@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../app/styles/styles.module.css";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import Swal from "sweetalert2";
 
 export default function PostForm() {
   const { user } = useUser();
@@ -46,7 +47,7 @@ export default function PostForm() {
       setTitle("");
       setDescription("");
 
-      alert("Review posted successfully 🎉!");
+      Swal.fire("Review posted successfully 🎉!");
       router.push("/posts");
     } catch (err) {
       if (err instanceof Error) {

@@ -5,6 +5,7 @@ import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { GiCoffeeBeans } from "react-icons/gi";
 import Link from "next/link";
 import { useCart } from "../context/CartContext";
+import Swal from "sweetalert2";
 
 export interface CoffeeProps {
   id: number;
@@ -52,6 +53,14 @@ export default function CoffeeCard({
 
   const handleAddToCart = () => {
     addToCart({ id, name, image_url, price });
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `${name} has been added to your cart!`,
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
 
   return (

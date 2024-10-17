@@ -7,16 +7,17 @@ export default function Home() {
     <main className={styles.mainGrid}>
       <div className={styles.heroSection}>
         <div>
-          <h1 className={styles.heroText}>
-            We are Patagonia Coffee Roasters
-          </h1>
+          <h1 className={styles.heroText}>We are Patagonia Coffee Roasters</h1>
         </div>
-        <Image
-          src='/images/store1.jpg'
-          alt='Imagen Story 1'
-          width='800'
-          height='300'
-        ></Image>
+        <div className={styles.heroImageContainer}>
+          <Image
+            src='/images/store1.webp'
+            alt='Imagen Story 1'
+            width='800'
+            height='300'
+            className={styles.heroImage}
+          ></Image>
+        </div>
       </div>
       <div className={styles.infoSection}>
         <div className={styles.infoLeft}>
@@ -27,9 +28,7 @@ export default function Home() {
             height='100'
             className={styles.icon}
           />
-          <h1 className={styles.textInfo}>
-            Direct trade partnerships with producers
-          </h1>
+          <h1 className={styles.textInfo}>Direct trade partnerships with producers</h1>
         </div>
         <div className={styles.infoCenter}>
           <Image
@@ -50,9 +49,7 @@ export default function Home() {
             height='100'
             className={styles.icon}
           />
-          <h1 className={styles.textInfo}>
-            Investing in coffee communities and their environments
-          </h1>
+          <h1 className={styles.textInfo}>Investing in coffee communities and their environments</h1>
         </div>
       </div>
     </main>

@@ -361,7 +361,7 @@ justify-content: flex-end;
   }
 }
 
-.locationNames {
+.locationNamesContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -371,7 +371,7 @@ justify-content: flex-end;
 }
 
 @media (min-width: 768px) {
-  .locationNames {
+  .locationNamesContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -381,14 +381,21 @@ justify-content: flex-end;
   }
 }
 
-.locationSubNames {
+.locationNames {
+  display: flex;
+  flex-direction: row;
   font-size: large;
+  gap: 3rem;
 }
 
-@media (min-width: 768px) {
-  .locationSubNames {
-    font-size: large;
-  }
+.locationClickable {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.locationClickable:hover {
+  color: #333;
 }
 
 .locationCards {
@@ -1131,12 +1138,8 @@ justify-content: flex-end;
 
 @media (min-width: 768px) {
   .cartSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 3rem;
     padding: 5rem 3rem;
-    flex-direction: column;
-    gap: 1rem;
   }
 }
 
@@ -1144,14 +1147,6 @@ justify-content: flex-end;
   padding: 3rem 3rem;
   background-color: #e9e4db;
   border-radius: 3rem;
-}
-
-@media (min-width: 768px) {
-  .cartTable {
-    padding: 3rem 3rem;
-    background-color: #e9e4db;
-    border-radius: 3rem;
-  }
 }
 
 .cartTable td {
@@ -1163,10 +1158,7 @@ justify-content: flex-end;
 
 @media (min-width: 768px) {
   .cartTable td {
-    text-align: center;
-    padding: 1rem;
-    border: 0.1rem solid #ccc;
-    background-color: #e9e4db;
+    padding: 3rem;
   }
 }
 
@@ -1417,8 +1409,8 @@ justify-content: flex-end;
 
 .postCard {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   background-color: whitesmoke;
   border: 0.1rem solid #ddd;
   border-radius: 0.8rem;
@@ -1439,10 +1431,20 @@ justify-content: flex-end;
   align-items: center;
   width: 100%;
   height: auto;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .postCardContent {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .postCardTitle {
@@ -1473,4 +1475,19 @@ justify-content: flex-end;
   font-size: x-large;
   font-weight: medium;
   height: 30vh;
+}
+
+.cartIconContainer {
+  position: relative;
+}
+
+.cartItemCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #222222;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
 }
