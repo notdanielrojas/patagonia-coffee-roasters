@@ -78,7 +78,6 @@ export default function OrdersHistory() {
     <>
       <div className={styles.profileOrderHistorySection}>
         <h3 className={styles.profileOrderHistoryTitle}>My Orders History</h3>
-
         <div className={styles.profileOrderHistoryInfo}>
           <table className={styles.tableOrders}>
             <thead className={styles.tableHeadPosts}>
@@ -107,6 +106,8 @@ export default function OrdersHistory() {
                         alt={order.producto}
                         width={150}
                         height={100}
+                        priority
+                        className={styles.orderImage}
                       />
                     </td>
                     <td>{order.price}</td>

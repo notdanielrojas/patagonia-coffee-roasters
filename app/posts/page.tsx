@@ -14,6 +14,7 @@ type Post = {
 export default function Posts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -39,11 +40,16 @@ export default function Posts() {
         } else {
           setError("An unknown error occurred");
         }
+      } finally {
+        setLoading(false);
       }
     };
-
     fetchPosts();
   }, []);
+
+  if (loading) {
+    return <div className={styles.loadingStatus}>Loading...</div>;
+  }
 
   return (
     <div className={styles.generalPostSection}>
@@ -53,7 +59,7 @@ export default function Posts() {
         {posts.map((post) => (
           <div key={post.id} className={styles.postCard}>
             <div className={styles.cardImage}>
-              <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} />
+              <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} priority/>
             </div>
             <div className={styles.postCardContent}>
               <h3 className={styles.postCardTitle}>{post.title}</h3>

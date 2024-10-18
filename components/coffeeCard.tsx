@@ -37,18 +37,7 @@ const getRegionStyle = (region: string | undefined) => {
   }
 };
 
-export default function CoffeeCard({
-  id,
-  image_url,
-  name,
-  price,
-  description,
-  region,
-  weight,
-  flavor_profile,
-  grind_option,
-  roast_level,
-}: CoffeeProps) {
+export default function CoffeeCard({ id, image_url, name, price, region, flavor_profile }: CoffeeProps) {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
@@ -66,7 +55,7 @@ export default function CoffeeCard({
   return (
     <div className={styles.coffeeCard}>
       <Link href={`/productsPage/${id}`}>
-        <Image alt={name} src={image_url} width={800} height={800} className={styles.coffeeCardImage} />
+        <Image alt={name} src={image_url} width={800} height={800} className={styles.coffeeCardImage} priority />
       </Link>
       <div className={styles.coffeeCardInfoContainer}>
         <h2 className={styles.coffeCardTitle}>{name}</h2>

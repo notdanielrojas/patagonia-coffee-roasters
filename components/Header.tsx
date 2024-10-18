@@ -22,7 +22,7 @@ export function Header({ alt }: HeaderProps) {
     <div className={styles.header}>
       <div className={styles.headerLogo}>
         <Link href='/'>
-          <Image src={"/images/logo/pcr-logo.png"} alt={alt} width={200} height={150} />
+          <Image src={"/images/logo/pcr-logo.png"} alt={alt} width={200} height={150} priority />
         </Link>
       </div>
       <div className={styles.headerIcons}>

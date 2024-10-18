@@ -89,7 +89,7 @@ export default function ProfileOrderHistory() {
             posts.map((post, index) => (
               <tr key={post.id || index} className={styles.postGrid}>
                 <td>
-                  <Image src={post.image_url} alt={post.title} width={150} height={100} />
+                  <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} />
                 </td>
                 <td>{post.title}</td>
                 <td>{post.description}</td>
