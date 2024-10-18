@@ -55,9 +55,8 @@ const handleGetAllPosts = async (req: Request, res: Response): Promise<void> => 
   try {
     const posts = await getAllPosts();
 
-    if (!posts.length) {
-      const errorResponse = handleErrors(404);
-      res.status(errorResponse.status).send(errorResponse.message);
+    if (!posts || posts.length === 0) {
+      res.status(404).json({ message: "No posts found" });
       return;
     }
 

@@ -27,6 +27,7 @@ const getAllPosts = async (): Promise<UserPost[]> => {
   return result.rows as UserPost[];
 };
 
+
 const editPostUser = async (id: number, user: UserPost): Promise<void> => {
   const { image_url, title, description } = user;
   const values = [image_url, title, description, id];

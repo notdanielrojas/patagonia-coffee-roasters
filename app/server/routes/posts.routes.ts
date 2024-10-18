@@ -11,9 +11,10 @@ import { validateCredentialsAtSubmit } from "../middlewares/validate.middleware"
 
 const router = Router();
 
-router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
+
+router.get("/all", async (req: Request, res: Response): Promise<void> => {
   try {
-    await handlePostUser(req, res);
+    await handleGetAllPosts(req, res);
   } catch (error: any) {
     const errorResponse = handleErrors(error.code || 500);
     res.status(errorResponse.status).send(errorResponse.message);
@@ -29,9 +30,9 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-router.get("/all", async (req: Request, res: Response): Promise<void> => {
+router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
   try {
-    await handleGetAllPosts(req, res);
+    await handlePostUser(req, res);
   } catch (error: any) {
     const errorResponse = handleErrors(error.code || 500);
     res.status(errorResponse.status).send(errorResponse.message);

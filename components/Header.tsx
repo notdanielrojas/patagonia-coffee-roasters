@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CiShoppingCart } from "react-icons/ci";
+import { LuShoppingCart } from "react-icons/lu";
 import { IoPersonSharp } from "react-icons/io5";
 import styles from "../app/styles/styles.module.css";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export function Header({ alt }: HeaderProps) {
           <IoPersonSharp className={styles.headerIcon} />
         </Link>
         <Link href='/checkout' className={styles.cartIconContainer}>
-          <CiShoppingCart className={styles.headerIcon} />
+          <LuShoppingCart className={styles.headerIcon} />
           {totalItems > 0 && <span className={styles.cartItemCount}>{totalItems}</span>}
         </Link>
       </div>

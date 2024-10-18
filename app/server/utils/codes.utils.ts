@@ -25,7 +25,7 @@ const handleErrors = (code: number): ErrorResponse => {
         status: 401,
         message: "Invalid email or password.",
       };
-    case 409: // Conflicto, por ejemplo, al intentar editar un usuario existente
+    case 409:
       return {
         status: 409,
         message: "User already exists.",
