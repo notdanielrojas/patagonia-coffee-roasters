@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proyecto Final - Desafío Latam: Full Stack JavaScript Developer
 
-## Getting Started
+## Cafetería Online
 
-First, run the development server:
+Este proyecto fue desarrollado como parte del curso de **Desarrollador Full Stack JavaScript** en Desafío Latam. Se trata de una aplicación web para una cafetería donde los usuarios pueden registrarse, realizar pedidos y publicar reseñas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Registro de Usuarios
+- Los usuarios pueden crear una cuenta proporcionando su nombre, correo electrónico y contraseña.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. Autenticación
+- Los usuarios pueden iniciar sesión utilizando su correo electrónico y contraseña, asegurando que solo los usuarios autenticados puedan acceder a funciones restringidas.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Realizar Pedidos
+- Los usuarios autenticados pueden ver productos y realizar pedidos, que se guardan en la base de datos.
 
-## Learn More
+### 4. Publicar Reseñas
+- Los usuarios pueden crear publicaciones con reseñas de productos, incluyendo imágenes, títulos y descripciones.
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Panel de Administración
+- Los administradores pueden gestionar productos, pedidos y moderar los posts de los usuarios.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tecnologías Utilizadas
+- **Frontend**: Next.js, React
+- **Backend**: Express.js, Node.js
+- **Base de datos**: PostgreSQL
+- **Autenticación**: JWT (JSON Web Token)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Proceso de Desarrollo
+El proyecto se desarrolló siguiendo un enfoque iterativo, comenzando con la planificación de funcionalidades y la implementación de la autenticación. Se realizaron pruebas para asegurar que todas las funciones operaran correctamente y se gestionaron los permisos de usuario para el acceso a diferentes secciones de la aplicación.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Conclusión
+Este proyecto me permitió aplicar los conocimientos adquiridos en el curso y desarrollar una aplicación web completa, funcional y segura, que integra tanto el frontend como el backend.
