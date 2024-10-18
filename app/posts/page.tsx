@@ -48,7 +48,7 @@ export default function Posts() {
   }, []);
 
   if (loading) {
-    return <div className={styles.loadingStatus}>Loading...</div>;
+    return <div className={styles.loadingStatus}>Loading posts...</div>;
   }
 
   return (

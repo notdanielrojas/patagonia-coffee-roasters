@@ -46,7 +46,7 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const currentCoffees = filteredCoffeeList.slice(startIndex, endIndex);
 
   if (loading) {
-    return <div className={styles.loadingStatus}>Loading...</div>;
+    return <div className={styles.loadingStatus}>Loading coffees...</div>;
   }
 
   if (filteredCoffeeList.length === 0) {
