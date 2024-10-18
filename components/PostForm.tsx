@@ -3,6 +3,7 @@ import styles from "../app/styles/styles.module.css";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 export default function PostForm() {
   const { user } = useUser();
@@ -46,8 +47,13 @@ export default function PostForm() {
       setImageUrl("");
       setTitle("");
       setDescription("");
-
-      Swal.fire("Review posted successfully 🎉!");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your post was posted successfully 🎉!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       router.push("/posts");
     } catch (err) {
       if (err instanceof Error) {
@@ -61,52 +67,60 @@ export default function PostForm() {
   };
 
   return (
-    <div className={styles.postSection}>
-      <form onSubmit={handleSubmit} className={styles.postForm}>
-        <label htmlFor='image_url'>Image</label>
-        <input
-          type='text'
-          id='image_url'
-          name='image_url'
-          placeholder='Enter the image URL here'
-          required
-          autoComplete='off'
-          className={styles.postFormInput}
-          value={image_url}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
-        <label htmlFor='title'>Title</label>
-        <input
-          type='text'
-          id='title'
-          name='title'
-          placeholder='Enter your title here'
-          required
-          autoComplete='off'
-          className={styles.postFormInput}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label htmlFor='description'>Description</label>
-        <input
-          type='text'
-          id='description'
-          name='description'
-          placeholder='Write a description'
-          required
-          autoComplete='off'
-          minLength={10}
-          maxLength={255}
-          className={styles.postFormInput}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <button type='submit' className={styles.postButton} disabled={loading}>
-          {loading ? "Posting..." : "Post"}
-        </button>
-      </form>
-
-      {error && <p className={styles.error}>{error}</p>}
+    <div className={styles.UserPostSection}>
+      <div className={styles.postSection}>
+        <div className={styles.titleContainer}>
+          <h2>
+            Love Our Products?
+            <br /> Share Your Experience with the Community!
+          </h2>
+          <Image src='/images/post.webp' alt='' width={150} height={100} className={styles.postUserImage} priority />
+        </div>
+        <form onSubmit={handleSubmit} className={styles.postForm}>
+          <label htmlFor='image_url'>Image</label>
+          <input
+            type='text'
+            id='image_url'
+            name='image_url'
+            placeholder='Enter the image URL here'
+            required
+            autoComplete='off'
+            className={styles.postFormInput}
+            value={image_url}
+            onChange={(e) => setImageUrl(e.target.value)}
+          />
+          <label htmlFor='title'>Title</label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            placeholder='Enter your title here'
+            required
+            autoComplete='off'
+            className={styles.postFormInput}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <label htmlFor='description'>Description</label>
+          <input
+            type='text'
+            id='description'
+            name='description'
+            placeholder='Write a description'
+            required
+            autoComplete='off'
+            minLength={10}
+            maxLength={255}
+            className={styles.postFormInput}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <button type='submit' className={styles.postButton} disabled={loading}>
+            {loading ? "Posting..." : "Post"}
+          </button>
+        </form>
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
     </div>
   );
 }

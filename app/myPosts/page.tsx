@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/styles.module.css";
 import Link from "next/link";
-import { GiCoffeeBeans } from "react-icons/gi";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
@@ -17,10 +16,13 @@ type Post = {
   description: string;
 };
 
+const ITEMS_PER_PAGE = 6;
+
 export default function ProfileOrderHistory() {
   const { user, setUser } = useUser();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export default function ProfileOrderHistory() {
   }, [user]);
 
   if (loading) {
-    return <div className={styles.loadingStatus}>Loading...</div>;
+    return <div className={styles.loadingStatus}>Loading your posts...</div>;
   }
 
   const handleLogout = () => {
@@ -65,6 +67,11 @@ export default function ProfileOrderHistory() {
     setUser(null);
     router.push("/login");
   };
+
+  const totalPages = Math.ceil(posts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentPosts = posts.slice(startIndex, endIndex);
 
   return (
     <div className={styles.profilePostsHistorySection}>
@@ -102,6 +109,20 @@ export default function ProfileOrderHistory() {
           )}
         </tbody>
       </table>
+      <div className={styles.pagination}>
+        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
       <div className={styles.profileAccountContainer}>
         <div className={styles.profileValidMyAccount}>
           <h2>My Account</h2>

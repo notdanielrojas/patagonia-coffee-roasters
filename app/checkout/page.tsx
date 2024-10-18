@@ -59,7 +59,13 @@ const CheckoutPage = () => {
 
       clearCart();
       localStorage.removeItem("cart");
-      Swal.fire("Order created successfully 🎉!");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Order created successfully 🎉!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       setSuccess("Order created successfully!");
       setError(null);
     } catch (error: any) {
@@ -104,7 +110,8 @@ const CheckoutPage = () => {
               </td>
               <td>${item.price.toFixed(2)}</td>
               <td>
-                <button onClick={() => decrementQuantity(item.id)}>-</button> {item.quantity} <button onClick={() => incrementQuantity(item.id)}>+</button>
+                <button onClick={() => decrementQuantity(item.id)}>-</button> {item.quantity}{" "}
+                <button onClick={() => incrementQuantity(item.id)}>+</button>
               </td>
               <td>${(item.price * item.quantity).toFixed(2)}</td>
             </tr>

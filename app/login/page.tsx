@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CiLogin } from "react-icons/ci";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import Swal from "sweetalert2";
 
 export default function LogIn() {
   const router = useRouter();
@@ -36,7 +37,13 @@ export default function LogIn() {
       localStorage.setItem("user", JSON.stringify(data.user));
 
       setUser(data.user);
-
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Login Successfull ✔️!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       router.push("/profileValid");
     } catch (error) {
       if (error instanceof Error) {

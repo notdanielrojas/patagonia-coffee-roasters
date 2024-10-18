@@ -59,7 +59,7 @@ export default function OrdersHistory() {
   }, [user]);
 
   if (loading) {
-    return <div className={styles.loadingStatus}>Loading...</div>;
+    return <div className={styles.loadingStatus}>Loading your orders...</div>;
   }
 
   const handleLogout = () => {

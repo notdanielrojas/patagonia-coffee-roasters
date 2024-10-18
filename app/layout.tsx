@@ -5,18 +5,20 @@ import { LogoPCR } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { UserProvider } from "@/context/UserContext";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Patagonia Coffee",
+  description: "Welcome to Patagonia Coffee Roasters",
+  metadataBase: new URL("https://next-learn-dashboard.vercel.sh"),
+};
+ 
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
-
-export const metadata = {
-  title: "Page Title",
-  description: "Page Description",
-};
 
 export default function RootLayout({
   children,

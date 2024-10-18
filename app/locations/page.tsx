@@ -19,12 +19,12 @@ export default function Locations() {
       <div className={styles.locationNamesContainer}>
         <h2> Patagonia Coffee Roasters </h2>
         <div className={styles.locationNames}>
-          <h3 onClick={() => setLocation("santiago")} className={styles.locationClickable}>
+          <button onClick={() => setLocation("santiago")} className={styles.locationClickable}>
             Santiago
-          </h3>
-          <h3 onClick={() => setLocation("vinaDelMar")} className={styles.locationClickable}>
+          </button>
+          <button onClick={() => setLocation("vinaDelMar")} className={styles.locationClickable}>
             Viña del Mar
-          </h3>
+          </button>
         </div>
       </div>
       <div className={styles.locationCards}>

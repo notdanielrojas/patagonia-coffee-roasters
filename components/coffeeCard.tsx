@@ -48,7 +48,7 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
       icon: "success",
       title: `${name} has been added to your cart!`,
       showConfirmButton: false,
-      timer: 1000,
+      timer: 2000,
     });
   };
 
