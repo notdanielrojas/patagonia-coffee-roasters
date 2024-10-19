@@ -891,15 +891,14 @@
 }
 
 .cardImageContainer {
-  width: 40rem;
-  height: 40rem;
+  object-fit: contain;
 }
 
 @media (min-width: 768px) {
 }
 
 .coffeeCardImage {
-    height: auto;
+  height: auto;
   height: auto;
   background-color: #e9e4db;
 }
@@ -1247,6 +1246,7 @@
 }
 
 .productInfoPageImageContainer {
+  object-fit: contain;
   background-color: #e2e3e5;
 }
 
