@@ -20,18 +20,20 @@ interface CoffeePageProps {
 const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
   const coffeeId = Number(params.id);
   const { addToCart } = useCart();
-  const [coffee, setCoffee] = useState<Coffee | null>(null);
+  const [coffeeList, setCoffeeList] = useState<Coffee[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCoffee = async () => {
       try {
         const data = await getCoffee(coffeeId);
-        if (!data) {
+        console.log("Coffee data:", data);
+        if (!Array.isArray(data) || data.length === 0) {
           throw new Error("Coffee not found");
         }
-        setCoffee(data);
-      } catch {
+        setCoffeeList(data);
+      } catch (error) {
+        console.error(error);
         setError("Error fetching coffee details");
       }
     };
@@ -54,88 +56,84 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
     return <p>{error}</p>;
   }
 
-  if (!coffee) {
+  if (coffeeList.length === 0) {
     return <p className={styles.loadingStatus}>Loading coffee details...</p>;
   }
 
   return (
     <div className={styles.productInfoPageSection}>
-      <div className={styles.productInfoRow}>
-        <div className={styles.productInfoPageImageContainer}>
-          <Image src={coffee.image_url} alt='image' width={700} height={1000} priority />
-        </div>
-        <div className={styles.productInfoDetails}>
-          <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Name:</strong>
-                </td>
-                <td>{coffee.name}</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Description:</strong>
-                </td>
-                <td>{coffee.description}</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Price:</strong>
-                </td>
-                <td>{coffee.price}</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Region:</strong>
-                </td>
-                <td>{coffee.region}</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Weight:</strong>
-                </td>
-                <td>{coffee.weight}</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Flavor Profile:</strong>
-                </td>
-                <td>
-                  {Array.isArray(coffee.flavor_profile)
-                    ? coffee.flavor_profile.join(", ")
-                    : "No flavor profile available"}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Grind Option:</strong>
-                </td>
-                <td>
-                  {Array.isArray(coffee.grind_option) ? coffee.grind_option.join(", ") : "No grind option available"}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>Roast Level:</strong>
-                </td>
-                <td>{"🔥".repeat(coffee.roast_level)}</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className={styles.coffeeCardButtons}>
-            <Link href={`/products`}>
-              <button className={styles.coffeeCardButton}>
-                Go back <PiKeyReturnFill className={styles.coffeeCardIcon} />
+      {coffeeList.map((item: Coffee) => (
+        <div key={item.id} className={styles.productInfoRow}>
+          <div className={styles.productInfoPageImageContainer}>
+            <Image src={item.image_url} alt='image' width={700} height={1000} priority />
+          </div>
+          <div className={styles.productInfoDetails}>
+            <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Name:</strong>
+                  </td>
+                  <td>{item.name}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Description:</strong>
+                  </td>
+                  <td>{item.description}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Price:</strong>
+                  </td>
+                  <td>{item.price}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Region:</strong>
+                  </td>
+                  <td>{item.region}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Weight:</strong>
+                  </td>
+                  <td>{item.weight}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Flavor Profile:</strong>
+                  </td>
+                  <td>{item.flavor_profile.join(", ")}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Grind Option:</strong>
+                  </td>
+                  <td>{item.grind_option.join(", ")}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Roast Level:</strong>
+                  </td>
+                  <td>{"🔥".repeat(item.roast_level)}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className={styles.coffeeCardButtons}>
+              <Link href={`/products`}>
+                <button className={styles.coffeeCardButton}>
+                  Go back <PiKeyReturnFill className={styles.coffeeCardIcon} />
+                </button>
+              </Link>
+              <button className={styles.coffeeCardButton} onClick={() => handleAddToCart(item)}>
+                Add to Cart <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
               </button>
-            </Link>
-            <button className={styles.coffeeCardButton} onClick={() => handleAddToCart(coffee)}>
-              Add to Cart <LiaCartArrowDownSolid className={styles.coffeeCardIcon} />
-            </button>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
