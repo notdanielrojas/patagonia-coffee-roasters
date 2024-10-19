@@ -102,13 +102,19 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
                 <td>
                   <strong>Flavor Profile:</strong>
                 </td>
-                <td>{coffee.flavor_profile.join(", ")}</td>
+                <td>
+                  {Array.isArray(coffee.flavor_profile)
+                    ? coffee.flavor_profile.join(", ")
+                    : "No flavor profile available"}
+                </td>
               </tr>
               <tr>
                 <td>
                   <strong>Grind Option:</strong>
                 </td>
-                <td>{coffee.grind_option.join(", ")}</td>
+                <td>
+                  {Array.isArray(coffee.grind_option) ? coffee.grind_option.join(", ") : "No grind option available"}
+                </td>
               </tr>
               <tr>
                 <td>
