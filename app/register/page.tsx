@@ -34,7 +34,7 @@ export default function Register() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "User created successfully ✔️!",
+        title: "User created successfully!",
         showConfirmButton: false,
         timer: 2000,
       });

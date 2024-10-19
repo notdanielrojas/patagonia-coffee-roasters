@@ -50,7 +50,7 @@ export default function PostForm() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Your post was posted successfully 🎉!",
+        title: "Your post was posted successfully!",
         showConfirmButton: false,
         timer: 2000,
       });

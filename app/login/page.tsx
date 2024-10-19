@@ -40,7 +40,7 @@ export default function LogIn() {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Login Successfull ✔️!",
+        title: "Login Successfull!",
         showConfirmButton: false,
         timer: 2000,
       });
