@@ -890,23 +890,19 @@
   font-size: 1.6rem;
 }
 
+.cardImageContainer {
+  width: 40rem;
+  height: 40rem;
+}
+
 @media (min-width: 768px) {
 }
 
-/* .coffeeCardImage {
-  width: 100%;
+.coffeeCardImage {
+    height: auto;
   height: auto;
-  max-width: 41.8rem;
-  max-height: 31.3rem;
   background-color: #e9e4db;
 }
-
-@media (min-width: 768px) {
-  .coffeeCardImage {
-    max-width: 41.8rem;
-    max-height: 31.3rem;
-  }
-} */
 
 .coffeeCardInfo {
   font-size: 1.8rem;
