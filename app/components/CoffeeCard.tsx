@@ -62,8 +62,7 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
           height={1500}
           width={2000}
           className={styles.coffeeCardImage}
-          priority
-          
+                   
         />
       </div>
       <div className={styles.coffeeCardInfoContainer}>
