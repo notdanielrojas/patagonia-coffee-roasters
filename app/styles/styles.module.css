@@ -859,7 +859,7 @@
   background-color: whitesmoke;
   border: 0.1rem solid #ddd;
   border-radius: 0.8rem;
-  overflow: hidden;
+  object-fit: contain;
   width: 30rem;
   height: 55rem;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
