@@ -895,15 +895,15 @@
 }
 
 .coffeeCardImage {
-  width: auto;
-  height: auto;
+  max-width: 25rem;
+  max-height: 20rem;
   background-color: #e9e4db;
 }
 
 @media (min-width: 768px) {
   .coffeeCardImage {
-    width: auto;
-    height: auto;
+    max-width: 35rem;
+    max-height: 30rem;
   }
 }
 
