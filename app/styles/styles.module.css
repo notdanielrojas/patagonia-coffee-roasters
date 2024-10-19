@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   padding-right: 1rem;
   margin-left: auto;
@@ -40,7 +41,7 @@
 
 @media (min-width: 768px) {
   .headerIcon {
-    width: 4rem;
+    width: 6rem;
   }
 }
 
@@ -894,15 +895,15 @@
 }
 
 .coffeeCardImage {
-  width: 25rem;
-  height: 100%;
+  width: auto;
+  height: auto;
   background-color: #e9e4db;
 }
 
 @media (min-width: 768px) {
   .coffeeCardImage {
-    width: 50rem;
-    height: 100%;
+    width: auto;
+    height: auto;
   }
 }
 
