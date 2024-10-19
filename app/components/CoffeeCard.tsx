@@ -59,11 +59,11 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
           alt={name}
           src={image_url}
           quality={100}
-          height={200}
+          height={2000}
           width={1500}
           className={styles.coffeeCardImage}
           priority
-          layout='responsive'
+          
         />
       </div>
       <div className={styles.coffeeCardInfoContainer}>
