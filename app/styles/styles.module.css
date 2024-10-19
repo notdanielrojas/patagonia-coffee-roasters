@@ -868,18 +868,8 @@
 
 @media (min-width: 768px) {
   .coffeeCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: whitesmoke;
-    border: 0.1rem solid #ddd;
-    border-radius: 0.8rem;
-    overflow: hidden;
     width: 50rem;
     height: 65rem;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    padding: 0 4rem 0 4rem;
   }
 }
 
@@ -905,14 +895,14 @@
 
 .coffeeCardImage {
   width: 25rem;
-  height: auto;
+  height: 100%;
   background-color: #e9e4db;
 }
 
 @media (min-width: 768px) {
   .coffeeCardImage {
     width: 50rem;
-    height: auto;
+    height: 100%;
   }
 }
 
@@ -1031,7 +1021,7 @@
 .productGridItems {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1044,10 +1034,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     gap: 5rem;
     padding-top: 10rem;
+    height: auto;
   }
 }
 

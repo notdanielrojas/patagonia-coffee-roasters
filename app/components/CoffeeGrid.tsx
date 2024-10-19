@@ -1,9 +1,10 @@
 "use client";
 
 import CoffeeCard from "./CoffeeCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "../styles/styles.module.css";
 import { Coffee } from "@/types/coffeeTypes";
+
 interface CoffeeGridProps {
   coffeeList: Coffee[];
 }
@@ -13,16 +14,6 @@ const ITEMS_PER_PAGE = 6;
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const loadData = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setLoading(false);
-    };
-
-    loadData();
-  }, []);
 
   const filteredCoffeeList = searchText
     ? coffeeList.filter((coffee) => coffee.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -32,10 +23,6 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentCoffees = filteredCoffeeList.slice(startIndex, endIndex);
-
-  if (loading) {
-    return <div className={styles.loadingStatus}>Loading coffees...</div>;
-  }
 
   if (filteredCoffeeList.length === 0) {
     return <div className={styles.noResults}>No results found for &quot;{searchText}&quot;.</div>;

@@ -4,6 +4,7 @@ import { CoffeeGrid } from "@/app/components/CoffeeGrid";
 import React, { useEffect, useState } from "react";
 import { getCoffeeList } from "../api/coffeeAPI";
 import { Coffee } from "@/types/coffeeTypes";
+import styles from "../styles/styles.module.css";
 
 export default function Products() {
   const [coffeeList, setCoffeeList] = useState<Coffee[]>([]);
@@ -32,7 +33,7 @@ export default function Products() {
   }, []);
 
   if (loading) {
-    return <p>Loading coffees...</p>;
+    return <p className={styles.loadingStatus}>Loading coffees...</p>;
   }
 
   if (error) {
