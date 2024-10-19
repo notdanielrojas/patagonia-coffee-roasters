@@ -9,7 +9,7 @@ interface CoffeeGridProps {
   coffeeList: Coffee[];
 }
 
-const ITEMS_PER_PAGE = 18;
+const ITEMS_PER_PAGE = 6;
 
 export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const [searchText, setSearchText] = useState("");
