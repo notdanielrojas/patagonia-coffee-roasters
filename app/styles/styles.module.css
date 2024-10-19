@@ -898,7 +898,7 @@
 }
 
 .coffeeCardImage {
-  height: 30rem;
+  width: 100%;
   height: 30rem;
   background-color: #e9e4db;
 }
