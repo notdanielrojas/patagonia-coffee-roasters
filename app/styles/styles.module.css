@@ -896,17 +896,17 @@
 .coffeeCardImage {
   width: 100%;
   height: auto;
-  max-width: 41.8rem;
-  max-height: 31.3rem;
+/*   max-width: 41.8rem;
+  max-height: 31.3rem; */
   background-color: #e9e4db;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .coffeeCardImage {
     max-width: 41.8rem;
     max-height: 31.3rem;
   }
-}
+} */
 
 .coffeeCardInfo {
   font-size: 1.8rem;
