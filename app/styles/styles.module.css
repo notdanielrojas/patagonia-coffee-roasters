@@ -898,6 +898,7 @@
   height: 31.3rem;
   max-width: 41.8rem;
   max-height: 31.3rem;
+  object-fit: contain;
   background-color: #e9e4db;
 }
 
