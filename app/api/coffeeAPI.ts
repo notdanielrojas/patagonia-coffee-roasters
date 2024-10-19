@@ -1,3 +1,5 @@
+import { Coffee } from "@/types/coffeeTypes";
+
 const BASE_URL = "https://fake-coffee-api.vercel.app/api";
 
 export async function getCoffeeList() {
@@ -10,11 +12,11 @@ export async function getCoffeeList() {
     throw new Error("Failed to fetch coffee list");
   }
 
-  const coffees = await response.json();
+  const coffees: Coffee[] = await response.json();
   return coffees;
 }
 
-export const getCoffee = async (id: number): Promise<any> => {
+export const getCoffee = async (id: number): Promise<Coffee> => {
   const response = await fetch(`${BASE_URL}/${id}`, {
     method: "GET",
     headers: {
@@ -28,6 +30,6 @@ export const getCoffee = async (id: number): Promise<any> => {
     throw new Error(`Failed to fetch coffee with ID ${id}`);
   }
 
-  const data = await response.json();
+  const data: Coffee = await response.json();
   return data;
 };

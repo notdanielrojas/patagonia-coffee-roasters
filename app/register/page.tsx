@@ -5,36 +5,52 @@ import Link from "next/link";
 import styles from "../styles/styles.module.css";
 import { CiLogin } from "react-icons/ci";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
 
 export default function Register() {
-    const router = useRouter();
+  const router = useRouter();
   const [user, setUser] = useState({
     name: "",
     last_name: "",
     email: "",
     password: "",
-  })
-  ;
+  });
 
-  const registerUser = async (user: { name: string; last_name: string; email: string; password: string }) => {
+  const registerUser = async (userData: { name: string; last_name: string; email: string; password: string }) => {
     try {
       const response = await fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(userData),
       });
 
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.error || "Error creating user");
       }
-      console.log("User created successfully:", data);
+
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User created successfully ✔️!",
+        showConfirmButton: false,
+        timer: 2000,
+      });
 
       router.push("/login");
-    } catch (error: any) {
-      console.error("Error trying to create the user:", error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error trying to create the user:", error.message);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message,
+        });
+      } else {
+        console.error("An unknown error occurred.");
+      }
     }
   };
 
@@ -97,7 +113,7 @@ export default function Register() {
           className={styles.inputForm}
         />
         <button type='submit' className={styles.registerButton}>
-          Sign Up <CiLogin className={styles.signInIcon}/>
+          Sign Up <CiLogin className={styles.signInIcon} />
         </button>
         <p>Already have an account?</p>
         <p>

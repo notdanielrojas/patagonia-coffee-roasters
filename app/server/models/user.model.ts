@@ -16,6 +16,10 @@ interface UserRow {
   password: string;
 }
 
+const isErrorWithMessage = (error: unknown): error is { code: number; message: string } => {
+  return typeof error === "object" && error !== null && "message" in error && "code" in error;
+};
+
 const getUserByEmail = async (email: string): Promise<UserRow> => {
   try {
     const query = "SELECT * FROM users WHERE email = $1";
@@ -27,11 +31,14 @@ const getUserByEmail = async (email: string): Promise<UserRow> => {
     }
 
     return rows[0];
-  } catch (error: any) {
-    throw {
-      code: error.code || 500,
-      message: error.message || "Error retrieving user",
-    };
+  } catch (error: unknown) {
+    if (isErrorWithMessage(error)) {
+      throw {
+        code: error.code || 500,
+        message: error.message || "Error retrieving user",
+      };
+    }
+    throw { code: 500, message: "Unknown error retrieving user" };
   }
 };
 
@@ -39,11 +46,14 @@ const getUserById = async (id: number): Promise<UserRow | null> => {
   try {
     const result = await pool.query<UserRow>("SELECT * FROM users WHERE id = $1", [id]);
     return result.rows[0] || null;
-  } catch (error: any) {
-    throw {
-      code: error.code || 500,
-      message: error.message || "Error retrieving user by ID",
-    };
+  } catch (error: unknown) {
+    if (isErrorWithMessage(error)) {
+      throw {
+        code: error.code || 500,
+        message: error.message || "Error retrieving user by ID",
+      };
+    }
+    throw { code: 500, message: "Unknown error retrieving user by ID" };
   }
 };
 
@@ -72,11 +82,14 @@ const deleteUser = async (id: number): Promise<void> => {
     }
 
     console.log(`User with ID ${id} deleted successfully.`);
-  } catch (error: any) {
-    throw {
-      code: error.code || 500,
-      message: error.message || "Error deleting user",
-    };
+  } catch (error: unknown) {
+    if (isErrorWithMessage(error)) {
+      throw {
+        code: error.code || 500,
+        message: error.message || "Error deleting user",
+      };
+    }
+    throw { code: 500, message: "Unknown error deleting user" };
   }
 };
 
@@ -119,11 +132,14 @@ const editUser = async (id: number, userData: Partial<User>): Promise<void> => {
     }
 
     console.log(`User with ID ${id} updated successfully.`);
-  } catch (error: any) {
-    throw {
-      code: error.code || 500,
-      message: error.message || "Error updating user",
-    };
+  } catch (error: unknown) {
+    if (isErrorWithMessage(error)) {
+      throw {
+        code: error.code || 500,
+        message: error.message || "Error updating user",
+      };
+    }
+    throw { code: 500, message: "Unknown error updating user" };
   }
 };
 

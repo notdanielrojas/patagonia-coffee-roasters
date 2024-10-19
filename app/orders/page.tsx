@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "../styles/styles.module.css";
-import Link from "next/link";
 import Image from "next/image";
 import { useUser } from "../../context/UserContext";
 import { CiLogout } from "react-icons/ci";
@@ -23,6 +22,7 @@ export default function OrdersHistory() {
   const { user, setUser } = useUser();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const router = useRouter();
 
@@ -50,6 +50,7 @@ export default function OrdersHistory() {
         setOrders(data);
       } catch (error) {
         console.error("Error fetching orders:", error);
+        setError(error instanceof Error ? error.message : "Unknown error occurred");
       } finally {
         setLoading(false);
       }
@@ -75,10 +76,12 @@ export default function OrdersHistory() {
   const currentOrders = orders.slice(startIndex, endIndex);
 
   return (
-    <>
-      <div className={styles.profileOrderHistorySection}>
-        <h3 className={styles.profileOrderHistoryTitle}>My Orders History</h3>
-        <div className={styles.profileOrderHistoryInfo}>
+    <div className={styles.profileOrderHistorySection}>
+      <h3 className={styles.profileOrderHistoryTitle}>My Orders History</h3>
+      <div className={styles.profileOrderHistoryInfo}>
+        {error ? (
+          <div className={styles.errorMessage}>{error}</div>
+        ) : (
           <table className={styles.tableOrders}>
             <thead className={styles.tableHeadPosts}>
               <tr>
@@ -118,34 +121,34 @@ export default function OrdersHistory() {
               )}
             </tbody>
           </table>
-        </div>
-        <div className={styles.pagination}>
-          <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
-            Previous
+        )}
+      </div>
+      <div className={styles.pagination}>
+        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
+      <div className={styles.profileAccountContainer}>
+        <div className={styles.profileValidMyAccount}>
+          <h2>My Account</h2>
+          <button className={styles.logOutButton} onClick={handleLogout}>
+            Log Out <CiLogout className={styles.logOutIcon} />
           </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
         </div>
-        <div className={styles.profileAccountContainer}>
-          <div className={styles.profileValidMyAccount}>
-            <h2>My Account</h2>
-            <button className={styles.logOutButton} onClick={handleLogout}>
-              Log Out <CiLogout className={styles.logOutIcon} />
-            </button>
-          </div>
-          <div className={styles.profileValidInfo}>
-            <h2>Account Details</h2>
-            {user ? <p>Email: {user.email}</p> : <p>No user information available.</p>}
-          </div>
+        <div className={styles.profileValidInfo}>
+          <h2>Account Details</h2>
+          {user ? <p>Email: {user.email}</p> : <p>No user information available.</p>}
         </div>
       </div>
-    </>
+    </div>
   );
 }

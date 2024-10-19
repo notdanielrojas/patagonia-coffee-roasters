@@ -7,26 +7,35 @@ interface User {
   password: string;
 }
 
-const verifyCredentials = async (email: string, password: string): Promise<Omit<User, "password">> => {
+interface UserWithoutPassword {
+  id: number;
+  email: string;
+}
+
+const verifyCredentials = async (email: string, password: string): Promise<UserWithoutPassword> => {
   const values = [email];
   const query = "SELECT * FROM users WHERE email = $1";
 
-  const { rows, rowCount } = await pool.query<User>(query, values);
+  try {
+    const { rows, rowCount } = await pool.query<User>(query, values);
 
-  if (rowCount === 0) {
-    throw { code: 401, message: "Email or password incorrect" };
+    if (rowCount === 0) {
+      throw { code: 401, message: "Email or password incorrect" };
+    }
+
+    const user: User = rows[0];
+    const { password: encryptedPassword, ...userWithoutPassword } = user;
+
+    const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
+    if (!passwordCorrect) {
+      throw { code: 401, message: "Email or password incorrect" };
+    }
+
+    return userWithoutPassword as UserWithoutPassword;
+  } catch (error) {
+    console.error("Database query failed:", error);
+    throw { code: 500, message: "Internal server error" };
   }
-
-  const user: User = rows[0];
-  const { password: encryptedPassword } = user;
-
-  const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
-  if (!passwordCorrect) {
-    throw { code: 401, message: "Email or password incorrect" };
-  }
-
-  const { password: _, ...userWithoutPassword } = user;
-  return userWithoutPassword;
 };
 
 export { verifyCredentials };

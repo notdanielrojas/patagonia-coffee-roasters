@@ -8,6 +8,10 @@ interface UserRequest extends Request {
   };
 }
 
+interface CustomError extends Error {
+  code?: number;
+}
+
 const handleRegisterUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const user = req.body;
@@ -18,9 +22,10 @@ const handleRegisterUser = async (req: Request, res: Response): Promise<void> =>
       message: successResponse.message,
       user,
     });
-  } catch (error: any) {
-    console.error("Error registering user:", error.message);
-    const errorResponse = handleErrors(error.code || "500");
+  } catch (error) {
+    const customError = error as CustomError;
+    console.error("Error registering user:", customError.message);
+    const errorResponse = handleErrors(customError.code || 500);
     res.status(errorResponse.status).json({ message: errorResponse.message });
   }
 };
@@ -43,8 +48,9 @@ const handleGetUser = async (req: UserRequest, res: Response): Promise<void> => 
       const errorResponse = handleErrors(404);
       res.status(errorResponse.status).send(errorResponse.message);
     }
-  } catch (error: any) {
-    console.error("Error fetching user:", error.message);
+  } catch (error) {
+    const customError = error as CustomError;
+    console.error("Error fetching user:", customError.message);
     const errorResponse = handleErrors(500);
     res.status(errorResponse.status).send(errorResponse.message);
   }
@@ -61,8 +67,9 @@ const handleGetAllUsers = async (req: Request, res: Response): Promise<void> => 
     }
 
     res.status(200).json(users);
-  } catch (error: any) {
-    console.error("Error fetching users:", error.message);
+  } catch (error) {
+    const customError = error as CustomError;
+    console.error("Error fetching users:", customError.message);
     const errorResponse = handleErrors(500);
     res.status(errorResponse.status).json({ message: errorResponse.message });
   }
@@ -76,9 +83,10 @@ const handleEditUser = async (req: UserRequest, res: Response): Promise<void> =>
     await editUser(userId, userData);
     const successResponse = handleSuccess(200);
     res.status(successResponse.status).json({ message: successResponse.message });
-  } catch (error: any) {
-    console.error("Error editing user:", error.message);
-    const errorResponse = handleErrors(error.code || "500");
+  } catch (error) {
+    const customError = error as CustomError;
+    console.error("Error editing user:", customError.message);
+    const errorResponse = handleErrors(customError.code || 500);
     res.status(errorResponse.status).json({ message: errorResponse.message });
   }
 };
@@ -90,9 +98,10 @@ const handleDeleteUser = async (req: UserRequest, res: Response): Promise<void> 
     await deleteUser(userId);
     const successResponse = handleSuccess(200);
     res.status(successResponse.status).json({ message: successResponse.message });
-  } catch (error: any) {
-    console.error("Error deleting user:", error.message);
-    const errorResponse = handleErrors(error.code || "500");
+  } catch (error) {
+    const customError = error as CustomError;
+    console.error("Error deleting user:", customError.message);
+    const errorResponse = handleErrors(customError.code || 500);
     res.status(errorResponse.status).json({ message: errorResponse.message });
   }
 };

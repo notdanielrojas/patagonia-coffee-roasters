@@ -10,11 +10,21 @@ import { handleErrors } from "../utils/codes.utils";
 
 const router = Router();
 
+const isErrorWithCode = (error: unknown): error is { code: number } => {
+  return typeof error === "object" && error !== null && "code" in error;
+};
+
 router.post("/", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleCreateOrder(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -26,8 +36,14 @@ router.post("/:orderId/details", async (req: Request, res: Response): Promise<vo
   try {
     await addOrderDetails({ order_id: parseInt(orderId), ...details });
     res.status(201).json({ message: "Order details added successfully" });
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -35,8 +51,14 @@ router.post("/:orderId/details", async (req: Request, res: Response): Promise<vo
 router.get("/:user_id", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleGetOrdersByUserId(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -44,8 +66,14 @@ router.get("/:user_id", async (req: Request, res: Response): Promise<void> => {
 router.put("/:orderId/status", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleUpdateOrderStatus(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -53,8 +81,14 @@ router.put("/:orderId/status", async (req: Request, res: Response): Promise<void
 router.delete("/:orderId", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleDeleteOrder(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });

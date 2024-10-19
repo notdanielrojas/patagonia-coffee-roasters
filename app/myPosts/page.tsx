@@ -92,9 +92,9 @@ export default function ProfileOrderHistory() {
           </tr>
         </thead>
         <tbody>
-          {posts.length > 0 ? (
-            posts.map((post, index) => (
-              <tr key={post.id || index} className={styles.postGrid}>
+          {currentPosts.length > 0 ? (
+            currentPosts.map((post) => (
+              <tr key={post.id} className={styles.postGrid}>
                 <td>
                   <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} />
                 </td>
@@ -104,7 +104,7 @@ export default function ProfileOrderHistory() {
             ))
           ) : (
             <tr>
-              <td colSpan={4}>No posts found.</td>
+              <td colSpan={3}>No posts found.</td>
             </tr>
           )}
         </tbody>

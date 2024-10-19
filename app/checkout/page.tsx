@@ -68,9 +68,14 @@ const CheckoutPage = () => {
       });
       setSuccess("Order created successfully!");
       setError(null);
-    } catch (error: any) {
-      console.error("Checkout error:", error);
-      setError(error.message || "Failed to create order");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Checkout error:", error);
+        setError(error.message || "Failed to create order");
+      } else {
+        console.error("Checkout error:", error);
+        setError("An unknown error occurred.");
+      }
     } finally {
       setLoading(false);
     }

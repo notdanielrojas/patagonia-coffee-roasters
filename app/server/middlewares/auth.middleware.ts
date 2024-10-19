@@ -5,6 +5,10 @@ interface CustomRequest extends Request {
   user?: { email: string };
 }
 
+interface CustomError extends Error {
+  code?: number;
+}
+
 const authMiddleware = (req: CustomRequest, res: Response, next: NextFunction): void => {
   const authorizationHeader = req.headers.authorization;
   if (!authorizationHeader) {
@@ -16,9 +20,10 @@ const authMiddleware = (req: CustomRequest, res: Response, next: NextFunction): 
     const email = verifyDecodeToken(authorizationHeader);
     req.user = { email };
     next();
-  } catch (error: any) {
-    console.log("Middleware error:", error);
-    res.status(error.code || 401).json({ error: error.message || "Invalid token" });
+  } catch (error) {
+    const customError = error as CustomError;
+    console.log("Middleware error:", customError);
+    res.status(customError.code || 401).json({ error: customError.message || "Invalid token" });
     return;
   }
 };

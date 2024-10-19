@@ -8,32 +8,46 @@ interface SuccessResponse {
   message: string;
 }
 
+const messages = {
+  errors: {
+    insufficientData: "Insufficient data.",
+    userNotFound: "User not found.",
+    invalidCredentials: "Invalid email or password.",
+    userExists: "User already exists.",
+    internalServerError: "Internal server error.",
+  },
+  successes: {
+    userCreated: "User created successfully.",
+    requestSuccessful: "Request successful.",
+  },
+};
+
 const handleErrors = (code: number): ErrorResponse => {
   switch (code) {
     case 400:
       return {
         status: 400,
-        message: "Insufficient data.",
+        message: messages.errors.insufficientData,
       };
     case 404:
       return {
         status: 404,
-        message: "User not found.",
+        message: messages.errors.userNotFound,
       };
     case 401:
       return {
         status: 401,
-        message: "Invalid email or password.",
+        message: messages.errors.invalidCredentials,
       };
     case 409:
       return {
         status: 409,
-        message: "User already exists.",
+        message: messages.errors.userExists,
       };
     default:
       return {
         status: 500,
-        message: "Internal server error.",
+        message: messages.errors.internalServerError,
       };
   }
 };
@@ -43,12 +57,12 @@ const handleSuccess = (code: number): SuccessResponse => {
     case 201:
       return {
         status: 201,
-        message: "User created successfully.",
+        message: messages.successes.userCreated,
       };
     default:
       return {
         status: 200,
-        message: "Request successful.",
+        message: messages.successes.requestSuccessful,
       };
   }
 };

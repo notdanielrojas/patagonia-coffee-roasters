@@ -11,12 +11,21 @@ import { validateCredentialsAtSubmit } from "../middlewares/validate.middleware"
 
 const router = Router();
 
+const isErrorWithCode = (error: unknown): error is { code: number } => {
+  return typeof error === "object" && error !== null && "code" in error;
+};
 
 router.get("/all", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleGetAllPosts(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -24,8 +33,14 @@ router.get("/all", async (req: Request, res: Response): Promise<void> => {
 router.get("/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleGetPostsByUserId(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -33,8 +48,14 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
 router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
   try {
     await handlePostUser(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -42,8 +63,14 @@ router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response
 router.put("/:id", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
   try {
     await handleEditPostUser(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
@@ -51,8 +78,14 @@ router.put("/:id", validateCredentialsAtSubmit, async (req: Request, res: Respon
 router.delete("/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleDeletePostUser(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });

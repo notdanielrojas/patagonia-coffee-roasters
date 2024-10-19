@@ -7,11 +7,6 @@ import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
 import { useUser } from "@/context/UserContext";
 
-interface User {
-  id: string;
-  email: string;
-}
-
 export default function ProfileValid() {
   const router = useRouter();
   const { user, setUser } = useUser();

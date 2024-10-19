@@ -1,21 +1,9 @@
 "use client";
+
 import CoffeeCard from "./CoffeeCard";
 import { useState, useEffect } from "react";
 import styles from "../app/styles/styles.module.css";
-
-interface Coffee {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  region: string;
-  image_url: string;
-  weight: number;
-  flavor_profile: string[];
-  grind_option: string[];
-  roast_level: number;
-}
-
+import { Coffee } from "@/types/coffeeTypes";
 interface CoffeeGridProps {
   coffeeList: Coffee[];
 }
@@ -50,7 +38,7 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   }
 
   if (filteredCoffeeList.length === 0) {
-    return <div className={styles.noResults}>No results found for "{searchText}".</div>;
+    return <div className={styles.noResults}>No results found for &quot;{searchText}&quot;.</div>;
   }
 
   return (

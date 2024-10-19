@@ -5,11 +5,21 @@ import { handleErrors } from "../utils/codes.utils";
 
 const router = Router();
 
+const isErrorWithCode = (error: unknown): error is { code: number } => {
+  return typeof error === "object" && error !== null && "code" in error;
+};
+
 router.post("/", validateCredentialsAtLogin, async (req: Request, res: Response): Promise<void> => {
   try {
     await handleCredentialsAtLogin(req, res);
-  } catch (error: any) {
-    const errorResponse = handleErrors(error.code || 500);
+  } catch (error: unknown) {
+    let statusCode = 500;
+
+    if (isErrorWithCode(error)) {
+      statusCode = error.code || 500;
+    }
+
+    const errorResponse = handleErrors(statusCode);
     res.status(errorResponse.status).send(errorResponse.message);
   }
 });
