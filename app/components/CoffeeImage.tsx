@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 
 interface CoffeeImageProps {
   image: string;

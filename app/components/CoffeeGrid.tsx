@@ -2,7 +2,7 @@
 
 import CoffeeCard from "./CoffeeCard";
 import { useState, useEffect } from "react";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import { Coffee } from "@/types/coffeeTypes";
 interface CoffeeGridProps {
   coffeeList: Coffee[];

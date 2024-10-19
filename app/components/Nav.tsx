@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);

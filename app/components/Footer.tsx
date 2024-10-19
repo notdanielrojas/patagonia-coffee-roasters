@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import { FaFacebookF } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaYoutube } from "react-icons/fa";

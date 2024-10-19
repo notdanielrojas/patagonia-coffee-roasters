@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import Swal from "sweetalert2";

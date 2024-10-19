@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { LuShoppingCart } from "react-icons/lu";
 import { IoPersonSharp } from "react-icons/io5";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import Link from "next/link";
 import { useUser } from "@/context/UserContext";
 import { useCart } from "@/context/CartContext";

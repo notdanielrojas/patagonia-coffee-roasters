@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../app/styles/styles.module.css";
+import styles from "../styles/styles.module.css";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { GiCoffeeBeans } from "react-icons/gi";
 import Link from "next/link";
