@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import styles from "../styles/styles.module.css";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { GiCoffeeBeans } from "react-icons/gi";
@@ -54,16 +53,8 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
 
   return (
     <div className={styles.coffeeCard}>
-      <div className={styles.carImageContainer}>
-        <Image
-          alt={name}
-          src={image_url}
-          quality={100}
-          className={styles.coffeeCardImage}
-          priority
-          layout='fill'
-          objectFit='contain'
-        />
+      <div className={styles.cardImageContainer}>
+        <img alt={name} src={image_url} className={styles.coffeeCardImage} />
       </div>
       <div className={styles.coffeeCardInfoContainer}>
         <h2 className={styles.coffeCardTitle}>{name}</h2>

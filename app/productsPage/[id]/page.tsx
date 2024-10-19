@@ -1,7 +1,6 @@
 "use client";
 
 import { getCoffee } from "@/app/api/coffeeAPI";
-import Image from "next/image";
 import styles from "@/app/styles/styles.module.css";
 import { useCart } from "@/context/CartContext";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
@@ -65,7 +64,7 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
       {coffeeList.map((item: Coffee) => (
         <div key={item.id} className={styles.productInfoRow}>
           <div className={styles.productInfoPageImageContainer}>
-            <Image src={item.image_url} alt='image' width={1500} height={2000} quality={100} priority />
+            <img src={item.image_url} alt="Picture of a bag of coffee"/>
           </div>
           <div className={styles.productInfoDetails}>
             <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>

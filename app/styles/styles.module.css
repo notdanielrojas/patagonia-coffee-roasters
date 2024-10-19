@@ -890,10 +890,10 @@
   font-size: 1.6rem;
 }
 
-.carImageContainer {
+.cardImageContainer {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 30rem;
   overflow: hidden;
 }
 
