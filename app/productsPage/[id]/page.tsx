@@ -65,7 +65,7 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
       {coffeeList.map((item: Coffee) => (
         <div key={item.id} className={styles.productInfoRow}>
           <div className={styles.productInfoPageImageContainer}>
-            <Image src={item.image_url} alt='image' width={700} height={1000} priority />
+            <Image src={item.image_url} alt='image' width={1500} height={2000} quality={100} priority />
           </div>
           <div className={styles.productInfoDetails}>
             <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>
@@ -99,7 +99,7 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
                   <td>
                     <strong>Weight:</strong>
                   </td>
-                  <td>{item.weight}</td>
+                  <td>{item.weight}gr</td>
                 </tr>
                 <tr>
                   <td>
