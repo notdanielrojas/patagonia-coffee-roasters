@@ -4,7 +4,7 @@ import styles from "../app/styles/styles.module.css";
 import { LiaCartArrowDownSolid } from "react-icons/lia";
 import { GiCoffeeBeans } from "react-icons/gi";
 import Link from "next/link";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import Swal from "sweetalert2";
 
 export interface CoffeeProps {

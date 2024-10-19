@@ -1,6 +1,6 @@
 "use client";
 
-import { CoffeeGrid } from "@/components/CoffeeGrid";
+import { CoffeeGrid } from "@/app/components/CoffeeGrid";
 import React, { useEffect, useState } from "react";
 import { getCoffeeList } from "../api/coffeeAPI";
 import { Coffee } from "@/types/coffeeTypes";
