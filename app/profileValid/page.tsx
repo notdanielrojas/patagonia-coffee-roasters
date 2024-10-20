@@ -16,15 +16,15 @@ export default function ProfileValid() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Log out Successfull!",
+      showConfirmButton: false,
+      timer: 2000,
+    });
     router.push("/login");
   };
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Log out Successfull!",
-    showConfirmButton: false,
-    timer: 2000,
-  });
 
   return (
     <div className={styles.profileValidSection}>

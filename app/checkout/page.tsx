@@ -62,7 +62,7 @@ const CheckoutPage = () => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Order created successfully 🎉!",
+        title: "Order created successfully!",
         showConfirmButton: false,
         timer: 2000,
       });
