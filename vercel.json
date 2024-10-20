@@ -11,9 +11,5 @@
       "src": "/api/(.*)",
       "dest": "/api/$1"
     }
-  ],
-  "env": {
-    "DATABASE_URL": "postgres://default:qDzk8i4jaEpY@ep-proud-voice-a4137hbu-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
-    "ANOTHER_SECRET": "your_jwt_secret"
-  }
+  ]
 }
