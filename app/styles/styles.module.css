@@ -245,7 +245,7 @@
 
 .footerInfo {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: #e9e4db;
   margin: 3rem 0 0 0;
@@ -260,7 +260,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 1.5rem 0;
-    text-align: center;
+   
   }
 }
 
@@ -307,14 +307,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: smaller;
 }
 
 @media (min-width: 768px) {
+  .footerCopyrightMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+  }
 }
 
 .contactFooterCard {
   text-align: end;
-  font-size: small;
+  font-size: smaller;
 }
 
 @media (min-width: 768px) {
@@ -326,11 +333,15 @@
 }
 
 .footerCardTextTitle {
-  font-size: medium;
+  font-size: small;
 }
 
 @media (min-width: 768px) {
+  .footerCardTextTitle {
+  font-size: larger;
 }
+}
+
 .footerCardText {
   font-size: medium;
 }
