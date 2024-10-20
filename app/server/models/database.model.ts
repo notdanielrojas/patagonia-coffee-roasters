@@ -4,13 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const pool = new Pool({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST, 
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD, 
-  port: Number(process.env.PGPORT), 
-  allowExitOnIdle: true,
+  connectionString: process.env.POSTGRES_URL,
 });
-
 
 export default pool;
