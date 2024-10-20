@@ -14,7 +14,7 @@ const isErrorWithCode = (error: unknown): error is { code: number } => {
   return typeof error === "object" && error !== null && "code" in error;
 };
 
-router.post("/api", async (req: Request, res: Response): Promise<void> => {
+router.post("/", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleCreateOrder(req, res);
   } catch (error: unknown) {
@@ -29,7 +29,7 @@ router.post("/api", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-router.post("/api/:orderId/details", async (req: Request, res: Response): Promise<void> => {
+router.post("/:orderId/details", async (req: Request, res: Response): Promise<void> => {
   const { orderId } = req.params;
   const details = req.body;
 
@@ -48,7 +48,7 @@ router.post("/api/:orderId/details", async (req: Request, res: Response): Promis
   }
 });
 
-router.get("/api/:user_id", async (req: Request, res: Response): Promise<void> => {
+router.get("/:user_id", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleGetOrdersByUserId(req, res);
   } catch (error: unknown) {
@@ -63,7 +63,7 @@ router.get("/api/:user_id", async (req: Request, res: Response): Promise<void> =
   }
 });
 
-router.put("/api/:orderId/status", async (req: Request, res: Response): Promise<void> => {
+router.put("/:orderId/status", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleUpdateOrderStatus(req, res);
   } catch (error: unknown) {
@@ -78,7 +78,7 @@ router.put("/api/:orderId/status", async (req: Request, res: Response): Promise<
   }
 });
 
-router.delete("/api/:orderId", async (req: Request, res: Response): Promise<void> => {
+router.delete("/:orderId", async (req: Request, res: Response): Promise<void> => {
   try {
     await HandleDeleteOrder(req, res);
   } catch (error: unknown) {

@@ -9,7 +9,7 @@ const isErrorWithCode = (error: unknown): error is { code: number } => {
   return typeof error === "object" && error !== null && "code" in error;
 };
 
-router.post("/api", validateCredentialsAtLogin, async (req: Request, res: Response): Promise<void> => {
+router.post("/", validateCredentialsAtLogin, async (req: Request, res: Response): Promise<void> => {
   try {
     await handleCredentialsAtLogin(req, res);
   } catch (error: unknown) {
