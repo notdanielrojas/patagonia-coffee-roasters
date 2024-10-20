@@ -260,7 +260,6 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 1.5rem 0;
-   
   }
 }
 
@@ -338,15 +337,18 @@
 
 @media (min-width: 768px) {
   .footerCardTextTitle {
-  font-size: larger;
-}
+    font-size: larger;
+  }
 }
 
 .footerCardText {
-  font-size: medium;
+  font-size: smaller;
 }
 
 @media (min-width: 768px) {
+  .footerCardText {
+    font-size: medium;
+  }
 }
 
 .locationSection {
