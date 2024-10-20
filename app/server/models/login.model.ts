@@ -26,7 +26,7 @@ const verifyCredentials = async (email: string, password: string): Promise<UserW
     const user: User = rows[0];
     const { password: encryptedPassword, ...userWithoutPassword } = user;
 
-    const passwordCorrect = bcrypt.compareSync(password, encryptedPassword);
+    const passwordCorrect = await bcrypt.compare(password, encryptedPassword);
     if (!passwordCorrect) {
       throw { code: 401, message: "Email or password incorrect" };
     }
