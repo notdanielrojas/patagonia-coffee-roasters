@@ -67,6 +67,7 @@ const CheckoutPage = () => {
         timer: 2000,
       });
       setSuccess("Order created successfully!");
+      router.push("/orders");
       setError(null);
     } catch (error: unknown) {
       if (error instanceof Error) {
