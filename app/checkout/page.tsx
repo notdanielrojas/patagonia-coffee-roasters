@@ -40,7 +40,7 @@ const CheckoutPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://patagonia-coffee-roasters.vercel.app/orders", {
+      const response = await fetch("https://backendpatagonia-production.up.railway.app/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -18,7 +18,7 @@ export default function Register() {
 
   const registerUser = async (userData: { name: string; last_name: string; email: string; password: string }) => {
     try {
-      const response = await fetch("https://patagonia-coffee-roasters.vercel.app/users", {
+      const response = await fetch("https://backendpatagonia-production.up.railway.app/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -33,7 +33,7 @@ export default function ProfileOrderHistory() {
       }
 
       try {
-        const response = await fetch(`https://patagonia-coffee-roasters.vercel.app/posts/${user.id}`, {
+        const response = await fetch(`https://backendpatagonia-production.up.railway.app/posts/${user.id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

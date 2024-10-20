@@ -34,13 +34,16 @@ export default function OrdersHistory() {
       }
 
       try {
-        const response = await fetch(`https://patagonia-coffee-roasters.vercel.app/order_details/${user.id}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        });
+        const response = await fetch(
+          `https://backendpatagonia-production.up.railway.app/order_details/${user.id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch orders");
