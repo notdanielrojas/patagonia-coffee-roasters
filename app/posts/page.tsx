@@ -64,7 +64,7 @@ export default function Posts() {
       <h1 className={styles.generalPostTitle}>Our Community</h1>
       {error && <p className={styles.error}>{error}</p>}
       <div className={styles.postCardContainer}>
-        {posts.map((post) => (
+        {currentPosts.map((post) => (
           <div key={post.id} className={styles.postCard}>
             <div className={styles.cardImage}>
               <Image
