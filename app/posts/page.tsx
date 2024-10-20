@@ -15,6 +15,9 @@ export default function Posts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const ITEMS_PER_PAGE = 6;
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -51,6 +54,11 @@ export default function Posts() {
     return <div className={styles.loadingStatus}>Loading posts...</div>;
   }
 
+  const totalPages = Math.ceil(posts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentPosts = posts.slice(startIndex, endIndex);
+
   return (
     <div className={styles.generalPostSection}>
       <h1 className={styles.generalPostTitle}>Our Community</h1>
@@ -59,7 +67,14 @@ export default function Posts() {
         {posts.map((post) => (
           <div key={post.id} className={styles.postCard}>
             <div className={styles.cardImage}>
-              <Image src={post.image_url} alt={post.title} width={150} height={100} className={styles.postImage} priority/>
+              <Image
+                src={post.image_url}
+                alt={post.title}
+                width={150}
+                height={100}
+                className={styles.postImage}
+                priority
+              />
             </div>
             <div className={styles.postCardContent}>
               <h3 className={styles.postCardTitle}>{post.title}</h3>
@@ -67,6 +82,20 @@ export default function Posts() {
             </div>
           </div>
         ))}
+      </div>
+      <div className={styles.pagination}>
+        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

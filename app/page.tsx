@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className={styles.mainGrid}>
       <div className={styles.heroSection}>
-        <div>
+        <div className={styles.heroTextContainer}>
           <h1 className={styles.heroText}>We are Patagonia Coffee Roasters</h1>
         </div>
         <div className={styles.heroImageContainer}>

@@ -12,7 +12,7 @@ export default function Locations() {
     <>
       <div className={styles.locationSection}>
         <div>
-          <h1 className={styles.locationTitle}>We are close to you.</h1>
+          <h1 className={styles.locationTitle}>We are close to you</h1>
         </div>
         <Image src='/images/store5.webp' alt='store5' width={800} height={300} />
       </div>
