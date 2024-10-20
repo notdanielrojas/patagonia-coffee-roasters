@@ -22,7 +22,7 @@ export default function Posts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("http://localhost:5000/posts/all", {
+        const response = await fetch("https://patagonia-coffee-roasters.vercel.app/posts/all", {
           method: "GET",
         });
 

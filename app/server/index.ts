@@ -16,7 +16,6 @@ app.use(cors());
 app.use(logger);
 app.use(express.json());
 
-// Rutas
 app.use("/login", handleCredentialsRouter);
 app.use("/users", handleRegisterUserRouter);
 app.use("/posts", handlePostUserRouter);

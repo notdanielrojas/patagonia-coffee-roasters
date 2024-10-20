@@ -34,7 +34,7 @@ export default function OrdersHistory() {
       }
 
       try {
-        const response = await fetch(`http://localhost:5000/order_details/${user.id}`, {
+        const response = await fetch(`https://patagonia-coffee-roasters.vercel.app/order_details/${user.id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
