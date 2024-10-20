@@ -1,28 +1,25 @@
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 const verifyDecodeToken = (authorizationHeader: string | undefined): string => {
-  if (typeof authorizationHeader !== "string") {
+  if (!authorizationHeader) {
     throw { code: 401, message: "No token provided" };
   }
 
-  const parts = authorizationHeader.split(" ");
-  if (parts.length !== 2 || parts[0] !== "Bearer") {
+  const [bearer, token] = authorizationHeader.split(" ");
+  if (bearer !== "Bearer" || !token) {
     throw { code: 401, message: "Invalid token format" };
   }
 
-  const token = parts[1];
-  if (!token) {
-    throw { code: 401, message: "Invalid token" };
-  }
-
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-    if (!decoded || typeof decoded === "string" || !("email" in decoded)) {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as JwtPayload;
+
+    if (!decoded || typeof decoded !== "object" || !decoded.email) {
       throw { code: 401, message: "Invalid token or email not present" };
     }
-    return (decoded as { email: string }).email;
+
+    return decoded.email;
   } catch (error) {
-    console.log("Error verifying or decoding token:", error);
+    console.error("Error verifying or decoding token:", error);
     throw { code: 401, message: "Invalid or expired token" };
   }
 };
