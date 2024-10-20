@@ -15,7 +15,7 @@ const isErrorWithCode = (error: unknown): error is { code: number } => {
   return typeof error === "object" && error !== null && "code" in error;
 };
 
-router.get("/all", async (req: Request, res: Response): Promise<void> => {
+router.get("/api/all", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleGetAllPosts(req, res);
   } catch (error: unknown) {
@@ -30,7 +30,7 @@ router.get("/all", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-router.get("/:id", async (req: Request, res: Response): Promise<void> => {
+router.get("/api/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleGetPostsByUserId(req, res);
   } catch (error: unknown) {
@@ -45,7 +45,7 @@ router.get("/:id", async (req: Request, res: Response): Promise<void> => {
   }
 });
 
-router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
+router.post("/api", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
   try {
     await handlePostUser(req, res);
   } catch (error: unknown) {
@@ -60,7 +60,7 @@ router.post("/", validateCredentialsAtSubmit, async (req: Request, res: Response
   }
 });
 
-router.put("/:id", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
+router.put("/api/:id", validateCredentialsAtSubmit, async (req: Request, res: Response): Promise<void> => {
   try {
     await handleEditPostUser(req, res);
   } catch (error: unknown) {
@@ -75,7 +75,7 @@ router.put("/:id", validateCredentialsAtSubmit, async (req: Request, res: Respon
   }
 });
 
-router.delete("/:id", async (req: Request, res: Response): Promise<void> => {
+router.delete("/api/:id", async (req: Request, res: Response): Promise<void> => {
   try {
     await handleDeletePostUser(req, res);
   } catch (error: unknown) {
