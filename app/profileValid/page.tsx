@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
 import { useUser } from "@/context/UserContext";
+import Swal from "sweetalert2";
 
 export default function ProfileValid() {
   const router = useRouter();
@@ -17,8 +18,13 @@ export default function ProfileValid() {
     setUser(null);
     router.push("/login");
   };
-
-  console.log("user", user);
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    title: "Log out Successfull!",
+    showConfirmButton: false,
+    timer: 2000,
+  });
 
   return (
     <div className={styles.profileValidSection}>

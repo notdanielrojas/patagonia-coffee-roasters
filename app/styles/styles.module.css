@@ -154,7 +154,6 @@
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
   text-align: center;
 }
 
@@ -171,7 +170,7 @@
 
 .heroText {
   padding: 3rem 0 3rem 0;
-  font-size: 3rem;
+  font-size: x-large;
 }
 
 @media (min-width: 768px) {
@@ -343,7 +342,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
   text-align: center;
 }
 
@@ -360,11 +358,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0 3rem 0;
+  padding: 10rem 0;
+  font-size: x-large;
 }
 
 @media (min-width: 768px) {
   .locationTitle {
+    font-size: xx-large;
     text-align: center;
   }
 }
@@ -375,7 +375,7 @@
   justify-content: center;
   align-items: center;
   padding: 5rem 0 5rem 0;
-  font-size: large;
+  font-size: medium;
   text-align: center;
 }
 
@@ -494,14 +494,13 @@
 .storySection {
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem 0;
 }
 
 @media (min-width: 768px) {
   .storySection {
     display: flex;
     flex-direction: row;
-    padding: 10rem 0;
+    padding: 5rem 0;
   }
 }
 
@@ -510,8 +509,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
-  padding: 3rem 0 3rem 0;
+  padding: 0 0 3rem 0;
 }
 
 @media (min-width: 768px) {
@@ -520,7 +518,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 10rem;
-    padding: 10rem 0 10rem 0;
+    padding: 2rem 0 2rem 0;
   }
 }
 
@@ -547,6 +545,7 @@
 }
 
 .storyInfo {
+  padding: 3rem 0;
   width: 90%;
 }
 
