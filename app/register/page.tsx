@@ -67,7 +67,7 @@ export default function Register() {
           type='text'
           id='name'
           name='name'
-          placeholder='Type your username'
+          placeholder='Enter your name'
           required
           minLength={3}
           maxLength={20}
@@ -75,12 +75,13 @@ export default function Register() {
           onChange={(e) => setUser({ ...user, name: e.target.value })}
           className={styles.inputForm}
         />
+
         <label htmlFor='last_name'>Last Name:</label>
         <input
           type='text'
           id='last_name'
           name='last_name'
-          placeholder='Type your last name'
+          placeholder='Enter your last name'
           required
           minLength={3}
           maxLength={20}
@@ -88,23 +89,25 @@ export default function Register() {
           onChange={(e) => setUser({ ...user, last_name: e.target.value })}
           className={styles.inputForm}
         />
+
         <label htmlFor='email'>Email:</label>
         <input
           type='email'
           id='email'
           name='email'
-          placeholder='Type your email'
+          placeholder='Enter a valid email address'
           required
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           className={styles.inputForm}
         />
+
         <label htmlFor='password'>Password:</label>
         <input
           type='password'
           id='password'
           name='password'
-          placeholder='Type your password'
+          placeholder='Enter your password (5-20 characters)'
           required
           minLength={5}
           maxLength={20}

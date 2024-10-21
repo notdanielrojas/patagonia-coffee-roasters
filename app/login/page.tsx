@@ -57,12 +57,12 @@ export default function LogIn() {
   return (
     <div className={styles.loginSection}>
       <form onSubmit={handleSubmit} className={styles.loginForm}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor='email'>Email:</label>
         <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Enter a valid email address'
           required
           minLength={10}
           maxLength={50}
@@ -70,13 +70,12 @@ export default function LogIn() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <label htmlFor="password">Password:</label>
+        <label htmlFor='password'>Password:</label>
         <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
+          type='password'
+          id='password'
+          name='password'
+          placeholder='Enter your password (5-20 characters)'
           required
           minLength={5}
           maxLength={20}
@@ -87,13 +86,13 @@ export default function LogIn() {
 
         {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
 
-        <button type="submit" className={styles.loginButton}>
+        <button type='submit' className={styles.loginButton}>
           Sign In <CiLogin className={styles.logInIcon} />
         </button>
 
         <p>Dont have an account yet?</p>
         <p>
-          <Link href="/register" style={{ textDecoration: "underline" }}>
+          <Link href='/register' style={{ textDecoration: "underline" }}>
             Create Account
           </Link>
         </p>

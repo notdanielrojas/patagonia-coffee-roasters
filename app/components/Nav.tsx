@@ -19,7 +19,6 @@ export const Nav = () => {
           <div className={`${styles.hamburgerBar} ${isOpen ? styles.active : ""}`}></div>
           <div className={`${styles.hamburgerBar} ${isOpen ? styles.active : ""}`}></div>
         </div>
-
         <nav className={`${styles.navMenu} ${isOpen ? styles.open : ""}`}>
           <Link href='/' className={styles.menuItem}>
             Home
