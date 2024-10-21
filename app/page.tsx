@@ -11,11 +11,12 @@ export default function Home() {
         </div>
         <div className={styles.heroImageContainer}>
           <Image
-            src='/images/store1.webp'
-            alt='Imagen Story 1'
-            width='800'
-            height='300'
+            src='/images/jpg/store1.jpg'
+            alt='Image of a Coffee Store'
+            width={800}
+            height={300}
             className={styles.heroImage}
+            quality={100}
           ></Image>
         </div>
       </div>
@@ -24,9 +25,10 @@ export default function Home() {
           <Image
             src='/images/info/direct-trade.avif'
             alt='Image of two hands shaking'
-            width='100'
-            height='100'
+            width={800}
+            height={300}
             className={styles.icon}
+            quality={100}
           />
           <h1 className={styles.textInfo}>Direct trade partnerships with producers</h1>
         </div>
@@ -34,9 +36,10 @@ export default function Home() {
           <Image
             src='/images/info/natural-process.webp'
             alt='Image of a leave'
-            width='100'
-            height='100'
+            width={800}
+            height={300}
             className={styles.icon}
+            quality={100}
           />
           <h1 className={styles.textInfo}>Paying premiums for quality</h1>
         </div>
@@ -45,9 +48,10 @@ export default function Home() {
           <Image
             src='/images/info/farm-level.avif'
             alt='Image of a farm'
-            width='100'
-            height='100'
+            width={800}
+            height={300}
             className={styles.icon}
+            quality={100}
           />
           <h1 className={styles.textInfo}>Investing in coffee communities and their environments</h1>
         </div>

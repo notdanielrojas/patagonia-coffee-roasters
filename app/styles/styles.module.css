@@ -382,7 +382,6 @@
   .locationSection {
     flex-direction: row;
     justify-content: space-evenly;
-
     padding: 10rem 0;
   }
 }
@@ -1088,7 +1087,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    padding-top: 10rem;
   }
 }
 
@@ -1097,8 +1096,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 5rem;
   gap: 8rem;
-  padding: 4rem 0;
 }
 
 @media (min-width: 768px) {
@@ -1115,7 +1114,7 @@
 
 .titleContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
@@ -1134,7 +1133,7 @@
 }
 
 .postUserImage {
-  width: 50rem;
+  width: 60rem;
 }
 
 .postForm {
@@ -1570,7 +1569,7 @@
   height: 30vh;
 }
 
-.loadingStatus {
+.loadingStatus, .noResults {
   display: flex;
   justify-content: center;
   align-items: center;

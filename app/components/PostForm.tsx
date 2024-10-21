@@ -74,7 +74,14 @@ export default function PostForm() {
             Love Our Products?
             <br /> Share Your Experience with the Community!
           </h2>
-          <Image src='/images/post.webp' alt='' width={150} height={100} className={styles.postUserImage} priority />
+          <Image
+            src='/images/jpg/post.jpg'
+            alt='Picture of a Coffee Barman'
+            width={850}
+            height={800}
+            className={styles.postUserImage}
+            priority
+          />
         </div>
         <form onSubmit={handleSubmit} className={styles.postForm}>
           <label htmlFor='image_url'>Image</label>

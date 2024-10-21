@@ -24,10 +24,6 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentCoffees = filteredCoffeeList.slice(startIndex, endIndex);
 
-  if (filteredCoffeeList.length === 0) {
-    return <div className={styles.noResults}>No results found for &quot;{searchText}&quot;.</div>;
-  }
-
   return (
     <>
       <div className={styles.productGridTitle}>
@@ -45,6 +41,9 @@ export function CoffeeGrid({ coffeeList }: CoffeeGridProps) {
             className={styles.productGridFormInput}
           />
         </form>
+        {filteredCoffeeList.length === 0 && searchText && (
+          <div className={styles.noResults}>No results found for &quot;{searchText}&quot;.</div>
+        )}
         <div className={styles.productGridSection}>
           <div className={styles.productGridItems}>
             {currentCoffees.map((data) => (

@@ -6,7 +6,14 @@ export default function Story() {
   return (
     <div className={styles.storySection}>
       <div className={styles.storyCard}>
-        <Image src="/images/story1.webp" alt="story1" width={800} height={300} className={styles.storyImage}></Image>
+        <Image
+          src='/images/jpg/story1.jpg'
+          alt='story1'
+          width={800}
+          height={300}
+          className={styles.storyImage}
+          quality={100}
+        ></Image>
         <div className={styles.storyInfo}>
           <h2>Crafting the future of coffee</h2>
           <p>
@@ -26,7 +33,14 @@ export default function Story() {
             you.
           </p>
         </div>
-        <Image src="/images/story2.webp" alt="story2" width={800} height={300} className={styles.storyImage}></Image>
+        <Image
+          src='/images/jpg/story2.jpg'
+          alt='story2'
+          width={800}
+          height={300}
+          className={styles.storyImage}
+          quality={100}
+        ></Image>
       </div>
     </div>
   );
