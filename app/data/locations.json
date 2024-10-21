@@ -6,7 +6,7 @@
       "address": "Av. Providencia 1234, Local 25, Santiago, RM.",
       "hours": "Open Hours: Monday to Friday: 07:30am - 07:00pm",
       "phone": "+56987654321",
-      "image": "/images/store2.jpg"
+      "image": "/images/jpg/store2.jpg"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "address": "Paseo Ahumada 456, Santiago Centro, RM.",
       "hours": "Open Hours: Everyday: 08:00am - 09:00pm",
       "phone": "+56911223344",
-      "image": "/images/store3.jpg"
+      "image": "/images/jpg/store3.jpg"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "address": "Av. La Dehesa 7890, Local 5, Santiago, RM.",
       "hours": "Open Hours: Monday to Friday: 08:00am - 08:00pm",
       "phone": "+56912345678",
-      "image": "/images/store4.jpg"
+      "image": "/images/jpg/store4.jpg"
     }
   ],
   "vinaDelMar": [
@@ -32,7 +32,7 @@
       "address": "Av. Libertad 987, Local 10, Viña del Mar, V.",
       "hours": "Open Hours: Monday to Friday: 08:00am - 08:00pm",
       "phone": "+56999887765",
-      "image": "/images/store6.jpg"
+      "image": "/images/jpg/store6.jpg"
     },
     {
       "id": 2,
@@ -40,7 +40,7 @@
       "address": "Av. San Martín 456, Viña del Mar, V.",
       "hours": "Open Hours: Everyday: 09:00am - 10:00pm",
       "phone": "+56987654322",
-      "image": "/images/store7.jpg"
+      "image": "/images/jpg/store7.jpg"
     },
     {
       "id": 3,
@@ -48,7 +48,7 @@
       "address": "Av. Valparaíso 123, Viña del Mar, V.",
       "hours": "Open Hours: Everyday: 09:00am - 11:00pm",
       "phone": "+56912345679",
-      "image": "/images/store8.jpg"
+      "image": "/images/jpg/store8.jpg"
     }
   ]
 }
