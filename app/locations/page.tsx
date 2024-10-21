@@ -14,7 +14,7 @@ export default function Locations() {
         <div>
           <h1 className={styles.locationTitle}>We are close to you</h1>
         </div>
-        <Image src='/images/store10.jpg' alt='Picture of a Coffee Store' width={800} height={300} quality={100} />
+        <Image src='/images/jpg/store10.jpg' alt='Picture of a Coffee Store' width={800} height={300} quality={100} />
       </div>
       <div className={styles.locationNamesContainer}>
         <h2> Patagonia Coffee Roasters </h2>
