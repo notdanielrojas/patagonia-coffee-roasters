@@ -83,7 +83,7 @@
 }
 
 .menuItem {
-  color: white;
+  color: whitesmoke;
   font-size: medium;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -100,6 +100,7 @@
   .menuItem {
     font-size: large;
     margin: 0 1rem;
+    padding-right: 5rem;
   }
 }
 
@@ -1013,6 +1014,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-top: 1rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -1569,7 +1572,8 @@
   height: 30vh;
 }
 
-.loadingStatus, .noResults {
+.loadingStatus,
+.noResults {
   display: flex;
   justify-content: center;
   align-items: center;
