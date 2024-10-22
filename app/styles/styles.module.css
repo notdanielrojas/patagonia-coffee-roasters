@@ -1099,7 +1099,7 @@
 .productGridItems {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   flex-direction: column;
   justify-content: center;
   align-items: center;
