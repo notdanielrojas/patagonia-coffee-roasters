@@ -1072,15 +1072,15 @@
   border-radius: 0.8rem;
   padding: 1rem;
   text-indent: 1rem;
-  border: 1px solid #ddd;
-  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  border: 1px solid #b0a59f;
+  box-shadow: 0 0.1rem 0.5rem rgba(34, 34, 34, 0.15);
   transition: border 0.3s ease, box-shadow 0.3s ease;
   font-size: 1.6rem;
 }
 
 .productGridFormInput:focus {
-  border: 1px solid #0070f3;
-  box-shadow: 0 0.2rem 0.8rem rgba(0, 112, 243, 0.3);
+  border: 1px solid #8a6e59;
+  box-shadow: 0 0.2rem 0.8rem rgba(34, 34, 34, 0.3);
   outline: none;
 }
 
