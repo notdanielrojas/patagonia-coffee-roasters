@@ -5,6 +5,7 @@ import { GiCoffeeBeans } from "react-icons/gi";
 import Link from "next/link";
 import { useCart } from "../../context/CartContext";
 import Swal from "sweetalert2";
+import Image from "next/image";
 export interface CoffeeProps {
   id: number;
   image_url: string;
@@ -52,7 +53,7 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
 
   return (
     <div className={styles.coffeeCard}>
-      <img alt={name} src={image_url} className={styles.coffeeCardImage} />
+      <Image alt={name} src={image_url} className={styles.coffeeCardImage} width={2000} height={1500} />
       <div className={styles.coffeeCardInfoContainer}>
         <h2 className={styles.coffeCardTitle}>{name}</h2>
         <p className={styles.coffeeCardInfo}>{flavor_profile.join(" , ")}</p>
