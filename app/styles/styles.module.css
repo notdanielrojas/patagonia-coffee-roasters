@@ -1051,49 +1051,55 @@
 
 .productGridFormContent {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   padding-top: 1rem;
   gap: 1.5rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .productGridFormContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding-top: 2rem;
+    gap: 2rem;
   }
 }
 
 .productGridFormInput {
-  width: 80%;
-  border-radius: 0.5rem;
-  padding: 1rem 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 0.8rem;
+  padding: 1rem;
   text-indent: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.6rem;
+}
+
+.productGridFormInput:focus {
+  border: 1px solid #0070f3;
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 112, 243, 0.3);
+  outline: none;
 }
 
 @media (min-width: 768px) {
   .productGridFormInput {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 30%;
-    padding: 1rem 0;
-    border-radius: 0.5rem;
-    text-indent: 1rem;
+    width: 40%;
+    padding: 1rem;
   }
 }
 
 .productGridFormInput::placeholder {
-  padding-left: 0.1rem;
+  color: #888;
+  font-size: 1.4rem;
+  padding-left: 0.5rem;
+  transition: color 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .productGridFormInput::placeholder {
-    padding-left: 0.1rem;
-  }
+.productGridFormInput:focus::placeholder {
+  color: #aaa;
 }
 
 .productGridItems {
@@ -1113,7 +1119,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5rem;
-    padding-top: 10rem;
+    padding-top: 5rem;
   }
 }
 
@@ -1617,9 +1623,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: x-large;
-  font-weight: medium;
-  height: 30vh;
+  color: #222222;
+  font-size: 1.4rem;
+  font-style: italic;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .loadingStatus,
+  .noResults {
+    font-size: 1.6rem;
+  }
 }
 
 .cartIconContainer {
