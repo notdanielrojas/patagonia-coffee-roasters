@@ -53,7 +53,7 @@ export default function CoffeeCard({ id, image_url, name, price, region, flavor_
 
   return (
     <div className={styles.coffeeCard}>
-      <Image alt={name} src={image_url} className={styles.coffeeCardImage} width={2000} height={1500} quality={10} />
+      <Image alt={name} src={image_url} className={styles.coffeeCardImage} width={368} height={300} quality={10} />
       <div className={styles.coffeeCardInfoContainer}>
         <h2 className={styles.coffeCardTitle}>{name}</h2>
         <p className={styles.coffeeCardInfo}>{flavor_profile.join(" , ")}</p>
