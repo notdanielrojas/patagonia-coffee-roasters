@@ -57,6 +57,7 @@
   background-color: #222222;
   width: 100%;
   position: relative;
+  padding: 1.5rem;
 }
 
 .navMenu {
@@ -65,10 +66,11 @@
   list-style: none;
   background-color: #222222;
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   left: 0;
   width: 100%;
   padding: 1rem;
+  gap: 2rem;
 }
 
 .navMenu.open {
