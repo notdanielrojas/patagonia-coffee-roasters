@@ -1383,6 +1383,7 @@
   .productInfoRow {
     flex-direction: row;
     padding: 2rem;
+    gap: 3rem;
   }
 }
 
@@ -1397,7 +1398,7 @@
 
 @media (min-width: 768px) {
   .productInfoPageImageContainer {
-    width: 75%;
+    width: 50%;
     max-width: 60rem;
     height: 60rem;
   }
