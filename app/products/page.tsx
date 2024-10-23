@@ -12,24 +12,32 @@ export default function Products() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchCoffeeList = async () => {
       try {
         const data = await getCoffeeList();
-        setCoffeeList(data);
+        if (isMounted) setCoffeeList(data);
       } catch (err: unknown) {
-        if (err instanceof Error) {
-          console.error("Failed to fetch coffee list:", err.message);
-          setError("Error fetching coffee data. Please try again later.");
-        } else {
-          console.error("An unknown error occurred:", err);
-          setError("Error fetching coffee data. Please try again later.");
+        if (isMounted) {
+          if (err instanceof Error) {
+            console.error("Failed to fetch coffee list:", err.message);
+            setError("Error fetching coffee data. Please try again later.");
+          } else {
+            console.error("An unknown error occurred:", err);
+            setError("Error fetching coffee data. Please try again later.");
+          }
         }
       } finally {
-        setLoading(false);
+        if (isMounted) setLoading(false);
       }
     };
 
     fetchCoffeeList();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (loading) {
