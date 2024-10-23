@@ -45,10 +45,10 @@ export default function ProfileValid() {
         )}
         <div className={styles.profileValidHistory}>
           <Link href='/myPosts'>
-            <h3>My Posts</h3>
+            <h3>Post History</h3>
           </Link>
           <Link href='/orders'>
-            <h3>My Orders</h3>
+            <h3>Order History</h3>
           </Link>
         </div>
       </div>

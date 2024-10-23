@@ -86,12 +86,16 @@ const CheckoutPage = () => {
     return accumulator + item.price * item.quantity;
   }, 0);
 
+  if (loading) {
+    return <p className={styles.loadingStatus}>Loading...</p>; // Cambiar el mensaje de carga aquí si es necesario
+  }
+
   if (cart.length === 0) {
     return <p className={styles.checkoutMessage}>Your Cart is empty 🛒.</p>;
   }
 
   if (!user) {
-    return <p>Loading...</p>;
+    return <p className={styles.loadingStatus}>Loading user data...</p>; // Mensaje de carga para usuario
   }
 
   return (

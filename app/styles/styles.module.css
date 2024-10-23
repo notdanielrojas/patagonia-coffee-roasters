@@ -37,6 +37,11 @@
 .headerIcon {
   width: 3rem;
   height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.headerIcon:hover {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -313,6 +318,11 @@
 .footerIcon {
   width: 3rem;
   height: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.footerIcon:hover {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -736,6 +746,12 @@
   padding: 0.5rem 3rem;
   gap: 0.5rem;
   text-decoration: underline;
+  transition: transform 0.3s ease;
+}
+
+.loginButton:hover,
+.registerButton:hover {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -920,6 +936,11 @@
   color: whitesmoke;
   background-color: #222222;
   gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.profilePostButton:hover {
+  transform: scale(1.05);
 }
 
 .profilePostIcon {
@@ -1234,6 +1255,11 @@
   color: white;
   background-color: #222222;
   gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.postButton:hover {
+  transform: scale(1.05);
 }
 
 @media (min-width: 768px) {
@@ -1306,12 +1332,18 @@
   color: white;
   background-color: #222222;
   gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.cartButton:hover {
+  transform: scale(1.05);
 }
 
 .cartIcon {
   width: 3rem;
   height: 3rem;
 }
+
 .productInfoPageSection {
   display: flex;
   flex-direction: column;
@@ -1448,11 +1480,11 @@
   border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .coffeeCardButton:hover {
-  background-color: #2d3f60;
+  transform: scale(1.05);
 }
 
 .coffeeCardButton svg {
@@ -1536,6 +1568,11 @@
   color: whitesmoke;
   background-color: #222222;
   gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.logOutButton:hover {
+  transform: scale(1.05);
 }
 
 .logOutIcon {
