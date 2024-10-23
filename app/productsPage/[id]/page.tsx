@@ -64,7 +64,7 @@ const CoffeePage: React.FC<CoffeePageProps> = ({ params }) => {
       {coffeeList.map((item: Coffee) => (
         <div key={item.id} className={styles.productInfoRow}>
           <div className={styles.productInfoPageImageContainer}>
-            <img src={item.image_url} alt='Picture of a bag of coffee'/>
+            <img src={item.image_url} alt='Picture of a bag of coffee' className={styles.productInfoImage} />
           </div>
           <div className={styles.productInfoDetails}>
             <h2 className={styles.productInfoPageTitle}>Coffee Details</h2>

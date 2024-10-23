@@ -50,7 +50,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: #222222;
-  padding: 1rem;
   width: 100%;
   position: relative;
 }
@@ -86,7 +85,7 @@
   color: whitesmoke;
   font-size: medium;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -100,7 +99,7 @@
   .menuItem {
     font-size: large;
     margin: 0 1rem;
-    margin-right: 5rem;
+    margin-right: 5.1rem;
   }
 }
 
@@ -1000,9 +999,6 @@
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-}
-
 .coffeeCardButton {
   display: flex;
   justify-content: center;
@@ -1028,6 +1024,7 @@
 }
 
 .productGridSection {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1036,16 +1033,16 @@
 
 .productGridTitle {
   padding-top: 5rem;
-  font-size: x-large;
+  font-size: 2rem;
   text-align: center;
+  color: #333;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {
   .productGridTitle {
-    display: flex;
-    justify-content: center;
-    padding-top: 5rem;
-    font-size: x-large;
+    font-size: 2.5rem;
+    padding-top: 3rem;
   }
 }
 
@@ -1315,30 +1312,19 @@
   width: 3rem;
   height: 3rem;
 }
-
 .productInfoPageSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0;
+  padding: 4rem 1.5rem;
 }
 
 @media (min-width: 768px) {
   .productInfoPageSection {
-    display: flex;
-    justify-content: space-evenly;
-  }
-}
-
-.productInfoPageImageContainer {
-  width: 100%;
-  background-color: #e2e3e5;
-}
-
-@media (min-width: 768px) {
-  .productInfoPageImageContainer {
-    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+    padding: 6rem 3rem;
   }
 }
 
@@ -1347,77 +1333,131 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #fff;
   border: 0.1rem solid #ddd;
   border-radius: 0.8rem;
   overflow: hidden;
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  margin: 1rem 0;
   padding: 2rem;
 }
 
 @media (min-width: 768px) {
   .productInfoRow {
-    display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: whitesmoke;
-    border: 0.1rem solid #ddd;
-    border-radius: 0.8rem;
-    overflow: hidden;
-    width: 70%;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    padding: 0;
+    padding: 2rem;
   }
 }
 
-.productInfoPageTitle {
-  padding: 2rem 0;
+.productInfoPageImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #e2e3e5;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
-  .productInfoPageTitle {
-    padding: 2rem 0;
+  .productInfoPageImageContainer {
+    width: 75%;
+    max-width: 60rem;
+    height: 60rem;
   }
 }
 
 .productInfoImage {
-  background-color: #e2e3e5;
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 .productInfoDetails {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
+  padding: 2rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .productInfoDetails {
-    padding: 2rem 0;
+    width: 50%;
+    padding: 3rem 2rem;
+  }
+}
+
+.productInfoPageTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .productInfoPageTitle {
+    font-size: 2.5rem;
+    text-align: left;
   }
 }
 
 .productInfoDetails table {
   border-collapse: collapse;
-  width: 80%;
-  margin-bottom: 1rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .productInfoDetails td {
-  padding-left: 1rem;
-  vertical-align: center;
-  border: 0.1rem solid #ccc;
+  padding: 1rem;
+  vertical-align: top;
+  border-bottom: 0.1rem solid #ccc;
 }
 
 .productInfoDetails td:first-child {
-  text-align: left;
   font-weight: bold;
+  width: 30%;
+}
+
+.coffeeCardButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .coffeeCardButtons {
+    justify-content: flex-start;
+  }
+}
+
+.coffeeCardButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #222222;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.coffeeCardButton:hover {
+  background-color: #2d3f60;
+}
+
+.coffeeCardButton svg {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .africa {
