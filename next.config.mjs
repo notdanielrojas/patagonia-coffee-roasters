@@ -5,22 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "iili.io",
+        hostname: "**",
         pathname: "/**",
       },
       {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "picsum.photos",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "fake-coffee-api.vercel.app",
+        protocol: "http",
+        hostname: "**",
         pathname: "/**",
       },
     ],
