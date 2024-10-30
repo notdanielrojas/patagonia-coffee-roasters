@@ -162,18 +162,20 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
   .heroSection {
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 10rem 0;
+    padding-bottom: 0;
   }
 }
 
 .heroTextContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 75%;
@@ -184,22 +186,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 60%;
+  }
+}
+
+.heroTextContainer p {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .heroTextContainer p {
+    width: 60%;
   }
 }
 
 .heroText {
   display: flex;
   justify-content: center;
-  padding: 3rem 0 3rem 0;
+  align-items: center;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
   font-size: x-large;
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .heroText {
-    padding: 3rem 0 3rem 0;
-    font-size: xx-large;
+    font-size: 5rem;
+    width: 60%;
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+.heroImageContainer {
+  background-image: url("../../public/images/jpg/store1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-clip: border-box;
+  width: 100%;
+  height: 30rem;
+}
+
+@media (min-width: 768px) {
+  .heroImageContainer {
+    width: 70%;
+    height: 55rem;
   }
 }
 
@@ -387,14 +419,37 @@
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  text-align: center;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
   .locationSection {
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 10rem 0;
+  }
+}
+
+.locationTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+}
+
+@media (min-width: 768px) {
+  .locationTitleContainer {
+    width: 60%;
+  }
+}
+
+.locationTitleContainer p {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .locationTitleContainer p {
+    width: 60%;
   }
 }
 
@@ -402,18 +457,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0;
+  padding-top: 3rem;
   font-size: x-large;
-  display: none;
 }
 
 @media (min-width: 768px) {
   .locationTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
+    font-size: 5rem;
     text-align: center;
+  }
+}
+
+.locationImageContainer {
+  background-image: url("../../public/images/jpg/store10.jpg");
+  background-position: center;
+  background-size: cover;
+  background-clip: border-box;
+  width: 100%;
+  height: 30rem;
+}
+
+@media (min-width: 768px) {
+  .locationImageContainer {
+    width: 70%;
+    height: 55rem;
   }
 }
 
@@ -534,9 +601,13 @@
 
 .locationInfo h3 {
   font-weight: lighter;
+  font-size: medium;
 }
 
 @media (min-width: 768px) {
+  .locationInfo h3 {
+    font-size: large;
+  }
 }
 
 .storySection {

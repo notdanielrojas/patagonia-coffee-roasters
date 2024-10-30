@@ -8,17 +8,12 @@ export default function Home() {
       <div className={styles.heroSection}>
         <div className={styles.heroTextContainer}>
           <h1 className={styles.heroText}>We are Patagonia Coffee Roasters</h1>
+          <p>
+            Welcome to Patagonia Coffee Roasters, where our passion for quality meets the spirit of adventure. Enjoy
+            the finest coffee, crafted with care from Patagonia to your cup.
+          </p>
         </div>
-        <div className={styles.heroImageContainer}>
-          <Image
-            src='/images/jpg/store1.jpg'
-            alt='Image of a Coffee Store'
-            width={800}
-            height={300}
-            className={styles.heroImage}
-            quality={100}
-          ></Image>
-        </div>
+        <div className={styles.heroImageContainer}></div>
       </div>
       <div className={styles.infoSection}>
         <div className={styles.infoLeft}>

@@ -11,10 +11,15 @@ export default function Locations() {
   return (
     <>
       <div className={styles.locationSection}>
-        <div>
+        <div className={styles.locationTitleContainer}>
           <h1 className={styles.locationTitle}>We are close to you</h1>
+          <p>
+            We are constantly striving to be closer to you with our growing network of stores, offering a wide variety
+            of coffee products and an inviting space for all coffee enthusiasts.
+          </p>
         </div>
-        <Image src='/images/jpg/store10.jpg' alt='Picture of a Coffee Store' width={800} height={300} quality={100} />
+
+        <div className={styles.locationImageContainer}></div>
       </div>
       <div className={styles.locationNamesContainer}>
         <h2> Patagonia Coffee Roasters </h2>
@@ -42,7 +47,7 @@ export default function Locations() {
               <h2>{loc.name}</h2>
               <h3>{loc.address}</h3>
               <h3>{loc.hours}</h3>
-              <h3>Teléfono: {loc.phone}</h3>
+              <h3>Tel: {loc.phone}</h3>
             </div>
           </div>
         ))}
