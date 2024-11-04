@@ -87,7 +87,7 @@ const CheckoutPage = () => {
   }, 0);
 
   if (loading) {
-    return <p className={styles.loadingStatus}>Loading...</p>; // Cambiar el mensaje de carga aquí si es necesario
+    return <p className={styles.loadingStatus}>Loading...</p>;
   }
 
   if (cart.length === 0) {
@@ -95,7 +95,7 @@ const CheckoutPage = () => {
   }
 
   if (!user) {
-    return <p className={styles.loadingStatus}>Loading user data...</p>; // Mensaje de carga para usuario
+    return <p className={styles.loadingStatus}>Loading user data...</p>;
   }
 
   return (
