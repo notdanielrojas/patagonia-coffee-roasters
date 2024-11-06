@@ -71,6 +71,7 @@
   width: 100%;
   padding: 1rem;
   gap: 2rem;
+  z-index: 10;
 }
 
 .navMenu.open {

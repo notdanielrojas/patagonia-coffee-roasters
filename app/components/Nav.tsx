@@ -14,7 +14,7 @@ export const Nav = () => {
   return (
     <>
       <div className={styles.navBar}>
-        <div className={styles.hamburgerMenu} onClick={toggleMenu}>
+        <div className={styles.hamburgerMenu} onClick={toggleMenu} style={{ zIndex: isOpen ? 10 : "initial" }}>
           <div className={`${styles.hamburgerBar} ${isOpen ? styles.active : ""}`}></div>
           <div className={`${styles.hamburgerBar} ${isOpen ? styles.active : ""}`}></div>
           <div className={`${styles.hamburgerBar} ${isOpen ? styles.active : ""}`}></div>
