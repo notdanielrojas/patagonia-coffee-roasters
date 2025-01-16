@@ -17,6 +17,7 @@ const CheckoutPage = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
 
+  // Cargar carrito desde localStorage al cargar la página
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -24,6 +25,7 @@ const CheckoutPage = () => {
     }
   }, [setCart]);
 
+  // Guardar carrito en localStorage al cambiar
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -31,9 +33,15 @@ const CheckoutPage = () => {
   }, [cart]);
 
   const handleCheckout = async () => {
+    // Verificar si el usuario está logueado
     if (!user || !user.id) {
-      console.log("Redirecting to login");
-      router.push("/login");
+      Swal.fire({
+        title: "You need to log in to place an order",
+        icon: "info",
+        confirmButtonText: "Go to Login",
+      }).then(() => {
+        router.push("/login"); // Redirigir al login
+      });
       return;
     }
 
@@ -92,10 +100,6 @@ const CheckoutPage = () => {
 
   if (cart.length === 0) {
     return <p className={styles.checkoutMessage}>Your Cart is empty 🛒.</p>;
-  }
-
-  if (!user) {
-    return <p className={styles.loadingStatus}>Loading user data...</p>;
   }
 
   return (
