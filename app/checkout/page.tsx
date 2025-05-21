@@ -17,15 +17,13 @@ const CheckoutPage = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
 
-  // Cargar carrito desde localStorage al cargar la página
-  useEffect(() => {
+   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
   }, [setCart]);
 
-  // Guardar carrito en localStorage al cambiar
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
@@ -33,14 +31,13 @@ const CheckoutPage = () => {
   }, [cart]);
 
   const handleCheckout = async () => {
-    // Verificar si el usuario está logueado
-    if (!user || !user.id) {
+      if (!user || !user.id) {
       Swal.fire({
         title: "You need to log in to place an order",
         icon: "info",
         confirmButtonText: "Go to Login",
       }).then(() => {
-        router.push("/login"); // Redirigir al login
+        router.push("/login");
       });
       return;
     }
