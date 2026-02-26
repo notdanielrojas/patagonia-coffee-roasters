@@ -1,6 +1,6 @@
 import { Coffee } from "@/types/coffeeTypes";
 
-const BASE_URL = "https://fake-coffee-api.vercel.app/api";
+const BASE_URL = "https://fake-coffee-brand-api.vercel.app/api";
 
 async function handleResponse(response: Response) {
   if (!response.ok) {
